@@ -1,4 +1,29 @@
 .header {
   width: 100%;
-  background: lightblue;
+  padding: 5vh 10vw;
+  display: flex;
+  justify-content: space-between;
+
+  h1 {
+    font-size: 1.5rem;
+    color: #333;
+
+    a {
+      color: inherit;
+    }
+  }
+
+  ul {
+    display: flex;
+    gap: 4vw;
+    align-items: center;
+    font-size: 1rem;
+    color: #888;
+
+    li {
+      a.active {
+        color: hotpink;
+      }
+    }
+  }
 }
