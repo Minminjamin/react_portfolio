@@ -5,7 +5,7 @@ import Layout from "../../common/layout/Layout";
 
 const Department = () => {
   return (
-    <Layout>
+    <Layout title={"Department"}>
       <p>department 페이지 입니다.</p>
     </Layout>
   );
