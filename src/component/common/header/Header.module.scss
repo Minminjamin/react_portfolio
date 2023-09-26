@@ -1,3 +1,5 @@
+@import "/src/styles/variable.scss";
+
 .header {
   width: 100%;
   padding: 5vh 10vw;
@@ -24,6 +26,14 @@
       a.active {
         color: hotpink;
       }
+    }
+  }
+}
+
+@media screen and (max-width: $tablet) {
+  .header {
+    ul {
+      display: none;
     }
   }
 }
