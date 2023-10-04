@@ -22,8 +22,8 @@ const Layout = ({ title, children, styleName }) => {
   };
 
   useEffect(() => {
-    setIsOn(true);
     splitText(tit, 0.1, 1);
+    setTimeout(() => setIsOn(true), 300);
   }, []);
 
   return (
