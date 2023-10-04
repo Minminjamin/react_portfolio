@@ -2,6 +2,7 @@ import React from "react";
 import styles from "../layout/Layout.module.scss";
 import clsx from "clsx";
 import { useEffect, useRef, useState } from "react";
+import useSplitText from "../../../hooks/useSplitText";
 
 const Layout = ({ title, children, styleName }) => {
   const [isOn, setIsOn] = useState(false);
@@ -9,17 +10,18 @@ const Layout = ({ title, children, styleName }) => {
   const frame = useRef(null);
   const tit = useRef(null);
 
-  const splitText = (ref, gap = 0.1, delay = 0) => {
-    let count = 0;
-    let tags = "";
+  const splitText = useSplitText();
+  // const splitText = (ref, gap = 0.1, delay = 0) => {
+  //   let count = 0;
+  //   let tags = "";
 
-    for (let letter of ref.current.innerText) {
-      tags += `<span style='transition-delay:${gap * count}s'>${letter}</span>`;
-      count++;
-    }
-    ref.current.innerText = " ";
-    ref.current.innerHTML = tags;
-  };
+  //   for (let letter of ref.current.innerText) {
+  //     tags += `<span style='transition-delay:${gap * count}s'>${letter}</span>`;
+  //     count++;
+  //   }
+  //   ref.current.innerText = " ";
+  //   ref.current.innerHTML = tags;
+  // };
 
   useEffect(() => {
     splitText(tit, 0.1, 1);
