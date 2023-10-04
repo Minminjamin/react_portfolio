@@ -4,7 +4,7 @@ import Header from "./component/common/header/Header";
 import "./styles/global.scss";
 import Department from "./component/sub/department/Department";
 import Youtube from "./component/sub/youtube/Youtube";
-import { Route } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import Members from "./component/sub/members/Members";
 import Gallery from "./component/sub/gallery/Gallery";
 import Contact from "./component/sub/contact/Contact";
@@ -12,7 +12,15 @@ import Contact from "./component/sub/contact/Contact";
 function App() {
   return (
     <>
-      <Header />
+      <Switch>
+        <Route exact path="/">
+          <Header isMain={true} />
+        </Route>
+        <Route path="/">
+          <Header isMain={false} />
+        </Route>
+      </Switch>
+
       <Route path="/department" component={Department} />
       <Route path="/youtube" component={Youtube} />
       <Route path="/members" component={Members} />

@@ -3,9 +3,10 @@ import React from "react";
 import styles from "./Header.module.scss";
 import { Link, NavLink } from "react-router-dom";
 
-const Header = () => {
+const Header = ({ isMain }) => {
+  console.log(isMain);
   return (
-    <header className={clsx(styles.header)}>
+    <header className={clsx(styles.header, isMain ? styles.main : styles.sub)}>
       <h1>
         <Link to="/">LOGO</Link>
       </h1>

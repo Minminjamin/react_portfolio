@@ -30,6 +30,17 @@
   }
 }
 
+.header.main {
+  h1 {
+    color: aqua;
+  }
+}
+
+.header.sub {
+  h1 {
+    color: hotpink;
+  }
+}
 @media screen and (max-width: $tablet) {
   .header {
     ul {
