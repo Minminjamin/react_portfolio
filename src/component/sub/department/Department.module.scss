@@ -55,12 +55,14 @@
         // li {
         //   text-align: right;
         // }
-        display: block;
+        display: inline;
 
         h2,
         li {
+          // left: 50%;
+          width: calc(50% - 1%);
           // width: calc(50% + 1%);
-          text-align: right;
+          text-align: left;
         }
 
         &::after {
