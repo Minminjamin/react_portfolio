@@ -44,9 +44,12 @@ const Department = () => {
       <div className={styles.memberBox}>
         {department.map((member, index) => (
           <article key={index}>
+            <div className={styles.pic}>
+              <img src={`${path}/img/${member.pic}`} alt={member.name} />
+            </div>
+
             <h2>{member.name}</h2>
             <span>{member.position}</span>
-            <img src={`${path}/img/${member.pic}`} alt={member.name} />
           </article>
         ))}
       </div>
