@@ -8,30 +8,36 @@
     margin: 150px 0px;
     position: relative;
 
+    &::after {
+      content: "";
+      display: block;
+      clear: both;
+    }
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 1px;
+      height: 100%;
+      background: #555;
+    }
+
     article {
-      width: 100%;
-      display: flex;
+      width: 45%;
       // justify-content: center;
       position: relative;
       padding: 30px 0px;
-
-      &::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 1px;
-        height: 100%;
-        background: #555;
-      }
-
+      // background: pink;
+      margin-bottom: 50px;
+      // overflow: hidden;
       &:nth-child(odd) {
-        display: inline;
+        float: left;
 
         h2,
         li {
-          width: calc(50% - 1%);
+          // width: calc(50% - 1%);
           text-align: right;
         }
 
@@ -39,8 +45,8 @@
           content: "";
           position: absolute;
           top: 50%;
-          left: 50%;
-          transform: translate(-50%);
+          right: -12.5%;
+          // transform: translate(-50%);
           width: 12px;
           height: 12px;
           background: #555;
@@ -49,19 +55,10 @@
       }
 
       &:nth-child(even) {
-        // justify-content: flex-end;
-
-        // h2,
-        // li {
-        //   text-align: right;
-        // }
-        display: inline;
-
+        float: right;
+        transform: translateY(50%);
         h2,
         li {
-          // left: 50%;
-          width: calc(50% - 1%);
-          // width: calc(50% + 1%);
           text-align: left;
         }
 
@@ -69,96 +66,61 @@
           content: "";
           position: absolute;
           top: 50%;
-          left: 50%;
-          transform: translate(-50%);
+          left: -12.5%;
           width: 12px;
           height: 12px;
           background: #555;
           border-radius: 50%;
         }
       }
-      // &:nth-child(even) {
-      //   background: red;
-
-      //   h2,
-      //   li {
-      //     width: calc(50% - 1px);
-      //     background: blue;
-      //   }
-
-      //   h2 {
-      //     background: #fff;
-      //   }
-
-      //   li {
-      //     background: gray;
-      //   }
-      // text-align: right;
-      // justify-content: flex-end;
-
-      // ul {
-      //   width: calc(50% - 1px);
-      //   text-align: left;
-      // }
-      // }
     }
   }
-  // .historyBox {
-  //   margin: 150px 0px;
-
-  //   article {
-  //     width: 100%;
-  //     display: flex;
-  //     flex-wrap: wrap;
-  //     padding: 50px 0px;
-  //     justify-content: space-between;
-  //     position: relative;
-
-  //     &::before {
-  //       content: "";
-  //       position: absolute;
-  //       top: 0;
-  //       left: 35%;
-  //       width: 1px;
-  //       height: 100%;
-  //       background: #555;
-  //     }
-
-  //     h2 {
-  //       width: 30%;
-  //       text-align: right;
-  //     }
-
-  //     ul {
-  //       width: 65%;
-  //       padding-left: 50px;
-  //     }
-  //   }
-  // }
 
   .memberBox {
-    width: 100%;
+    // width: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
 
     article {
-      width: 30%;
+      // width: 45%;
+      flex: 1;
+      // text-align: center;
 
       .pic {
-        width: 100%;
+        width: 80%;
         height: 30vw;
 
         img {
           width: 100%;
           height: 100%;
           object-fit: cover;
+          filter: grayscale(1);
+          transition: filter 0.3s ease; /* hover 효과를 위한 트랜지션 추가 */
+
+          &:hover {
+            filter: grayscale(0); /* hover 시에 필터 해제 */
+          }
         }
       }
-
-      h2 {
-        margin-bottom: 10px;
-      }
     }
+    // article {
+    //   width: 30%;
+
+    //   .pic {
+    //     width: 100%;
+    //     height: 30vw;
+
+    //     img {
+    //       width: 100%;
+    //       height: 100%;
+    //       object-fit: cover;
+    //     }
+    //   }
+
+    //   h2 {
+    //     margin-bottom: 10px;
+    //   }
+    // }
   }
 }
