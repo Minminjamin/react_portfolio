@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import React from "react";
-import styles from "./Header.scss";
+import styles from "./Header.module.scss";
 import { Link, NavLink } from "react-router-dom";
 
 const Header = ({ isMain }) => {
