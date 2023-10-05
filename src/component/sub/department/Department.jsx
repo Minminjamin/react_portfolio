@@ -26,13 +26,14 @@ const Department = () => {
 
   return (
     <Layout title={"Department"} styleName={styles.department}>
+      <h2 className={styles.title}>Our History</h2>
       <div className={styles.historyBox}>
-        {history.map((item, index) => (
+        {[...history].reverse().map((item, index) => (
           <article key={index}>
             {/* 일단 json의 key에 접근(2016, 2018) */}
 
             <div className={styles.inner}>
-              <h2>{Object.keys(item)}</h2>
+              <h3>{Object.keys(item)}</h3>
               <ul>
                 {Object.values(item).map((item, index) => (
                   <li key={index}>{item}</li>
@@ -45,13 +46,14 @@ const Department = () => {
         ))}
       </div>
 
+      <h2>Members</h2>
       <div className={styles.memberBox}>
         {department.map((member, index) => (
           <article key={index}>
             <div className={styles.pic}>
               <img src={`${path}/img/${member.pic}`} alt={member.name} />
               <div className={styles.imgInnerText}>
-                <h2>{member.name}</h2>
+                <h3>{member.name}</h3>
                 <span>{member.position}</span>
               </div>
             </div>
