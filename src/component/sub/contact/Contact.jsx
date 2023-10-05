@@ -1,6 +1,6 @@
 import React from "react";
 import Layout from "../../common/layout/Layout";
-import styles from "../contact/Contact.module.scss";
+import styles from "../contact/Contact.scss";
 
 const Contact = () => {
   return (

@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../layout/Layout.module.scss";
+import styles from "../layout/Layout.scss";
 import clsx from "clsx";
 import { useEffect, useRef, useState } from "react";
 import useSplitText from "../../../hooks/useSplitText";

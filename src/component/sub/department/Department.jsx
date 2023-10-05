@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import styles from "../department/Department.module.scss";
+import styles from "../department/Department.scss";
 import Layout from "../../common/layout/Layout";
 
 const path = process.env.PUBLIC_URL;
