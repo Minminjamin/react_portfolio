@@ -34,24 +34,21 @@ const Contact = () => {
 
   return (
     <Layout title={"Contact"} styleName={styles.contact}>
-      <div className="map" ref={map}>
-        <button
-          onClick={() => {
-            instance.current.addOverlayMapTypeId(kakao.maps.MapTypeId.TRAFFIC);
-          }}
-        >
-          주변 교통정보 보기
-        </button>
-        <button
-          onClick={() =>
-            instance.current.removeOverlayMapTypeId(
-              kakao.maps.MapTypeId.TRAFFIC
-            )
-          }
-        >
-          주변 교통정보 끄기
-        </button>
-      </div>
+      <button
+        onClick={() => {
+          instance.current.addOverlayMapTypeId(kakao.maps.MapTypeId.TRAFFIC);
+        }}
+      >
+        주변 교통정보 보기
+      </button>
+      <button
+        onClick={() =>
+          instance.current.removeOverlayMapTypeId(kakao.maps.MapTypeId.TRAFFIC)
+        }
+      >
+        주변 교통정보 끄기
+      </button>
+      <div className="map" ref={map}></div>
     </Layout>
   );
 };
