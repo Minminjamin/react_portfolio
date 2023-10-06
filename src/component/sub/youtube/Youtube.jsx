@@ -2,19 +2,22 @@ import React from "react";
 import clsx from "clsx";
 import styles from "../youtube/Youtube.scss";
 import Layout from "../../common/layout/Layout";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Modal from "../../common/modal/Modal";
 
 const Youtube = () => {
   const [youtube, setYoutube] = useState([]);
   const [isModal, setIsModal] = useState(false);
+  const [index, setIndex] = useState();
+
+  const refEl = useRef(null);
 
   const fetchYoutube = () => {
     const api_key = process.env.REACT_APP_GOOGLE_API_KEY;
     const baseURL = "https://www.googleapis.com/youtube/v3/playlistItems";
     const pid = "PLHtvRFLN5v-W5bQjvyH8QTdQQhgflJ3nu";
-    const num = 5;
-    const resultURL = `${baseURL}?key=${api_key}&part=snippet&playlistId=${pid}&maxResults=${num}`;
+    const index = 5;
+    const resultURL = `${baseURL}?key=${api_key}&part=snippet&playlistId=${pid}&maxResults=${index}`;
 
     fetch(resultURL)
       .then((data) => data.json())
@@ -39,13 +42,21 @@ const Youtube = () => {
                 <img
                   src={data.snippet.thumbnails.standard.url}
                   alt={data.title}
+                  onClick={() => setIndex(idx)}
                 />
               </div>
             </article>
           );
         })}
       </Layout>
-      {isModal && <Modal setIsModal={setIsModal}></Modal>}
+      {isModal && (
+        <Modal setIsModal={setIsModal}>
+          <iframe
+            src={`https://www.youtube.com/embed/${youtube[index].snippet.resourceId.videoId}`}
+            title="youtube"
+          ></iframe>
+        </Modal>
+      )}
     </>
   );
 };
