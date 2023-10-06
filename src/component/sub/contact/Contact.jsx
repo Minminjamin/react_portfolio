@@ -1,10 +1,12 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import Layout from "../../common/layout/Layout";
 import styles from "../contact/Contact.scss";
 
 const Contact = () => {
   const instance = useRef(null);
   const map = useRef(null);
+
+  const [traffic, setTraffic] = useState(false);
 
   const { kakao } = window;
 
@@ -32,22 +34,22 @@ const Contact = () => {
     marker.setMap(instance.current);
   }, []);
 
+  useEffect(() => {
+    traffic
+      ? instance.current.addOverlayMapTypeId(kakao.maps.MapTypeId.TRAFFIC)
+      : instance.current.removeOverlayMapTypeId(kakao.maps.MapTypeId.TRAFFIC);
+  }, [traffic]);
+
   return (
     <Layout title={"Contact"} styleName={styles.contact}>
       <button
         onClick={() => {
-          instance.current.addOverlayMapTypeId(kakao.maps.MapTypeId.TRAFFIC);
+          setTraffic(!traffic);
         }}
       >
-        주변 교통정보 보기
+        {traffic ? "교통정보 끄기" : "교통정보 켜기"}
       </button>
-      <button
-        onClick={() =>
-          instance.current.removeOverlayMapTypeId(kakao.maps.MapTypeId.TRAFFIC)
-        }
-      >
-        주변 교통정보 끄기
-      </button>
+
       <div className="map" ref={map}></div>
     </Layout>
   );
