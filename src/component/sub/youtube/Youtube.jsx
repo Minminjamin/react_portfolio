@@ -1,11 +1,13 @@
 import React from "react";
 import clsx from "clsx";
-// import styles from "../Youtube/Youtube.module.scss";
+import styles from "../youtube/Youtube.scss";
 import Layout from "../../common/layout/Layout";
 import { useState, useEffect } from "react";
+import Modal from "../../common/modal/Modal";
 
 const Youtube = () => {
   const [youtube, setYoutube] = useState([]);
+  const [isModal, setIsModal] = useState(false);
 
   const fetchYoutube = () => {
     const api_key = process.env.REACT_APP_GOOGLE_API_KEY;
@@ -26,22 +28,25 @@ const Youtube = () => {
   }, []);
 
   return (
-    <Layout title={"Youtube"}>
-      {youtube.map((data, idx) => {
-        return (
-          <article key={idx}>
-            <h2>{data.snippet.title}</h2>
-            <p>{data.snippet.description}</p>
-            <div className="pic">
-              <img
-                src={data.snippet.thumbnails.standard.url}
-                alt={data.title}
-              />
-            </div>
-          </article>
-        );
-      })}
-    </Layout>
+    <>
+      <Layout title={"Youtube"}>
+        {youtube.map((data, idx) => {
+          return (
+            <article key={idx}>
+              <h2>{data.snippet.title}</h2>
+              <p>{data.snippet.description}</p>
+              <div className="pic" onClick={() => setIsModal(true)}>
+                <img
+                  src={data.snippet.thumbnails.standard.url}
+                  alt={data.title}
+                />
+              </div>
+            </article>
+          );
+        })}
+      </Layout>
+      {isModal && <Modal setIsModal={setIsModal}></Modal>}
+    </>
   );
 };
 
