@@ -12,7 +12,6 @@
     margin: 150px 0px;
     position: relative;
 
-    animation: slideUp 0.3s ease-in-out;
     &::after {
       content: "";
       display: block;
@@ -31,6 +30,8 @@
 
     article {
       width: 50%;
+      // opacity: 0;
+      // animation: fadeIn 0.3s ease-in-out;
       // justify-content: center;
       position: relative;
 
@@ -160,7 +161,7 @@
 
   to {
     opacity: 1;
-    transform: none;
+    // transform: none;
   }
 }
 
