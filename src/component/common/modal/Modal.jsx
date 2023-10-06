@@ -3,7 +3,7 @@ import React from "react";
 const Modal = ({ children, setIsModal }) => {
   return (
     <aside className="modal">
-      {children}
+      <div className="con">{children}</div>
       <span onClick={() => setIsModal(false)}>close</span>
     </aside>
   );
