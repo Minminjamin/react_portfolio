@@ -31,7 +31,7 @@ const Layout = ({ title, children, styleName }) => {
   return (
     <section
       ref={frame}
-      className={clsx(styles.layout, styleName, isOn ? styles.on : " ")}
+      className={clsx(styles.layout, styleName, title, isOn ? styles.on : " ")}
     >
       <figure></figure>
 
