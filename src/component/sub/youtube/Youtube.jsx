@@ -30,14 +30,28 @@ const Youtube = () => {
     fetchYoutube();
   }, []);
 
+  const sliceTxt = (text, num) => {
+    if (text.length > num) {
+      return text.substr(0, num) + "...";
+    } else {
+      return text;
+    }
+  };
+
+  const sliceDate = (date) => {
+    return date.splite("T")[0];
+  };
+
   return (
     <>
       <Layout title={"Youtube"}>
         {youtube.map((data, idx) => {
+          let date = data.snippet.publishedAt;
           return (
             <article key={idx}>
-              <h2>{data.snippet.title}</h2>
-              <p>{data.snippet.description}</p>
+              <h2>{sliceTxt(data.snippet.title, 60)}</h2>
+              <p>{sliceTxt(data.snippet.description, 180)}</p>
+              <p>{date.split("T")[0].split("-").join(".")}</p>
               <div className="pic" onClick={() => setIsModal(true)}>
                 <img
                   src={data.snippet.thumbnails.standard.url}
