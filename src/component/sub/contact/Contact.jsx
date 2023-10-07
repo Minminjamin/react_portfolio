@@ -9,6 +9,7 @@ const Contact = () => {
 
   const [traffic, setTraffic] = useState(false);
   const [index, setIndex] = useState(0);
+  const [isMap, setIsMap] = useState(true);
 
   const { kakao } = window;
 
@@ -92,11 +93,14 @@ const Contact = () => {
       >
         {traffic ? "교통정보 끄기" : "교통정보 켜기"}
       </button>
-
       <button onClick={setCenter}>지도 위치 초기화</button>
-
-      <div className="map" ref={map}></div>
-      <div className="view" ref={view}></div>
+      <button onClick={() => setIsMap(!isMap)}>
+        {isMap ? "로드뷰보기" : "지도보기"}
+      </button>
+      <div className="container">
+        <div className={`view ${isMap ? " " : "on"}`} ref={view}></div>
+        <div className={`map ${isMap ? "on" : " "}`} ref={map}></div>
+      </div>
 
       <ul>
         {info.current.map((data, idx) => (
