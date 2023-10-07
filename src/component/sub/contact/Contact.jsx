@@ -106,7 +106,10 @@ const Contact = () => {
         {info.current.map((data, idx) => (
           <li
             key={idx}
-            onClick={() => setIndex(idx)}
+            onClick={() => {
+              setIndex(idx);
+              setIsMap(true);
+            }}
             className={index === idx ? "on" : ""}
           >
             {data.title}
