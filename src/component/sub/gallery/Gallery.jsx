@@ -1,10 +1,38 @@
 import React from "react";
 import Layout from "../../common/layout/Layout";
+import "./Gallery.scss";
+import { useState, useEffect } from "react";
 
 const Gallery = () => {
+  const [pics, setPics] = useState([]);
+
+  const api_key = "3b509d8b3993a79e18501cf57f35b5c4";
+  const num = 500;
+  const methodInterest = "flickr.interestingness.getList";
+  const url = `https://www.flickr.com/services/rest/?method=${methodInterest}&api_key=${api_key}&per_page=${num}&nojsoncallback=1&format=json`;
+
+  useEffect(() => {
+    fetch(url)
+      .then((data) => data.json())
+      .then((json) => {
+        setPics(json.photos.photo);
+        console.log(pics);
+        // console.log(json);
+      });
+  }, []);
+
   return (
     <Layout title={"Gallery"}>
-      <p>Gallery 페이지 입니다.</p>
+      <p>갤러리 페이지입니다.</p>
+      {pics.map((item, index) => (
+        <aricle key={index}>
+          <h2>{item.title}</h2>
+          <img
+            src={`https://live.staticflickr.com/${item.server}/${item.id}_${item.secret}_m.jpg`}
+            alt={item.title}
+          />
+        </aricle>
+      ))}
     </Layout>
   );
 };
