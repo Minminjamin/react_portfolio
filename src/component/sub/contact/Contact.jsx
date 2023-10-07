@@ -5,6 +5,7 @@ import styles from "../contact/Contact.scss";
 const Contact = () => {
   const instance = useRef(null);
   const map = useRef(null);
+  const view = useRef(null);
 
   const [traffic, setTraffic] = useState(false);
   const [index, setIndex] = useState(0);
@@ -63,6 +64,17 @@ const Contact = () => {
     );
 
     window.addEventListener("resize", setCenter);
+
+    new kakao.maps.RoadviewClient().getNearestPanoId(
+      info.current[index].latlng,
+      50,
+      (panoId) => {
+        new kakao.maps.Roadview(view.current).setPanoId(
+          panoId,
+          info.current[index].latlng
+        ); //panoId와 중심좌표를 통해 로드뷰 실행
+      }
+    );
   }, [index]);
 
   useEffect(() => {
@@ -84,6 +96,7 @@ const Contact = () => {
       <button onClick={setCenter}>지도 위치 초기화</button>
 
       <div className="map" ref={map}></div>
+      <div className="view" ref={view}></div>
 
       <ul>
         {info.current.map((data, idx) => (
