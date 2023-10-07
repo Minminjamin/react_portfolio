@@ -81,16 +81,24 @@ const Contact = () => {
   }, [index]);
 
   const resetForm = () => {
-    const [nameKey, nameValue, emailKey, emailValue, msgKey, msgValue] =
-      form.current.children;
+    const nameForm = form.current.querySelector(".nameEl");
+    const mailForm = form.current.querySelector(".emailEl");
+    const msgForm = form.current.querySelector(".msgEl");
 
-    nameValue.value = "";
-    emailValue.value = "";
-    msgValue.value = "";
+    nameForm.value = "";
+    mailForm.value = "";
+    msgForm.value = "";
   };
 
   const sendEmail = (e) => {
     e.preventDefault();
+
+    const nameForm = form.current.querySelector(".nameEl");
+    const mailForm = form.current.querySelector(".emailEl");
+    const msgForm = form.current.querySelector(".msgEl");
+
+    if (!nameForm.value || !mailForm.value || !msgForm.value)
+      return alert("사용자 이름, 이메일 주소, 문의내용은 필수입력 사항입니다.");
 
     emailjs
       .sendForm(
@@ -121,13 +129,20 @@ const Contact = () => {
   return (
     <Layout title={"Contact"} styleName={styles.contact}>
       <form ref={form} onSubmit={sendEmail}>
-        <label>Name</label>
-        <input type="text" name="user_name" />
-        <label>Email</label>
-        <input type="email" name="user_email" />
-        <label>Message</label>
-        <textarea name="message" />
-        <input type="submit" value="Send" />
+        <div className="upper">
+          <label>Name</label>
+          <input type="text" name="user_name" className="nameEl" />
+          <label>Email</label>
+          <input type="email" name="user_email" className="emailEl" />
+        </div>
+        <div className="lower">
+          <label>Message</label>
+          <textarea name="message" className="msgEl" />
+        </div>
+        <div className="btnSet">
+          <input type="reset" value="Cancel" />
+          <input type="submit" value="Send" />
+        </div>
       </form>
       <div className="mapBox">
         <button
@@ -160,37 +175,6 @@ const Contact = () => {
           ))}
         </ul>
       </div>
-      {/*       
-      <button
-        onClick={() => {
-          setTraffic(!traffic);
-        }}
-      >
-        {traffic ? "교통정보 끄기" : "교통정보 켜기"}
-      </button>
-      <button onClick={setCenter}>지도 위치 초기화</button>
-      <button onClick={() => setIsMap(!isMap)}>
-        {isMap ? "로드뷰보기" : "지도보기"}
-      </button>
-      <div className="container">
-        <div className={`view ${isMap ? " " : "on"}`} ref={view}></div>
-        <div className={`map ${isMap ? "on" : " "}`} ref={map}></div>
-      </div>
-
-      <ul>
-        {info.current.map((data, idx) => (
-          <li
-            key={idx}
-            onClick={() => {
-              setIndex(idx);
-              setIsMap(true);
-            }}
-            className={index === idx ? "on" : ""}
-          >
-            {data.title}
-          </li>
-        ))}
-      </ul> */}
     </Layout>
   );
 };
