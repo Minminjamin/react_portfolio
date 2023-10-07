@@ -6,6 +6,61 @@
   .mailBox {
     width: 100%;
     margin-bottom: 100px;
+
+    .upper {
+      width: 100%;
+      display: flex;
+      margin-bottom: 50px;
+
+      label {
+        font: bold 1rem/1 "arial";
+        color: #555;
+        margin-right: 20px;
+        position: relative;
+        top: 20px;
+      }
+
+      input[type="text"],
+      input[type="email"] {
+        border: none;
+        padding: 10px 20px;
+        border-bottom: 1px solid #555;
+        margin-right: 50px;
+        outline: none;
+        transition: 0.5s;
+
+        &.focus {
+          background: lightcyan;
+        }
+      }
+    }
+
+    .lower {
+      width: 100%;
+      margin-bottom: 10px;
+
+      label {
+        display: block;
+        margin-bottom: 5px;
+        font: bold 1rem/1 "arial";
+        color: #555;
+      }
+
+      textarea {
+        width: 100%;
+        padding: 10px;
+        border: none;
+        border-bottom: 1px solid #555;
+        margin-right: 50px;
+        resize: none;
+        outline: none;
+        transition: 0.5s;
+
+        &.focus {
+          background: lightcyan;
+        }
+      }
+    }
   }
 
   .container {

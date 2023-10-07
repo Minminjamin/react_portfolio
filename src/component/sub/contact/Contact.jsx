@@ -128,22 +128,24 @@ const Contact = () => {
 
   return (
     <Layout title={"Contact"} styleName={styles.contact}>
-      <form ref={form} onSubmit={sendEmail}>
-        <div className="upper">
-          <label>Name</label>
-          <input type="text" name="user_name" className="nameEl" />
-          <label>Email</label>
-          <input type="email" name="user_email" className="emailEl" />
-        </div>
-        <div className="lower">
-          <label>Message</label>
-          <textarea name="message" className="msgEl" />
-        </div>
-        <div className="btnSet">
-          <input type="reset" value="Cancel" />
-          <input type="submit" value="Send" />
-        </div>
-      </form>
+      <div className="mailBox">
+        <form ref={form} onSubmit={sendEmail}>
+          <div className="upper">
+            <label>Name</label>
+            <input type="text" name="user_name" className="nameEl" />
+            <label>Email</label>
+            <input type="email" name="user_email" className="emailEl" />
+          </div>
+          <div className="lower">
+            <label>Message</label>
+            <textarea name="message" className="msgEl" />
+          </div>
+          <div className="btnSet">
+            <input type="reset" value="Cancel" />
+            <input type="submit" value="Send" />
+          </div>
+        </form>
+      </div>
       <div className="mapBox">
         <button
           onClick={() => {
