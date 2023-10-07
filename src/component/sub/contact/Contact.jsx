@@ -7,32 +7,57 @@ const Contact = () => {
   const map = useRef(null);
 
   const [traffic, setTraffic] = useState(false);
+  const [index, setIndex] = useState(0);
 
   const { kakao } = window;
 
-  const info = {
-    latlng: new kakao.maps.LatLng(37.584943947008455, 126.8857970238249),
-    imageSrc: `${process.env.PUBLIC_URL}/img/marker1.png`,
-    imageSize: new kakao.maps.Size(232, 99),
-    imageOption: { offset: new kakao.maps.Point(116, 99) },
-  };
+  const info = useRef([
+    {
+      title: "삼성역 코엑스",
+      latlng: new kakao.maps.LatLng(37.51100661425726, 127.06162026853143),
+      imgSrc: `${process.env.PUBLIC_URL}/img/marker1.png`,
+      imgSize: new kakao.maps.Size(232, 99),
+      imgPos: { offset: new kakao.maps.Point(116, 99) },
+    },
+    {
+      title: "넥슨 본사",
+      latlng: new kakao.maps.LatLng(37.40211707077346, 127.10344953763003),
+      imgSrc: `${process.env.PUBLIC_URL}/img/marker2.png`,
+      imgSize: new kakao.maps.Size(232, 99),
+      imgPos: { offset: new kakao.maps.Point(116, 99) },
+    },
+    {
+      title: "서울 시청",
+      latlng: new kakao.maps.LatLng(37.5662952, 126.9779451),
+      imgSrc: `${process.env.PUBLIC_URL}/img/marker3.png`,
+      imgSize: new kakao.maps.Size(232, 99),
+      imgPos: { offset: new kakao.maps.Point(116, 99) },
+    },
+  ]);
 
   const marker = new kakao.maps.Marker({
-    position: info.latlng,
+    position: info.current[index].latlng,
     image: new kakao.maps.MarkerImage(
-      info.imageSrc,
-      info.imageSize,
-      info.imagePos
+      info.current[index].imgSrc,
+      info.current[index].imgSize,
+      info.current[index].imgPos
     ),
   });
 
   useEffect(() => {
+    map.current.innerHTML = "";
+
     instance.current = new kakao.maps.Map(map.current, {
-      center: info.latlng,
+      center: info.current[index].latlng,
       level: 1,
     });
     marker.setMap(instance.current);
-  }, []);
+    const mapTypeControl = new kakao.maps.MapTypeControl();
+    instance.current.addControl(
+      mapTypeControl,
+      kakao.maps.ControlPosition.BOTTOMLEFT
+    );
+  }, [index]);
 
   useEffect(() => {
     traffic
@@ -51,6 +76,18 @@ const Contact = () => {
       </button>
 
       <div className="map" ref={map}></div>
+
+      <ul>
+        {info.current.map((data, idx) => (
+          <li
+            key={idx}
+            onClick={() => setIndex(idx)}
+            className={index === idx ? "on" : ""}
+          >
+            {data.title}
+          </li>
+        ))}
+      </ul>
     </Layout>
   );
 };
