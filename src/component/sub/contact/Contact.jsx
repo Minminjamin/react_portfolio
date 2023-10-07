@@ -80,6 +80,15 @@ const Contact = () => {
     );
   }, [index]);
 
+  const resetForm = () => {
+    const [nameKey, nameValue, emailKey, emailValue, msgKey, msgValue] =
+      form.current.children;
+
+    nameValue.value = "";
+    emailValue.value = "";
+    msgValue.value = "";
+  };
+
   const sendEmail = (e) => {
     e.preventDefault();
 
@@ -94,6 +103,7 @@ const Contact = () => {
         (result) => {
           alert("문의내용이 메일로 발송되었습니다.");
           console.log(result);
+          resetForm();
         },
         (error) => {
           alert("문의내용 전송에 실패했습니다. ");
