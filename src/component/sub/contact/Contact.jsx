@@ -44,6 +44,10 @@ const Contact = () => {
     ),
   });
 
+  const setCenter = () => {
+    instance.current.setCenter(info.current[index].latlng);
+  };
+
   useEffect(() => {
     map.current.innerHTML = "";
 
@@ -57,6 +61,8 @@ const Contact = () => {
       mapTypeControl,
       kakao.maps.ControlPosition.BOTTOMLEFT
     );
+
+    window.addEventListener("resize", setCenter);
   }, [index]);
 
   useEffect(() => {
@@ -74,6 +80,8 @@ const Contact = () => {
       >
         {traffic ? "교통정보 끄기" : "교통정보 켜기"}
       </button>
+
+      <button onClick={setCenter}>지도 위치 초기화</button>
 
       <div className="map" ref={map}></div>
 
