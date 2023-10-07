@@ -1,6 +1,6 @@
 import React from "react";
 import clsx from "clsx";
-import styles from "../youtube/Youtube.scss";
+import "./Youtube.scss";
 import Layout from "../../common/layout/Layout";
 import { useState, useEffect, useRef } from "react";
 import Modal from "../../common/modal/Modal";
