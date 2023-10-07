@@ -5,8 +5,7 @@ import { useState, useEffect } from "react";
 
 const Gallery = () => {
   const [pics, setPics] = useState([]);
-
-  const api_key = "3b509d8b3993a79e18501cf57f35b5c4";
+  const api_key = process.env.REACT_APP_FLICKR_API_KEY;
   const num = 500;
   const methodInterest = "flickr.interestingness.getList";
   const url = `https://www.flickr.com/services/rest/?method=${methodInterest}&api_key=${api_key}&per_page=${num}&nojsoncallback=1&format=json`;
