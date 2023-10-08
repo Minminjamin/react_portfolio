@@ -23,15 +23,18 @@ const Gallery = () => {
   return (
     <Layout title={"Gallery"}>
       <p>갤러리 페이지입니다.</p>
-      {pics.map((item, index) => (
-        <aricle key={index}>
-          <h2>{item.title}</h2>
-          <img
-            src={`https://live.staticflickr.com/${item.server}/${item.id}_${item.secret}_m.jpg`}
-            alt={item.title}
-          />
-        </aricle>
-      ))}
+      <div className="galleryBox">
+        {pics.map((item, index) => (
+          <aricle key={index}>
+            <div className="pic">
+              <img
+                src={`https://live.staticflickr.com/${item.server}/${item.id}_${item.secret}_m.jpg`}
+                alt={item.title}
+              />
+            </div>
+          </aricle>
+        ))}
+      </div>
     </Layout>
   );
 };
