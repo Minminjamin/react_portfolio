@@ -1,3 +1,42 @@
+.Youtube {
+  article {
+    width: 100%;
+    display: flex;
+    height: auto;
+    border: solid 2px #d5d5d5;
+
+    .pic {
+      width: 40vw;
+
+      img {
+        width: 100%;
+        height: 100%;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        cursor: pointer;
+      }
+    }
+
+    .innerText {
+      width: 60vw;
+      padding: 1.5%;
+      display: flex;
+      flex-wrap: wrap;
+
+      p {
+        color: gray;
+      }
+      .date {
+        align-self: flex-end;
+        display: inline-flex;
+        text-align: right;
+        color: rgb(151, 151, 151);
+      }
+    }
+    margin-bottom: 30px;
+  }
+}
 .modal {
   width: 100%;
   height: 100vh;
@@ -6,6 +45,7 @@
   top: 0;
   left: 0;
   padding: 5vw;
+
   .con {
     width: 100%;
     height: 100%;
