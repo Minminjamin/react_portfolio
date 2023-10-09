@@ -36,6 +36,7 @@ const Footer = () => {
       </ul>
 
       <span>ⓒ 2023. Portfolio. All rights reserved.</span>
+      <div className="underLine"></div>
     </footer>
   );
 };
