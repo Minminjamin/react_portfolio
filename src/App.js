@@ -8,6 +8,7 @@ import { Route, Switch } from "react-router-dom";
 import Members from "./component/sub/members/Members";
 import Gallery from "./component/sub/gallery/Gallery";
 import Contact from "./component/sub/contact/Contact";
+import Footer from "./component/common/footer/Footer";
 
 function App() {
   return (
@@ -20,12 +21,13 @@ function App() {
           <Header isMain={false} />
         </Route>
       </Switch>
-
       <Route path="/department" component={Department} />
       <Route path="/youtube" component={Youtube} />
       <Route path="/members" component={Members} />
       <Route path="/contact" component={Contact} />
       <Route path="/gallery" component={Gallery} />
+      <Route path="/" component={Footer} />
+      {/* // <Footer /> */}
     </>
   );
 }

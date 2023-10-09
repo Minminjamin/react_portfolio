@@ -1,0 +1,27 @@
+footer {
+  text-align: center;
+  background: #f4f4f4;
+  border-top: 2px solid #c3c3c3;
+  //   display: inline;
+  //   width: 70vw;
+
+  ul {
+    margin: 10px 0px 20px 0px;
+
+    display: flex;
+    gap: 6vw;
+    color: gray;
+    justify-content: center;
+
+    li {
+      &:hover {
+        border-bottom: solid 1px gray;
+      }
+    }
+  }
+
+  span {
+    color: gray;
+    margin-bottom: 10px;
+  }
+}
