@@ -17,22 +17,22 @@ const Contact = () => {
 
   const info = useRef([
     {
-      title: "삼성역 코엑스",
-      latlng: new kakao.maps.LatLng(37.51100661425726, 127.06162026853143),
+      title: "경남로봇고등학교",
+      latlng: new kakao.maps.LatLng(35.34831491821686, 128.43883312404466),
       imgSrc: `${process.env.PUBLIC_URL}/img/marker1.png`,
       imgSize: new kakao.maps.Size(232, 99),
       imgPos: { offset: new kakao.maps.Point(116, 99) },
     },
     {
-      title: "넥슨 본사",
-      latlng: new kakao.maps.LatLng(37.40211707077346, 127.10344953763003),
+      title: "에이블런",
+      latlng: new kakao.maps.LatLng(37.585, 126.8854),
       imgSrc: `${process.env.PUBLIC_URL}/img/marker2.png`,
       imgSize: new kakao.maps.Size(232, 99),
       imgPos: { offset: new kakao.maps.Point(116, 99) },
     },
     {
-      title: "서울 시청",
-      latlng: new kakao.maps.LatLng(37.5662952, 126.9779451),
+      title: "김해 시청",
+      latlng: new kakao.maps.LatLng(35.22859521186741, 128.88929749274934),
       imgSrc: `${process.env.PUBLIC_URL}/img/marker3.png`,
       imgSize: new kakao.maps.Size(232, 99),
       imgPos: { offset: new kakao.maps.Point(116, 99) },
@@ -128,7 +128,8 @@ const Contact = () => {
 
   return (
     <Layout title={"Contact"} styleName={styles.contact}>
-      <div className="mailBox">
+      <h2>Contact Me</h2>
+      <div className="contactMe">
         <form ref={form} onSubmit={sendEmail}>
           <div className="upper">
             <label>Name</label>
@@ -145,19 +146,34 @@ const Contact = () => {
             <input type="submit" value="Send" />
           </div>
         </form>
+
+        <div className="contactInfo">
+          <span>Phone</span>
+          <span>010-1234-5678</span>
+          <span>Email</span>
+          <span>0429el@gmail.com</span>
+          <span>School Address</span>
+          <span>경상남도 함안군 대산면 대산중앙로 102-2 (평림리)</span>
+        </div>
       </div>
+      {/* <div className="mailBox"> */}
+
+      {/* </div> */}
       <div className="mapBox">
-        <button
-          onClick={() => {
-            setTraffic(!traffic);
-          }}
-        >
-          {traffic ? "교통정보 끄기" : "교통정보 켜기"}
-        </button>
-        <button onClick={setCenter}>지도 위치 초기화</button>
-        <button onClick={() => setIsMap(!isMap)}>
-          {isMap ? "로드뷰보기" : "지도보기"}
-        </button>
+        <div className="upperBtn">
+          <button
+            onClick={() => {
+              setTraffic(!traffic);
+            }}
+          >
+            {traffic ? "교통정보 끄기" : "교통정보 켜기"}
+          </button>
+          <button onClick={setCenter}>지도 위치 초기화</button>
+          <button onClick={() => setIsMap(!isMap)}>
+            {isMap ? "로드뷰보기" : "지도보기"}
+          </button>
+        </div>
+
         <div className="container">
           <div className={`view ${isMap ? " " : "on"}`} ref={view}></div>
           <div className={`map ${isMap ? "on" : " "}`} ref={map}></div>

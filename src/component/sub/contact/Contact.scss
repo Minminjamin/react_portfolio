@@ -2,104 +2,172 @@
   figure {
     background: orange;
   }
-
-  .mailBox {
-    width: 100%;
-    margin-bottom: 100px;
-
-    .upper {
-      width: 100%;
-      display: flex;
-      margin-bottom: 50px;
-
-      label {
-        font: bold 1rem/1 "arial";
-        color: #555;
-        margin-right: 20px;
-        position: relative;
-        top: 20px;
-      }
-
-      input[type="text"],
-      input[type="email"] {
-        border: none;
-        padding: 10px 20px;
-        border-bottom: 1px solid #555;
-        margin-right: 50px;
-        outline: none;
-        transition: 0.5s;
-
-        &.focus {
-          background: lightcyan;
-        }
-      }
-    }
-
-    .lower {
-      width: 100%;
-      margin-bottom: 10px;
-
-      label {
-        display: block;
-        margin-bottom: 5px;
-        font: bold 1rem/1 "arial";
-        color: #555;
-      }
-
-      textarea {
-        width: 100%;
-        padding: 10px;
-        border: none;
-        border-bottom: 1px solid #555;
-        margin-right: 50px;
-        resize: none;
-        outline: none;
-        transition: 0.5s;
-
-        &.focus {
-          background: lightcyan;
-        }
-      }
-    }
-  }
-
-  .container {
-    width: 100%;
-    height: 60vh;
-    background: #111;
-    position: relative;
-
-    .map,
-    .view {
-      width: 100%;
-      height: 100%;
-      background: #111;
-      position: absolute;
-      top: 0;
-      left: 0px;
-      // display: none;
-      opacity: 0;
-      z-index: 1;
-
-      &.on {
-        opacity: 1;
-        z-index: 2;
-        // display: block;
-      }
-      // margin-bottom: 100px;
-    }
-  }
-
-  ul {
+  .contactMe {
     display: flex;
-    gap: 40px;
 
-    li {
-      cursor: pointer;
+    form {
+      width: 70vw;
+      margin-bottom: 100px;
+
+      .upper {
+        width: 100%;
+        display: flex;
+        margin-bottom: 50px;
+        justify-content: space-between;
+        label {
+          font: bold 1rem/1 "arial";
+          color: #555;
+          margin-right: 20px;
+          position: relative;
+          top: 20px;
+        }
+
+        input[type="text"],
+        input[type="email"] {
+          border: none;
+          padding: 10px 20px;
+          border-bottom: 1px solid #555;
+          margin-right: 50px;
+          outline: none;
+          transition: 0.5s;
+
+          &.focus {
+            background: lightcyan;
+          }
+        }
+      }
+
+      .lower {
+        width: 100%;
+        margin-bottom: 10px;
+
+        label {
+          display: block;
+          margin-bottom: 5px;
+          font: bold 1rem/1 "arial";
+          color: #555;
+        }
+
+        textarea {
+          width: 100%;
+          padding: 10px;
+          border: none;
+          border-bottom: 1px solid #555;
+          margin-right: 50px;
+          resize: none;
+          outline: none;
+          transition: 0.5s;
+
+          &.focus {
+            background: lightcyan;
+          }
+        }
+      }
+
+      .btnSet {
+        display: flex;
+        justify-content: flex-end;
+
+        input {
+          margin: 0 1%;
+          border-radius: 5%;
+          border: none;
+          // background: none;
+          padding: 2%;
+          color: white;
+
+          &:nth-of-type(1) {
+            background: #e6c201;
+
+            &:hover {
+              background: #998200;
+            }
+          }
+
+          &:nth-of-type(2) {
+            background: #f2a10c;
+
+            &:hover {
+              background: #dba500;
+            }
+          }
+        }
+        // width: 10vw;
+      }
     }
 
-    li.on {
-      color: hotpink;
+    .contactInfo {
+      width: 30vw;
+      padding: 1%;
+      span {
+        display: block;
+
+        &:nth-child(odd) {
+          font: bold 1rem/1 "arial";
+          color: #555;
+          margin-right: 20px;
+          position: relative;
+          margin-top: 5px;
+          // top: 20px;
+        }
+      }
+    }
+  }
+
+  .mapBox {
+    .upperBtn {
+      width: 30%;
+      display: flex;
+      justify-content: space-between;
+      button {
+        border: none;
+        padding: 2%;
+
+        &:hover {
+          background: #8f8f8f;
+          color: white;
+        }
+      }
+    }
+    .container {
+      width: 100%;
+      height: 60vh;
+      background: #111;
+      position: relative;
+      margin-top: 10px;
+
+      .map,
+      .view {
+        width: 100%;
+        height: 100%;
+        background: #111;
+        position: absolute;
+        top: 0;
+        left: 0px;
+        // display: none;
+        opacity: 0;
+        z-index: 1;
+
+        &.on {
+          opacity: 1;
+          z-index: 2;
+          // display: block;
+        }
+        // margin-bottom: 100px;
+      }
+    }
+
+    ul {
+      display: flex;
+      gap: 40px;
+
+      li {
+        cursor: pointer;
+      }
+
+      li.on {
+        color: hotpink;
+      }
     }
   }
 }
