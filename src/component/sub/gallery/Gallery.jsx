@@ -2,6 +2,11 @@ import React from "react";
 import Layout from "../../common/layout/Layout";
 import "./Gallery.scss";
 import { useState, useEffect } from "react";
+import Masonry from "react-masonry-component";
+
+const masonryOptions = {
+  transitionDuration: 0,
+};
 
 const Gallery = () => {
   const [pics, setPics] = useState([]);
@@ -23,27 +28,34 @@ const Gallery = () => {
   return (
     <Layout title={"Gallery"}>
       <div className="picFrame">
-        {pics.map((item, index) => (
-          <article key={index}>
-            <div className="inner">
-              <img
-                className="pic"
-                src={`https://live.staticflickr.com/${item.server}/${item.id}_${item.secret}_m.jpg`}
-                alt={`https://live.staticflickr.com/${item.server}/${item.id}_${item.secret}_b.jpg`}
-              />
-              <h2>{item.title}</h2>
-
-              <div className="profile">
+        <Masonry
+          elementType={"div"}
+          options={{ transitionDuration: "0.5s" }}
+          disableImagesLoaded={false}
+          updateOnEachImageLoad={false} // default false and works only if disableImagesLoaded is false
+        >
+          {pics.map((item, index) => (
+            <article key={index}>
+              <div className="inner">
                 <img
-                  src={`http://farm${item.farm}.staticflickr.com/${item.server}/buddyicons/${item.owner}.jpg
-                `}
-                  alt={item.owner}
+                  className="pic"
+                  src={`https://live.staticflickr.com/${item.server}/${item.id}_${item.secret}_m.jpg`}
+                  alt={`https://live.staticflickr.com/${item.server}/${item.id}_${item.secret}_b.jpg`}
                 />
-                <span>{item.owner}</span>
+                <h2>{item.title}</h2>
+
+                <div className="profile">
+                  <img
+                    src={`http://farm${item.farm}.staticflickr.com/${item.server}/buddyicons/${item.owner}.jpg
+                `}
+                    alt={item.owner}
+                  />
+                  <span>{item.owner}</span>
+                </div>
               </div>
-            </div>
-          </article>
-        ))}
+            </article>
+          ))}
+        </Masonry>
       </div>
     </Layout>
   );
