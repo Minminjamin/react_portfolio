@@ -31,6 +31,10 @@ const Gallery = () => {
     const data = await fetch(url);
     const json = await data.json();
     setPics(json.photos.photo);
+
+    if (json.photos.photo.length === 0) {
+      return alert("결과값이 없습니다.");
+    }
     console.log(pics);
     // console.log(json);
   };
@@ -84,6 +88,12 @@ const Gallery = () => {
                     src={`http://farm${item.farm}.staticflickr.com/${item.server}/buddyicons/${item.owner}.jpg
                 `}
                     alt={item.owner}
+                    onError={(e) => {
+                      e.target.setAttribute(
+                        "src",
+                        "https://www.flickr.com/images/buddyicon.gif"
+                      );
+                    }}
                   />
                   <span
                     onClick={() => fetchData({ type: "user", id: item.owner })}
