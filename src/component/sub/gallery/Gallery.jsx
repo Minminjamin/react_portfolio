@@ -6,7 +6,7 @@ import { useState, useEffect } from "react";
 const Gallery = () => {
   const [pics, setPics] = useState([]);
   const api_key = process.env.REACT_APP_FLICKR_API_KEY;
-  const num = 500;
+  const num = 50;
   const methodInterest = "flickr.interestingness.getList";
   const url = `https://www.flickr.com/services/rest/?method=${methodInterest}&api_key=${api_key}&per_page=${num}&nojsoncallback=1&format=json`;
 
@@ -22,17 +22,27 @@ const Gallery = () => {
 
   return (
     <Layout title={"Gallery"}>
-      <div className="galleryBox">
+      <div className="picFrame">
         {pics.map((item, index) => (
-          <aricle key={index}>
-            <div className="pic">
+          <article key={index}>
+            <div className="inner">
               <img
+                className="pic"
                 src={`https://live.staticflickr.com/${item.server}/${item.id}_${item.secret}_m.jpg`}
                 alt={`https://live.staticflickr.com/${item.server}/${item.id}_${item.secret}_b.jpg`}
               />
               <h2>{item.title}</h2>
+
+              <div className="profile">
+                <img
+                  src={`http://farm${item.farm}.staticflickr.com/${item.server}/buddyicons/${item.owner}.jpg
+                `}
+                  alt={item.owner}
+                />
+                <span>{item.owner}</span>
+              </div>
             </div>
-          </aricle>
+          </article>
         ))}
       </div>
     </Layout>
