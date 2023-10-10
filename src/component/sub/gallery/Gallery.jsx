@@ -6,6 +6,9 @@ import Masonry from "react-masonry-component";
 
 const Gallery = () => {
   const [pics, setPics] = useState([]);
+  const [loader, setLoader] = useState(false);
+
+  const frame = useRef(null);
   const search = useRef(null);
 
   const myId = "199348831@N08";
@@ -36,6 +39,20 @@ const Gallery = () => {
       return alert("결과값이 없습니다.");
     }
     console.log(pics);
+
+    let count = 0;
+    const imgs = frame.current?.querySelectorAll("img");
+
+    imgs.forEach((img, idx) => {
+      img.onload = () => {
+        ++count;
+
+        if (count == imgs.length) {
+          console.log("모든 이미지 렌더링 완료");
+        }
+      };
+    });
+    // if()
     // console.log(json);
   };
 
@@ -47,65 +64,80 @@ const Gallery = () => {
 
   return (
     <Layout title={"Gallery"}>
-      <form
-        onSubmit={(e) => {
-          e.preventDefault();
-          if (search.current.value.trim() === "") {
-            return alert("검색어를 입력하세요");
-          }
-          fetchData({ type: "search", tags: search.current.value });
-        }}
-      >
-        <input ref={search} type="text" placeholder="검색어를 입력하세요." />
-        <button>검색</button>
-      </form>
-
-      <button onClick={() => fetchData({ type: "interest" })}>
-        interest 갤러리
-      </button>
-      <button onClick={() => fetchData({ type: "user", id: myId })}>
-        나의 갤러리 호출
-      </button>
-      <div className="picFrame">
-        <Masonry
-          elementType={"div"}
-          options={{ transitionDuration: "0.5s" }}
-          disableImagesLoaded={false}
-          updateOnEachImageLoad={false} // default false and works only if disableImagesLoaded is false
+      <div className="searchBox">
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            if (search.current.value.trim() === "") {
+              return alert("검색어를 입력하세요");
+            }
+            fetchData({ type: "search", tags: search.current.value });
+          }}
         >
-          {pics.map((item, index) => (
-            <article key={index}>
-              <div className="inner">
-                <img
-                  className="pic"
-                  src={`https://live.staticflickr.com/${item.server}/${item.id}_${item.secret}_m.jpg`}
-                  alt={`https://live.staticflickr.com/${item.server}/${item.id}_${item.secret}_b.jpg`}
-                />
-                <h2>{item.title}</h2>
-
-                <div className="profile">
-                  <img
-                    src={`http://farm${item.farm}.staticflickr.com/${item.server}/buddyicons/${item.owner}.jpg
-                `}
-                    alt={item.owner}
-                    onError={(e) => {
-                      e.target.setAttribute(
-                        "src",
-                        "https://www.flickr.com/images/buddyicon.gif"
-                      );
-                    }}
-                  />
-                  <span
-                    onClick={() => fetchData({ type: "user", id: item.owner })}
-                  >
-                    {item.owner}
-                  </span>
-                </div>
-              </div>
-            </article>
-          ))}
-        </Masonry>
+          <input ref={search} type="text" placeholder="검색어를 입력하세요." />
+          <button>검색</button>
+        </form>
       </div>
+
+      <div className="btnSet">
+        <button onClick={() => fetchData({ type: "interest" })}>
+          interest 갤러리
+        </button>
+        <button onClick={() => fetchData({ type: "user", id: myId })}>
+          나의 갤러리 호출
+        </button>
+      </div>
+
+      {loader ? (
+        <img
+          src={`${process.env.PUBLIC_URL}/img/loading.gif`}
+          alt="loading"
+          className="loading"
+        />
+      ) : (
+        <div className="picFrame" ref={frame}>
+          <Masonry
+            elementType={"div"}
+            options={{ transitionDuration: "0.5s" }}
+            disableImagesLoaded={false}
+            updateOnEachImageLoad={false} // default false and works only if disableImagesLoaded is false
+          >
+            {pics.map((item, index) => (
+              <article key={index}>
+                <div className="inner">
+                  <img
+                    className="pic"
+                    src={`https://live.staticflickr.com/${item.server}/${item.id}_${item.secret}_m.jpg`}
+                    alt={`https://live.staticflickr.com/${item.server}/${item.id}_${item.secret}_b.jpg`}
+                  />
+                  <h2>{item.title}</h2>
+
+                  <div className="profile">
+                    <img
+                      src={`http://farm${item.farm}.staticflickr.com/${item.server}/buddyicons/${item.owner}.jpg
+                `}
+                      alt={item.owner}
+                      onError={(e) => {
+                        e.target.setAttribute(
+                          "src",
+                          "https://www.flickr.com/images/buddyicon.gif"
+                        );
+                      }}
+                    />
+                    <span
+                      onClick={() =>
+                        fetchData({ type: "user", id: item.owner })
+                      }
+                    >
+                      {item.owner}
+                    </span>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </Masonry>
+        </div>
+      )}
     </Layout>
   );
 };
