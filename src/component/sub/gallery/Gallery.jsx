@@ -1,16 +1,12 @@
 import React from "react";
 import Layout from "../../common/layout/Layout";
 import "./Gallery.scss";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Masonry from "react-masonry-component";
-
-const masonryOptions = {
-  transitionDuration: 0,
-};
 
 const Gallery = () => {
   const [pics, setPics] = useState([]);
-  const [id, setId] = useState();
+  const search = useRef(null);
 
   const myId = "199348831@N08";
 
@@ -20,12 +16,16 @@ const Gallery = () => {
     const num = 50;
     const methodInterest = "flickr.interestingness.getList";
     const methodUser = "flickr.people.getPhotos";
+    const methodSearch = "flickr.photos.search";
 
     if (opt.type === "interest") {
       url = `https://www.flickr.com/services/rest/?method=${methodInterest}&api_key=${api_key}&per_page=${num}&nojsoncallback=1&format=json`;
     }
     if (opt.type === "user") {
       url = `https://www.flickr.com/services/rest/?method=${methodUser}&api_key=${api_key}&per_page=${num}&nojsoncallback=1&format=json&user_id=${opt.id}`;
+    }
+    if (opt.type === "search") {
+      url = `https://www.flickr.com/services/rest/?method=${methodSearch}&api_key=${api_key}&per_page=${num}&nojsoncallback=1&format=json&tags=${opt.tags}`;
     }
 
     const data = await fetch(url);
@@ -36,13 +36,26 @@ const Gallery = () => {
   };
 
   useEffect(() => {
+    // fetchData({ type: "search", tags: "landscape" });
     fetchData({ type: "user", id: myId });
     // fetchData({ type: "user" });
   }, []);
 
   return (
     <Layout title={"Gallery"}>
-      {" "}
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          if (search.current.value.trim() === "") {
+            return alert("검색어를 입력하세요");
+          }
+          fetchData({ type: "search", tags: search.current.value });
+        }}
+      >
+        <input ref={search} type="text" placeholder="검색어를 입력하세요." />
+        <button>검색</button>
+      </form>
+
       <button onClick={() => fetchData({ type: "interest" })}>
         interest 갤러리
       </button>
