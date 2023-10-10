@@ -6,7 +6,7 @@ import Masonry from "react-masonry-component";
 
 const Gallery = () => {
   const [pics, setPics] = useState([]);
-  const [loader, setLoader] = useState(false);
+  const [loader, setLoader] = useState(true);
 
   const frame = useRef(null);
   const search = useRef(null);
@@ -14,6 +14,9 @@ const Gallery = () => {
   const myId = "199348831@N08";
 
   const fetchData = async (opt) => {
+    setLoader(true);
+    frame.current.classList.remove("on");
+
     let url = "";
     const api_key = process.env.REACT_APP_FLICKR_API_KEY;
     const num = 50;
@@ -49,6 +52,8 @@ const Gallery = () => {
 
         if (count == imgs.length) {
           console.log("모든 이미지 렌더링 완료");
+          setLoader(false);
+          frame.current.classList.add("on");
         }
       };
     });
