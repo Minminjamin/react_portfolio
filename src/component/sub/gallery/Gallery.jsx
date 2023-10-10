@@ -7,13 +7,17 @@ import Masonry from "react-masonry-component";
 const Gallery = () => {
   const [pics, setPics] = useState([]);
   const [loader, setLoader] = useState(true);
+  const [fix, setFix] = useState(false);
+  const [isUser, setIsUser] = useState(true);
 
   const frame = useRef(null);
   const search = useRef(null);
+  const btnSet = useRef(null);
 
   const myId = "199348831@N08";
 
   const fetchData = async (opt) => {
+    // btns.forEach((btn) => btn.classList.remove("on"));
     setLoader(true);
     frame.current.classList.remove("on");
 
@@ -36,12 +40,11 @@ const Gallery = () => {
 
     const data = await fetch(url);
     const json = await data.json();
-    setPics(json.photos.photo);
 
     if (json.photos.photo.length === 0) {
       return alert("결과값이 없습니다.");
     }
-    console.log(pics);
+    setPics(json.photos.photo);
 
     let count = 0;
     const imgs = frame.current?.querySelectorAll("img");
@@ -49,8 +52,9 @@ const Gallery = () => {
     imgs.forEach((img, idx) => {
       img.onload = () => {
         ++count;
+        console.log("현재 로딩된 img갯수", count);
 
-        if (count == imgs.length) {
+        if (count === (fix ? imgs.length / 2 - 1 : imgs.length - 2)) {
           console.log("모든 이미지 렌더링 완료");
           setLoader(false);
           frame.current.classList.add("on");
@@ -73,10 +77,13 @@ const Gallery = () => {
         <form
           onSubmit={(e) => {
             e.preventDefault();
+            setIsUser(false);
+
             if (search.current.value.trim() === "") {
               return alert("검색어를 입력하세요");
             }
             fetchData({ type: "search", tags: search.current.value });
+            search.current.value = "";
           }}
         >
           <input ref={search} type="text" placeholder="검색어를 입력하세요." />
@@ -84,12 +91,30 @@ const Gallery = () => {
         </form>
       </div>
 
-      <div className="btnSet">
-        <button onClick={() => fetchData({ type: "interest" })}>
-          interest 갤러리
-        </button>
-        <button onClick={() => fetchData({ type: "user", id: myId })}>
+      <div className="btnSet" ref={btnSet}>
+        <button
+          className="on"
+          onClick={(e) => {
+            setIsUser(true);
+            const btns = btnSet.current.querySelectorAll("button");
+            btns.forEach((btn) => btn.classList.remove("on"));
+            e.target.classList.add("on");
+            fetchData({ type: "user", id: myId });
+          }}
+        >
           나의 갤러리 호출
+        </button>
+        <button
+          onClick={(e) => {
+            setIsUser(false);
+            const btns = btnSet.current.querySelectorAll("button");
+            btns.forEach((btn) => btn.classList.remove("on"));
+            e.target.classList.add("on");
+
+            fetchData({ type: "interest" });
+          }}
+        >
+          interest 갤러리
         </button>
       </div>
 
@@ -119,10 +144,11 @@ const Gallery = () => {
 
                 <div className="profile">
                   <img
-                    src={`http://farm${item.farm}.staticflickr.com/${item.server}/buddyicons/${item.owner}.jpg
-                `}
+                    src={`http://farm${item.farm}.staticflickr.com/${item.server}/buddyicons/${item.owner}ggr.jpg`}
                     alt={item.owner}
                     onError={(e) => {
+                      console.log(e.target);
+                      setFix(true);
                       e.target.setAttribute(
                         "src",
                         "https://www.flickr.com/images/buddyicon.gif"
@@ -130,7 +156,14 @@ const Gallery = () => {
                     }}
                   />
                   <span
-                    onClick={() => fetchData({ type: "user", id: item.owner })}
+                    onClick={() => {
+                      //사용자 아이디 클릭시 현재 출력되는 갤러리가 User 타입 갤러리면 이벤트 호출 방지
+                      if (isUser) return;
+
+                      //fetchData가 실행이 되면 다시 User type갤러리로 변경되므로 다시 IsUser값을 true로 변경
+                      fetchData({ type: "user", id: item.owner });
+                      setIsUser(true);
+                    }}
                   >
                     {item.owner}
                   </span>
