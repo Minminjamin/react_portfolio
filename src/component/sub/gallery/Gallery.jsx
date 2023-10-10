@@ -10,19 +10,22 @@ const masonryOptions = {
 
 const Gallery = () => {
   const [pics, setPics] = useState([]);
-  const api_key = process.env.REACT_APP_FLICKR_API_KEY;
-  const num = 50;
-  const methodInterest = "flickr.interestingness.getList";
-  const url = `https://www.flickr.com/services/rest/?method=${methodInterest}&api_key=${api_key}&per_page=${num}&nojsoncallback=1&format=json`;
+
+  const fetchData = async () => {
+    const api_key = process.env.REACT_APP_FLICKR_API_KEY;
+    const num = 50;
+    const methodInterest = "flickr.interestingness.getList";
+    const url = `https://www.flickr.com/services/rest/?method=${methodInterest}&api_key=${api_key}&per_page=${num}&nojsoncallback=1&format=json`;
+
+    const data = await fetch(url);
+    const json = await data.json();
+    setPics(json.photos.photo);
+    console.log(pics);
+    // console.log(json);
+  };
 
   useEffect(() => {
-    fetch(url)
-      .then((data) => data.json())
-      .then((json) => {
-        setPics(json.photos.photo);
-        console.log(pics);
-        // console.log(json);
-      });
+    fetchData();
   }, []);
 
   return (
