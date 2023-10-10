@@ -26,11 +26,11 @@ const Gallery = () => {
         {pics.map((item, index) => (
           <aricle key={index}>
             <div className="pic">
-              <h2>{item.title}</h2>
               <img
                 src={`https://live.staticflickr.com/${item.server}/${item.id}_${item.secret}_m.jpg`}
-                alt={item.title}
+                alt={`https://live.staticflickr.com/${item.server}/${item.id}_${item.secret}_b.jpg`}
               />
+              <h2>{item.title}</h2>
             </div>
           </aricle>
         ))}
