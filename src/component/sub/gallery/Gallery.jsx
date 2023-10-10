@@ -88,56 +88,53 @@ const Gallery = () => {
         </button>
       </div>
 
-      {loader ? (
+      {loader && (
         <img
+          className="loading"
           src={`${process.env.PUBLIC_URL}/img/loading.gif`}
           alt="loading"
-          className="loading"
         />
-      ) : (
-        <div className="picFrame" ref={frame}>
-          <Masonry
-            elementType={"div"}
-            options={{ transitionDuration: "0.5s" }}
-            disableImagesLoaded={false}
-            updateOnEachImageLoad={false} // default false and works only if disableImagesLoaded is false
-          >
-            {pics.map((item, index) => (
-              <article key={index}>
-                <div className="inner">
-                  <img
-                    className="pic"
-                    src={`https://live.staticflickr.com/${item.server}/${item.id}_${item.secret}_m.jpg`}
-                    alt={`https://live.staticflickr.com/${item.server}/${item.id}_${item.secret}_b.jpg`}
-                  />
-                  <h2>{item.title}</h2>
-
-                  <div className="profile">
-                    <img
-                      src={`http://farm${item.farm}.staticflickr.com/${item.server}/buddyicons/${item.owner}.jpg
-                `}
-                      alt={item.owner}
-                      onError={(e) => {
-                        e.target.setAttribute(
-                          "src",
-                          "https://www.flickr.com/images/buddyicon.gif"
-                        );
-                      }}
-                    />
-                    <span
-                      onClick={() =>
-                        fetchData({ type: "user", id: item.owner })
-                      }
-                    >
-                      {item.owner}
-                    </span>
-                  </div>
-                </div>
-              </article>
-            ))}
-          </Masonry>
-        </div>
       )}
+      <div className="picFrame" ref={frame}>
+        <Masonry
+          elementType={"div"}
+          options={{ transitionDuration: "0.5s" }}
+          disableImagesLoaded={false}
+          updateOnEachImageLoad={false} // default false and works only if disableImagesLoaded is false
+        >
+          {pics.map((item, index) => (
+            <article key={index}>
+              <div className="inner">
+                <img
+                  className="pic"
+                  src={`https://live.staticflickr.com/${item.server}/${item.id}_${item.secret}_m.jpg`}
+                  alt={`https://live.staticflickr.com/${item.server}/${item.id}_${item.secret}_b.jpg`}
+                />
+                <h2>{item.title}</h2>
+
+                <div className="profile">
+                  <img
+                    src={`http://farm${item.farm}.staticflickr.com/${item.server}/buddyicons/${item.owner}.jpg
+                `}
+                    alt={item.owner}
+                    onError={(e) => {
+                      e.target.setAttribute(
+                        "src",
+                        "https://www.flickr.com/images/buddyicon.gif"
+                      );
+                    }}
+                  />
+                  <span
+                    onClick={() => fetchData({ type: "user", id: item.owner })}
+                  >
+                    {item.owner}
+                  </span>
+                </div>
+              </div>
+            </article>
+          ))}
+        </Masonry>
+      </div>
     </Layout>
   );
 };
