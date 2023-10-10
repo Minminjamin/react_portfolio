@@ -28,6 +28,7 @@
   //   }
   // }
   .picFrame {
+    position: absolute;
     width: 100%;
 
     &::after {
