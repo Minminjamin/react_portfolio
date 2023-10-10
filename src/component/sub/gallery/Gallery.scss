@@ -1,3 +1,5 @@
+@import "../../../styles/variable.scss";
+
 .Gallery {
   // .galleryBox {
   //   display: flex;
@@ -83,5 +85,34 @@
     //     }
     //   }
     // }
+  }
+}
+
+@media screen and (max-width: $laptop) {
+  .Gallery {
+    .picFrame {
+      article {
+        width: 33.3333%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $tablet) {
+  .Gallery {
+    .picFrame {
+      article {
+        width: 50%;
+      }
+    }
+  }
+}
+@media screen and (max-width: $mobile) {
+  .Gallery {
+    .picFrame {
+      article {
+        width: 100%;
+      }
+    }
   }
 }
