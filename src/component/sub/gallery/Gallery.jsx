@@ -186,7 +186,7 @@ const Gallery = () => {
       </Layout>
 
       {open && (
-        <Modal>
+        <Modal setIsModal={setOpen}>
           <img src={activeUrl} alt="img" />
         </Modal>
       )}
