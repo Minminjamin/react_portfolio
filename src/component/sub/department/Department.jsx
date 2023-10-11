@@ -51,7 +51,6 @@ const Department = () => {
       <div className={styles.aboutBox}>
         <div className={styles.pic}>
           <>
-            {" "}
             <img src={`${path}/img/department01.jpg`} alt="bird" />
           </>
         </div>
