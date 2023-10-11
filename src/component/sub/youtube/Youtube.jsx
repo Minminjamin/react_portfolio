@@ -12,19 +12,17 @@ const Youtube = () => {
 
   const refEl = useRef(null);
 
-  const fetchYoutube = () => {
+  const fetchYoutube = async () => {
     const api_key = process.env.REACT_APP_GOOGLE_API_KEY;
     const baseURL = "https://www.googleapis.com/youtube/v3/playlistItems";
     const pid = "PLHtvRFLN5v-W5bQjvyH8QTdQQhgflJ3nu";
     const index = 5;
     const resultURL = `${baseURL}?key=${api_key}&part=snippet&playlistId=${pid}&maxResults=${index}`;
 
-    fetch(resultURL)
-      .then((data) => data.json())
-      .then((json) => {
-        console.log(json.itmes);
-        setYoutube(json.items);
-      });
+    const res = await fetch(resultURL);
+    const json = await res.json();
+
+    setYoutube(json.items);
   };
   useEffect(() => {
     fetchYoutube();
@@ -60,15 +58,25 @@ const Youtube = () => {
                   onClick={() => setIndex(idx)}
                 />
               </div>
-              <div className="innerText">
-                <div>
-                  <h2>{sliceTxt(data.snippet.title, 60)}</h2>
-                  <p>{sliceTxt(data.snippet.description, 700)}</p>
-                </div>
 
+              <div className="innerText">
+                <h2>{sliceTxt(data.snippet.title, 60)}</h2>
+                <p>{data.snippet.videoOwnerChannelTitle}</p>
+                <p>{sliceTxt(data.snippet.description, 200)}</p>
+                <p> {date.split("T")[0].split("-").join(".")}</p>
+
+                <button>View Mote</button>
+                {/* <div>
+                  <h2>{sliceTxt(data.snippet.title, 60)}</h2>
+                  <p>{data.snippet.videoOwnerChannelTitle}</p>
+                </div>
+                <p>{sliceTxt(data.snippet.description, 200)}</p>
                 <p className="date">
                   {date.split("T")[0].split("-").join(".")}
                 </p>
+                <div className="channel">
+                  <span> View More</span>
+                </div> */}
               </div>
             </article>
           );
