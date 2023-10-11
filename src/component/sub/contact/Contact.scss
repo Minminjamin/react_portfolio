@@ -22,6 +22,10 @@
           top: 20px;
         }
 
+        input {
+          background: none;
+        }
+
         input[type="text"],
         input[type="email"] {
           border: none;
@@ -57,6 +61,7 @@
           resize: none;
           outline: none;
           transition: 0.5s;
+          background: none;
 
           &.focus {
             background: lightcyan;
