@@ -80,6 +80,32 @@ const Gallery = () => {
     search.current.value = "";
   };
 
+  const onHanldeClickMy = (e) => {
+    setIsUser(true);
+    if (e.target.classList.contains("on")) return;
+    const btns = btnSet.current.querySelectorAll("button");
+    btns.forEach((btn) => btn.classList.remove("on"));
+    e.target.classList.add("on");
+    fetchData({ type: "user", id: myId });
+  };
+
+  const onHandleClickInterset = (e) => {
+    setIsUser(false);
+    if (e.target.classList.contains("on")) return;
+    const btns = btnSet.current.querySelectorAll("button");
+    btns.forEach((btn) => btn.classList.remove("on"));
+    e.target.classList.add("on");
+
+    fetchData({ type: "interest" });
+  };
+
+  const onHanldeProfile = (e) => {
+    if (isUser) return;
+
+    //fetchData가 실행이 되면 다시 User type갤러리로 변경되므로 다시 IsUser값을 true로 변경
+    fetchData({ type: "user", id: e.owner });
+    setIsUser(true);
+  };
   useEffect(() => {
     console.log(fetchData({ type: "user", id: myId }));
     // fetchData({ type: "search", tags: "landscape" });
@@ -91,11 +117,7 @@ const Gallery = () => {
     <>
       <Layout title={"Gallery"}>
         <div className="searchBox">
-          <form
-            onSubmit={(e) => {
-              onHanldeSubmit();
-            }}
-          >
+          <form onSubmit={onHanldeSubmit}>
             <input
               ref={search}
               type="text"
@@ -106,32 +128,10 @@ const Gallery = () => {
         </div>
 
         <div className="btnSet" ref={btnSet}>
-          <button
-            className="on"
-            onClick={(e) => {
-              setIsUser(true);
-              if (e.target.classList.contains("on")) return;
-              const btns = btnSet.current.querySelectorAll("button");
-              btns.forEach((btn) => btn.classList.remove("on"));
-              e.target.classList.add("on");
-              fetchData({ type: "user", id: myId });
-            }}
-          >
+          <button className="on" onClick={onHanldeClickMy}>
             나의 갤러리 호출
           </button>
-          <button
-            onClick={(e) => {
-              setIsUser(false);
-              if (e.target.classList.contains("on")) return;
-              const btns = btnSet.current.querySelectorAll("button");
-              btns.forEach((btn) => btn.classList.remove("on"));
-              e.target.classList.add("on");
-
-              fetchData({ type: "interest" });
-            }}
-          >
-            interest 갤러리
-          </button>
+          <button onClick={onHandleClickInterset}>interest 갤러리</button>
         </div>
 
         {loader && (
@@ -175,18 +175,7 @@ const Gallery = () => {
                         );
                       }}
                     />
-                    <span
-                      onClick={() => {
-                        //사용자 아이디 클릭시 현재 출력되는 갤러리가 User 타입 갤러리면 이벤트 호출 방지
-                        if (isUser) return;
-
-                        //fetchData가 실행이 되면 다시 User type갤러리로 변경되므로 다시 IsUser값을 true로 변경
-                        fetchData({ type: "user", id: item.owner });
-                        setIsUser(true);
-                      }}
-                    >
-                      {item.owner}
-                    </span>
+                    <span onClick={onHanldeProfile}>{item.owner}</span>
                   </div>
                 </div>
               </article>
