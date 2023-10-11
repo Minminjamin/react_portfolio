@@ -10,6 +10,7 @@ const Department = () => {
   const [history, setHistory] = useState([]);
 
   const [isHover, setIsHover] = useState(false);
+
   useEffect(() => {
     fetch(`${path}/DB/department.json`)
       .then((data) => data.json())
@@ -36,7 +37,7 @@ const Department = () => {
             <div className={styles.pic}>
               <img src={`${path}/img/${member.pic}`} alt={member.name} />
             </div>
-            <p>{member.position}</p>
+            <h4>{member.position}</h4>
             <p>
               Email: <a href={`mailto:${member.mail}`}>{member.mail}</a>
             </p>
@@ -49,7 +50,10 @@ const Department = () => {
       <div className={styles.line}></div>
       <div className={styles.aboutBox}>
         <div className={styles.pic}>
-          <img src={`${path}/img/department01.jpg`} alt="bird" />
+          <>
+            {" "}
+            <img src={`${path}/img/department01.jpg`} alt="bird" />
+          </>
         </div>
         <div className={styles.text}>
           <h3>Philosophy</h3>
