@@ -13,6 +13,8 @@ const Gallery = () => {
   const [activeUrl, setActiveUrl] = useState("");
   const [open, setOpen] = useState(false);
 
+  let count = 0;
+
   const frame = useRef(null);
   const search = useRef(null);
   const btnSet = useRef(null);
@@ -49,7 +51,6 @@ const Gallery = () => {
     }
     setPics(json.photos.photo);
 
-    let count = 0;
     const imgs = frame.current?.querySelectorAll("img");
 
     imgs.forEach((img, idx) => {
