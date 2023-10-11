@@ -11,7 +11,7 @@ const Gallery = () => {
   const [fix, setFix] = useState(false);
   const [isUser, setIsUser] = useState(true);
   const [activeUrl, setActiveUrl] = useState("");
-  const [open, setOpen] = useState(false);
+  const [isModal, setIsModal] = useState(false);
 
   let count = 0;
 
@@ -158,7 +158,7 @@ const Gallery = () => {
                     alt={`https://live.staticflickr.com/${item.server}/${item.id}_${item.secret}_b.jpg`}
                     onClick={(e) => {
                       setActiveUrl(e.target.getAttribute("alt"));
-                      setOpen(true);
+                      setIsModal(true);
                     }}
                   />
                   <h2>{item.title}</h2>
@@ -185,8 +185,8 @@ const Gallery = () => {
         </div>
       </Layout>
 
-      {open && (
-        <Modal setIsModal={setOpen}>
+      {isModal && (
+        <Modal setIsModal={setIsModal}>
           <img src={activeUrl} alt="img" />
         </Modal>
       )}
