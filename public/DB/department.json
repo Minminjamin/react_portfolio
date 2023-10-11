@@ -1,10 +1,46 @@
 {
   "members": [
-    { "name": "David", "position": "President", "pic": "pic1.jpg" },
-    { "name": "Micheal", "position": "Vice President", "pic": "pic2.jpg" },
-    { "name": "Dazy", "position": "Front-End Developer", "pic": "pic3.jpg" },
-    { "name": "Harry", "position": "Back-End Developer", "pic": "pic4.jpg" },
-    { "name": "Heny", "position": "FullStack Developer", "pic": "pic5.jpg" },
-    { "name": "Maria", "position": "PM", "pic": "pic6.jpg" }
+    {
+      "name": "David",
+      "position": "President",
+      "pic": "pic1.jpg",
+      "mail": "david01@facker.com",
+      "phone": "011-1234-5678"
+    },
+    {
+      "name": "Micheal",
+      "position": "Vice President",
+      "pic": "pic2.jpg",
+      "mail": "moonwalk@facker.com",
+      "phone": "011-2345-6789"
+    },
+    {
+      "name": "Dazy",
+      "position": "Front-End Developer",
+      "pic": "pic3.jpg",
+      "mail": "floor0212@facker.com",
+      "phone": "011-3456-7890"
+    },
+    {
+      "name": "Harry",
+      "position": "Back-End Developer",
+      "pic": "pic4.jpg",
+      "mail": "potter1031@facker.com",
+      "phone": "011-4567-8910"
+    },
+    {
+      "name": "Heny",
+      "position": "FullStack Developer",
+      "pic": "pic5.jpg",
+      "mail": "prince@facker.com",
+      "phone": "011-4567-91011"
+    },
+    {
+      "name": "Maria",
+      "position": "PM",
+      "pic": "pic6.jpg",
+      "mail": "maria120312@facker.com",
+      "phone": "011-5678-9101"
+    }
   ]
 }

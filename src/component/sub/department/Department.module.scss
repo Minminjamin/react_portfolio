@@ -8,148 +8,145 @@
     font-size: 2rem;
   }
 
-  .historyBox {
-    margin: 150px 0px;
-    position: relative;
-
-    &::after {
-      content: "";
-      display: block;
-      clear: both;
-    }
-    &::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 1px;
-      height: 100%;
-      background: #555;
-    }
-
-    article {
-      width: 50%;
-      // opacity: 0;
-      // animation: fadeIn 0.3s ease-in-out;
-      // justify-content: center;
-      position: relative;
-
-      // background: pink;
-      margin-bottom: 50px;
-      // overflow: hidden;
-
-      .inner {
-        padding: 30px 0px;
-        width: 90%;
-
-        h3,
-        li {
-          // width: calc(50% - 1%);
-          text-align: right;
-        }
-      }
-      &:nth-child(odd) {
-        float: left;
-        &::after {
-          content: "";
-          display: block;
-          width: 11px;
-          height: 11px;
-          border-radius: 50%;
-          background: #333;
-          position: absolute;
-          right: 0;
-          top: 50%;
-          margin-top: -5px;
-          margin-right: -5px;
-        }
-      }
-
-      &:nth-child(even) {
-        &::after {
-          content: "";
-          display: block;
-          width: 11px;
-          height: 11px;
-          border-radius: 50%;
-          background: #333;
-          position: absolute;
-          left: 0;
-          top: 50%;
-          margin-top: -5px;
-          margin-left: -6px;
-        }
-        float: right;
-        transform: translateY(50%);
-        display: flex;
-        justify-content: flex-end;
-
-        h3,
-        li {
-          text-align: left;
-        }
-      }
-    }
+  .line {
+    width: 100%;
+    margin: 10px 0px;
+    border: solid 0.5px gray;
   }
 
   .memberBox {
-    padding: 50px 0px;
-    // width: 100%;
+    width: 100%;
     display: flex;
-    // flex-wrap: wrap;
-    // justify-content: space-between;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 30px;
 
     article {
-      width: 45%;
-      flex: 1;
-      position: relative;
+      width: 30%;
+      margin-bottom: 50px;
 
       .pic {
-        width: 80%;
+        width: 100%;
         height: 30vw;
+        overflow: hidden;
 
         img {
           width: 100%;
           height: 100%;
           object-fit: cover;
-          filter: grayscale(1);
-          transition: filter 0.3s ease, transform 0.3s ease;
 
           &:hover {
-            filter: grayscale(0);
-            transform: scale(1.1);
+            scale: 1.1;
+          }
+        }
+      }
 
-            .imgInnerText {
-              transition: 0.3s;
+      p {
+        display: block;
+        margin-top: 5px;
+        font: 1rem/1 "arial";
+        overflow: hidden;
+        color: #585858;
+
+        &:nth-of-type(1) {
+          margin-top: 10px;
+          font-size: 1.2rem;
+        }
+
+        &:nth-of-type(2) {
+          a {
+            &:hover {
+              color: #995454;
             }
           }
         }
-        &:hover .imgInnerText {
-          animation: fadeIn 0.2s ease-in-out;
-          // transition: bottom 0.3s ease-in-out;
-          opacity: 1;
-        }
-        .imgInnerText {
-          color: #fff;
-          opacity: 0;
-          width: 80%;
-          // background: rgba(0, 0, 0, 0.7);
-          overflow: hidden;
-          position: absolute;
-          text-align: center;
-          bottom: 5%;
-          z-index: 1;
-
-          transition: top 0.3s ease-in-out;
-        }
-      }
-
-      .text {
-        width: 80%;
-        font: 1.1rem/1 "bold";
       }
     }
+  }
+
+  .aboutBox {
+    margin-top: 30px;
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    margin-top: 30px;
+    gap: 2vw;
+    // justify-content: space-between;
+    .pic {
+      width: 50vw;
+      // height: 40vw;
+      // width: 30vw;
+
+      img {
+        width: 100%;
+        height: 100%;
+        filter: grayscale(1);
+
+        &:hover {
+          filter: grayscale(0);
+        }
+        // object-fit: contain;
+      }
+    }
+
+    .text {
+      width: 25vw;
+      // display: flex;
+      // flex-wrap: wrap;
+      // align-content: space-between;
+
+      h4 {
+        margin: 20px 0px;
+        padding-left: 20%;
+        padding-right: 5%;
+
+        font-style: "arial";
+        text-indent: 0.5vw;
+        font-size: 1.35rem;
+        color: brown;
+      }
+
+      p {
+        text-indent: 0.25vw;
+        font: 1.1rem bold;
+      }
+      // .innerText {
+      //   margin: 30px 0px;
+      //   // width: 70%;
+      //   display: flex;
+      //   justify-content: center;
+      //   padding: 5%;
+      //   h4 {
+      //     // width: 70%;
+      //     text-align: center;
+      //     text-indent: 0.5vw;
+      //     word-break: break-all;
+      //   }
+      // }
+      // h4 {
+      //   margin-top: 24px;
+      //   text-align: right;
+      //   // width: 70%;
+      //   right: 0;
+      // }
+      // p {
+      //   display: block;
+      // }
+    }
+    // .pic {
+    //   width: 60%;
+    //   height: 30vh;
+    //   // background: #000;
+    //   img {
+    //     width: 100%;
+    //     height: 100%;
+    //     object-fit: contain;
+    //   }
+    // }
+
+    // .text {
+    //   width: 40vw;
+    // }
   }
 }
 
