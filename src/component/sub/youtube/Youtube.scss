@@ -18,20 +18,48 @@
       }
     }
 
-    .innerText {
+    .info {
       width: 60vw;
       padding: 1.5%;
+      padding-bottom: 0%;
       display: flex;
       flex-wrap: wrap;
+      align-content: space-between;
+      // flex-direction: column;
+      .innerTopText {
+        p {
+          font-weight: bold;
+          margin-top: 3px;
+        }
+      }
 
       p {
         color: gray;
       }
+
       .date {
-        // align-self: flex-end;
-        display: inline-flex;
-        text-align: right;
-        color: rgb(151, 151, 151);
+        font-weight: bold;
+        color: rgb(202, 134, 134);
+        // display: block;
+        width: 100%;
+      }
+
+      .btnSet {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        // border: solid 1px red;
+        button {
+          padding: 1%;
+          border-color: #d5d5d5;
+          border-right-color: #d5d5d5;
+          border-bottom: none;
+
+          &:hover {
+            background: #d5d5d5;
+            color: white;
+          }
+        }
       }
     }
     margin-bottom: 30px;

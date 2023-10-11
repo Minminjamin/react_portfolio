@@ -59,13 +59,28 @@ const Youtube = () => {
                 />
               </div>
 
-              <div className="innerText">
-                <h2>{sliceTxt(data.snippet.title, 60)}</h2>
-                <p>{data.snippet.videoOwnerChannelTitle}</p>
-                <p>{sliceTxt(data.snippet.description, 200)}</p>
-                <p> {date.split("T")[0].split("-").join(".")}</p>
+              <div className="info">
+                <div className="innerTopText">
+                  <h2>{sliceTxt(data.snippet.title, 60)}</h2>
+                  <p>{data.snippet.videoOwnerChannelTitle}</p>
+                </div>
 
-                <button>View Mote</button>
+                <p>{sliceTxt(data.snippet.description, 200)}</p>
+                <p className="date">
+                  {date.split("T")[0].split("-").join(".")}
+                </p>
+
+                <div className="btnSet">
+                  <button
+                    onClick={() => {
+                      setIsModal(true);
+                      setIndex(idx);
+                    }}
+                  >
+                    View More
+                  </button>
+                </div>
+
                 {/* <div>
                   <h2>{sliceTxt(data.snippet.title, 60)}</h2>
                   <p>{data.snippet.videoOwnerChannelTitle}</p>
