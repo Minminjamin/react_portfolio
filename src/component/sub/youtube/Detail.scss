@@ -1,15 +1,15 @@
 .Detail {
   //   background: #000;
-  .content {
-    .vidBox {
+  // .content {
+  .vidBox {
+    width: 100%;
+    height: 60vh;
+    background: #000;
+    iframe {
       width: 100%;
-      height: 60vh;
-      background: #000;
-      iframe {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
+      height: 100%;
+      object-fit: cover;
     }
   }
+  // }
 }

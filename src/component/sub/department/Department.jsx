@@ -39,9 +39,11 @@ const Department = () => {
             </div>
             <h4>{member.position}</h4>
             <p>
-              Email: <a href={`mailto:${member.mail}`}>{member.mail}</a>
+              <b>Email:</b> <a href={`mailto:${member.mail}`}>{member.mail}</a>
             </p>
-            <p>Phone : {member.phone}</p>
+            <p>
+              <b>Phone :</b> {member.phone}
+            </p>
           </article>
         ))}
       </div>

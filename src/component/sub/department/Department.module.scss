@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap");
+
 .department {
   figure {
     background-color: lightblue;
@@ -6,8 +8,15 @@
 
   h2 {
     font-size: 2rem;
+    font-family: "Nanum Myeongjo";
   }
-
+  h3,
+  h4 {
+    font-family: "Nanum Myeongjo";
+  }
+  p {
+    font-size: 1.1rem;
+  }
   .line {
     width: 100%;
     margin: 10px 0px;
@@ -114,6 +123,10 @@
       p {
         text-indent: 0.25vw;
         font: 1.1rem bold;
+      }
+
+      b {
+        font-weight: lighter;
       }
       // .innerText {
       //   margin: 30px 0px;

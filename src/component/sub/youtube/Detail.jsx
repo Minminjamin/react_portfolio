@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Layout from "../../common/layout/Layout";
+import "../youtube/Detail.scss";
 
 const Detail = () => {
   const { id } = useParams();
