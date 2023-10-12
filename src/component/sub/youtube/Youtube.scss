@@ -4,7 +4,11 @@
     display: flex;
     height: auto;
     border: solid 2px #d5d5d5;
+    background: white;
 
+    &:hover {
+      box-shadow: 1px 1px 20px #ddd;
+    }
     .pic {
       width: 40vw;
 
@@ -51,8 +55,10 @@
         // border: solid 1px red;
         button {
           padding: 1%;
-          border-color: #d5d5d5;
-          border-right-color: #d5d5d5;
+          background: white;
+          border-color: gray;
+          // border-color: #d5d5d5;
+          // border-right-color: #d5d5d5;
           border-bottom: none;
 
           &:hover {
