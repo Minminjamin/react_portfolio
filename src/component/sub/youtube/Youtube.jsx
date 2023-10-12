@@ -21,6 +21,7 @@ const Youtube = () => {
 
     setYoutube(json.items);
   };
+
   useEffect(() => {
     fetchYoutube();
   }, []);
@@ -49,7 +50,7 @@ const Youtube = () => {
           return (
             <article key={idx}>
               <div className="pic">
-                <Link to={`/detail/${data.snippet.resourceId.videoId}`}>
+                <Link to={`/detail/${data.id}`}>
                   <img
                     src={data.snippet.thumbnails.standard.url}
                     alt={data.title}
@@ -72,31 +73,11 @@ const Youtube = () => {
                 <div className="btnSet">
                   <button>View More</button>
                 </div>
-
-                {/* <div>
-                  <h2>{sliceTxt(data.snippet.title, 60)}</h2>
-                  <p>{data.snippet.videoOwnerChannelTitle}</p>
-                </div>
-                <p>{sliceTxt(data.snippet.description, 200)}</p>
-                <p className="date">
-                  {date.split("T")[0].split("-").join(".")}
-                </p>
-                <div className="channel">
-                  <span> View More</span>
-                </div> */}
               </div>
             </article>
           );
         })}
       </Layout>
-      {/* {isModal && (
-        <Modal setIsModal={setIsModal}>
-          <iframe
-            src={`https://www.youtube.com/embed/${youtube[index].snippet.resourceId.videoId}`}
-            title="youtube"
-          ></iframe>
-        </Modal>
-      )} */}
     </>
   );
 };
