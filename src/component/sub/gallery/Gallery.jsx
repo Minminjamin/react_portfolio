@@ -101,15 +101,25 @@ const Gallery = () => {
   return (
     <>
       <Layout title={"Gallery"}>
-        <div className="searchBox">
-          <form onSubmit={onHanldeSubmit}>
-            <input
-              ref={search}
-              type="text"
-              placeholder="검색어를 입력하세요."
-            />
-            <button>검색</button>
-          </form>
+        <div className="topBox">
+          <div className="title">
+            <h2>
+              Lorem ipsum <b>dolor sit</b> amet.
+            </h2>
+            <p>@INSTARGRAM</p>
+          </div>
+
+          <div className="searchBox">
+            <label>🔎 SEARCH IMAGE</label>
+            <form onSubmit={onHanldeSubmit}>
+              <input
+                ref={search}
+                type="text"
+                placeholder="검색어를 입력하세요."
+              />
+              <button>검색</button>
+            </form>
+          </div>
         </div>
 
         <div className="btnSet" ref={btnSet}>
@@ -124,7 +134,8 @@ const Gallery = () => {
             elementType={"div"}
             options={{ transitionDuration: "0.5s" }}
             disableImagesLoaded={false}
-            updateOnEachImageLoad={false} // default false and works only if disableImagesLoaded is false
+            updateOnEachImageLoad={false}
+            className="mesonry" // default false and works only if disableImagesLoaded is false
           >
             {pics.map((item, index) => (
               <article key={index}>
@@ -138,7 +149,7 @@ const Gallery = () => {
                       setIsModal(true);
                     }}
                   />
-                  <h2>{item.title}</h2>
+                  {/* <h2>{item.title}</h2> */}
 
                   <div className="profile">
                     <img
