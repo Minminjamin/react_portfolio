@@ -16,6 +16,7 @@ const Gallery = () => {
 
   const myId = "199348831@N08";
 
+  //처음 마운트 데이터 호출 함수
   const fetchData = async (opt) => {
     // btns.forEach((btn) => btn.classList.remove("on"));
 
@@ -39,12 +40,13 @@ const Gallery = () => {
     const data = await fetch(url);
     const json = await data.json();
 
-    if (json.photos.photo.length === 0) {
+    if (json.photos.photo?.length === 0) {
       return alert("결과값이 없습니다.");
     }
     setPics(json.photos?.photo);
   };
 
+  //submit이벤트 발생시 실행할 함수
   const onHanldeSubmit = (e) => {
     e.preventDefault();
     setIsUser(false);
@@ -59,6 +61,7 @@ const Gallery = () => {
     search.current.value = "";
   };
 
+  //myGallery 클릭 이벤트 발생시 실행할 함수
   const onHanldeClickMy = (e) => {
     setIsUser(true);
     if (e.target.classList.contains("on")) return;
@@ -68,6 +71,7 @@ const Gallery = () => {
     fetchData({ type: "user", id: myId });
   };
 
+  //Interest Gallery 클릭 이벤트 발생시 실행할 함수
   const onHandleClickInterset = (e) => {
     setIsUser(false);
     if (e.target.classList.contains("on")) return;
@@ -78,6 +82,7 @@ const Gallery = () => {
     fetchData({ type: "interest" });
   };
 
+  //profile 아이디 클릭시 실행할 함수
   const onHanldeProfile = (e) => {
     if (isUser) return;
 
@@ -85,6 +90,7 @@ const Gallery = () => {
     fetchData({ type: "user", id: e.owner });
     setIsUser(true);
   };
+
   useEffect(() => {
     console.log(fetchData({ type: "user", id: myId }));
     // fetchData({ type: "search", tags: "landscape" });
@@ -166,3 +172,10 @@ const Gallery = () => {
 };
 
 export default Gallery;
+
+/*
+  클릭한 버튼을 또 클릭했을 때 같은 데이터를 불필요하게 또다시 fetching 요청하지 않도록 클릭한 버튼에 on이 붙어있을 때 함수 호출을 강제 중지
+
+  현재 출력되는 갤러리 방식이 user type 갤러리 일 때 같은 사용자의 갤러리가 보이는 형태이므로 사용자 아이디를 클릭하게되면 같은 데이터 요청을 보내게 됨
+  --사용자 타입의 갤러리를 호출할 때마다 IsUser state 값을 true로 변경해서 이벤트가 발생할 때마다 IsUser 값이 ture 사용자 아이디 클릭 이벤트 핸들러 제거
+*/
