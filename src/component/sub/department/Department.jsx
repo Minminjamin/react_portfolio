@@ -33,7 +33,7 @@ const Department = () => {
         {department.map((member, index) => (
           <article key={index}>
             <h3>{member.name}</h3>
-            <div className={styles.line}></div>
+            {/* <div className={styles.line}></div> */}
             <div className={styles.pic}>
               <img src={`${path}/img/${member.pic}`} alt={member.name} />
             </div>
