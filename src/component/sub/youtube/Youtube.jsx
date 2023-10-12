@@ -3,6 +3,7 @@ import clsx from "clsx";
 import "./Youtube.scss";
 import Layout from "../../common/layout/Layout";
 import { useState, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 
 const Youtube = () => {
   const [youtube, setYoutube] = useState([]);
@@ -48,11 +49,13 @@ const Youtube = () => {
           return (
             <article key={idx}>
               <div className="pic">
-                <img
-                  src={data.snippet.thumbnails.standard.url}
-                  alt={data.title}
-                  // onClick={() => setIndex(idx)}
-                />
+                <Link to={`/detail/${data.snippet.resourceId.videoId}`}>
+                  <img
+                    src={data.snippet.thumbnails.standard.url}
+                    alt={data.title}
+                    // onClick={() => setIndex(idx)}
+                  />
+                </Link>
               </div>
 
               <div className="info">
