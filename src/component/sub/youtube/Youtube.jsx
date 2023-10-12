@@ -3,13 +3,9 @@ import clsx from "clsx";
 import "./Youtube.scss";
 import Layout from "../../common/layout/Layout";
 import { useState, useEffect, useRef } from "react";
-import Modal from "../../common/modal/Modal";
 
 const Youtube = () => {
   const [youtube, setYoutube] = useState([]);
-  const [isModal, setIsModal] = useState(false);
-  const [index, setIndex] = useState();
-
   const refEl = useRef(null);
 
   const fetchYoutube = async () => {
@@ -51,11 +47,11 @@ const Youtube = () => {
           let date = data.snippet.publishedAt;
           return (
             <article key={idx}>
-              <div className="pic" onClick={() => setIsModal(true)}>
+              <div className="pic">
                 <img
                   src={data.snippet.thumbnails.standard.url}
                   alt={data.title}
-                  onClick={() => setIndex(idx)}
+                  // onClick={() => setIndex(idx)}
                 />
               </div>
 
@@ -71,14 +67,7 @@ const Youtube = () => {
                 </p>
 
                 <div className="btnSet">
-                  <button
-                    onClick={() => {
-                      setIsModal(true);
-                      setIndex(idx);
-                    }}
-                  >
-                    View More
-                  </button>
+                  <button>View More</button>
                 </div>
 
                 {/* <div>
@@ -97,14 +86,14 @@ const Youtube = () => {
           );
         })}
       </Layout>
-      {isModal && (
+      {/* {isModal && (
         <Modal setIsModal={setIsModal}>
           <iframe
             src={`https://www.youtube.com/embed/${youtube[index].snippet.resourceId.videoId}`}
             title="youtube"
           ></iframe>
         </Modal>
-      )}
+      )} */}
     </>
   );
 };
