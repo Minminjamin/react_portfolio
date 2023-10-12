@@ -18,13 +18,15 @@ const Detail = () => {
   }, []);
 
   return (
-    <Layout title={"Youtube Detail"}>
+    <Layout title={"Detail"}>
       <h2>{youtube?.title}</h2>
-      <iframe
-        src={`https://www.youtube.com/embed/${youtube?.resourceId.videoId}`}
-        title="youtube"
-      ></iframe>
-      <p>{youtube?.description}</p>
+      <p>{youtube?.description}</p>{" "}
+      <div className="vidBox">
+        <iframe
+          src={`https://www.youtube.com/embed/${youtube?.resourceId.videoId}`}
+          title="youtube"
+        ></iframe>
+      </div>
     </Layout>
   );
 };
