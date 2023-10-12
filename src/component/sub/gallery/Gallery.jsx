@@ -7,15 +7,10 @@ import Modal from "../../common/modal/Modal";
 
 const Gallery = () => {
   const [pics, setPics] = useState([]);
-  const [loader, setLoader] = useState(true);
-  const [fix, setFix] = useState(false);
   const [isUser, setIsUser] = useState(true);
   const [activeUrl, setActiveUrl] = useState("");
   const [isModal, setIsModal] = useState(false);
 
-  let count = 0;
-
-  const frame = useRef(null);
   const search = useRef(null);
   const btnSet = useRef(null);
 
@@ -23,8 +18,6 @@ const Gallery = () => {
 
   const fetchData = async (opt) => {
     // btns.forEach((btn) => btn.classList.remove("on"));
-    setLoader(true);
-    frame.current.classList.remove("on");
 
     let url = "";
     const api_key = process.env.REACT_APP_FLICKR_API_KEY;
@@ -49,22 +42,7 @@ const Gallery = () => {
     if (json.photos.photo.length === 0) {
       return alert("결과값이 없습니다.");
     }
-    setPics(json.photos.photo);
-
-    const imgs = frame.current?.querySelectorAll("img");
-
-    imgs.forEach((img, idx) => {
-      img.onload = () => {
-        ++count;
-        console.log("현재 로딩된 img갯수", count);
-
-        if (count === (fix ? imgs.length / 2 - 1 : imgs.length - 2)) {
-          console.log("모든 이미지 렌더링 완료");
-          setLoader(false);
-          frame.current.classList.add("on");
-        }
-      };
-    });
+    setPics(json.photos?.photo);
   };
 
   const onHanldeSubmit = (e) => {
@@ -135,14 +113,7 @@ const Gallery = () => {
           <button onClick={onHandleClickInterset}>interest 갤러리</button>
         </div>
 
-        {loader && (
-          <img
-            className="loading"
-            src={`${process.env.PUBLIC_URL}/img/loading.gif`}
-            alt="loading"
-          />
-        )}
-        <div className="picFrame" ref={frame}>
+        <div className="picFrame">
           <Masonry
             elementType={"div"}
             options={{ transitionDuration: "0.5s" }}
@@ -169,7 +140,7 @@ const Gallery = () => {
                       alt={item.owner}
                       onError={(e) => {
                         console.log(e.target);
-                        setFix(true);
+
                         e.target.setAttribute(
                           "src",
                           "https://www.flickr.com/images/buddyicon.gif"
