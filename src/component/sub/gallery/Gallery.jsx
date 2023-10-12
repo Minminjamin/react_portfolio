@@ -5,6 +5,8 @@ import { useState, useEffect, useRef } from "react";
 import Masonry from "react-masonry-component";
 import Modal from "../../common/modal/Modal";
 
+const path = process.env.PUBLIC_URL;
+
 const Gallery = () => {
   const [pics, setPics] = useState([]);
   const [isUser, setIsUser] = useState(true);
@@ -140,15 +142,25 @@ const Gallery = () => {
             {pics.map((item, index) => (
               <article key={index}>
                 <div className="inner">
-                  <img
-                    className="pic"
-                    src={`https://live.staticflickr.com/${item.server}/${item.id}_${item.secret}_m.jpg`}
-                    alt={`https://live.staticflickr.com/${item.server}/${item.id}_${item.secret}_b.jpg`}
-                    onClick={(e) => {
-                      setActiveUrl(e.target.getAttribute("alt"));
-                      setIsModal(true);
-                    }}
-                  />
+                  <div className="pic">
+                    <img
+                      src={`https://live.staticflickr.com/${item.server}/${item.id}_${item.secret}_m.jpg`}
+                      alt={`https://live.staticflickr.com/${item.server}/${item.id}_${item.secret}_b.jpg`}
+                      className="galleryImg"
+                    />
+                    <img
+                      src={`${path}/img/search.png`}
+                      alt="detail"
+                      className="search"
+                      onClick={(e) => {
+                        setActiveUrl(
+                          `https://live.staticflickr.com/${item.server}/${item.id}_${item.secret}_b.jpg`
+                        );
+                        setIsModal(true);
+                      }}
+                    />
+                  </div>
+
                   {/* <h2>{item.title}</h2> */}
 
                   <div className="profile">
