@@ -79,6 +79,10 @@ const Contact = () => {
     );
 
     // 지도 생성 시 마커 고정적으로 적용되기에 브라우저 리사이즈시 마커가 가운데 위치하지 않는 문제
+    // 마커를 가운데 고정하는 함수를 제작한 뒤 우니도우 객체 직접 resize 이벤트 발생시마다 핸들러함수 호출해서 마커 위치 보정
+
+    // contact 페이지에만 동작되야 되는 핸들러 함수를 최상위 객체인 window에 직접 연결했기에 라우터로 다른 페이지 이동하더라도 계속해서 setCenter 호출되는 문제점 방법
+    // 해결 : Contact 컴포넌트가 언마툰트시 강제로 윈도우 객체에서 setCenter 함수 제거
     window.addEventListener("resize", setCenter);
 
     // 로드뷰 관련 코드
@@ -92,6 +96,10 @@ const Contact = () => {
         ); //panoId와 중심좌표를 통해 로드뷰 실행
       }
     );
+
+    return () => {
+      window.removeEventListener("resize", setCenter);
+    };
   }, [index]); // //Index값이 변경될때마다 지도화면이 다시 갱신되어야 하므로 Index값을 의존성 배열에 등록ㄴ
 
   const resetForm = () => {
