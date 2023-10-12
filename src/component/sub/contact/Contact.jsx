@@ -13,8 +13,12 @@ const Contact = () => {
   const [index, setIndex] = useState(0);
   const [isMap, setIsMap] = useState(true);
 
+  // kakao API를 cdn 방식으로 불러오고 있기에 React 컴포넌트가 실행되면 window 객체에서 직접 비구조화 활당으로 kakako 객체를 뽑아옴
   const { kakao } = window;
 
+  //  지도 정보 데이터를 객체 형식으로 구조화한 다음에 데이터 기반으로 자동 지도화면이 생성되도록 만듬
+  // 데이터 정보가 많아질 때를 대비해 유지보수에 최적화 되도록 코드 개선
+  //  이 정보값은 자주 정보값이 자주 바뀌지 않기에 굳이 state에 담아서 불필요한 제렌더링을 막기 위해서 ref에 담음
   const info = useRef([
     {
       title: "경남로봇고등학교",
