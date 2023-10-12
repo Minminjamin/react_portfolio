@@ -32,7 +32,12 @@
       align-content: space-between;
       // flex-direction: column;
       .innerTopText {
+        h2 {
+          display: block;
+          // width: 100%;
+        }
         p {
+          display: block;
           font-weight: bold;
           margin-top: 3px;
         }
