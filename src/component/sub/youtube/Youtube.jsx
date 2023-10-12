@@ -12,8 +12,8 @@ const Youtube = () => {
   const fetchYoutube = async () => {
     const api_key = process.env.REACT_APP_GOOGLE_API_KEY;
     const baseURL = "https://www.googleapis.com/youtube/v3/playlistItems";
-    const pid = "PLHtvRFLN5v-W5bQjvyH8QTdQQhgflJ3nu";
-    const index = 5;
+    const pid = "PLNXichiUWg4Ax7wNBYcC4rw16mS6MTind";
+    const index = 8;
     const resultURL = `${baseURL}?key=${api_key}&part=snippet&playlistId=${pid}&maxResults=${index}`;
 
     const res = await fetch(resultURL);
