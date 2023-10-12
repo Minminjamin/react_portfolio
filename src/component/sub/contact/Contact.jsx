@@ -16,30 +16,41 @@ const Contact = () => {
   // kakao API를 cdn 방식으로 불러오고 있기에 React 컴포넌트가 실행되면 window 객체에서 직접 비구조화 활당으로 kakako 객체를 뽑아옴
   const { kakao } = window;
 
+  const path = process.env.PUBLIC_URL;
+
   //  지도 정보 데이터를 객체 형식으로 구조화한 다음에 데이터 기반으로 자동 지도화면이 생성되도록 만듬
   // 데이터 정보가 많아질 때를 대비해 유지보수에 최적화 되도록 코드 개선
   //  이 정보값은 자주 정보값이 자주 바뀌지 않기에 굳이 state에 담아서 불필요한 제렌더링을 막기 위해서 ref에 담음
   const info = useRef([
     {
-      title: "경남로봇고등학교",
-      latlng: new kakao.maps.LatLng(35.34831491821686, 128.43883312404466),
+      pic: "park.png",
+      title: "망원한강공원",
+      latlng: new kakao.maps.LatLng(37.555552791692904, 126.89473732590281),
       imgSrc: `${process.env.PUBLIC_URL}/img/marker1.png`,
       imgSize: new kakao.maps.Size(232, 99),
       imgPos: { offset: new kakao.maps.Point(116, 99) },
+      address: "서울특별시 마포구 망원제1동 마포나루길 467",
+      description: "맑은 강",
     },
     {
-      title: "에이블런",
+      pic: "office.png",
+      title: "DMC 첨단산업센터",
       latlng: new kakao.maps.LatLng(37.585, 126.8854),
       imgSrc: `${process.env.PUBLIC_URL}/img/marker2.png`,
       imgSize: new kakao.maps.Size(232, 99),
       imgPos: { offset: new kakao.maps.Point(116, 99) },
+      address: "서울특별시 마포구 상암동 성암로 330",
+      description: "마포구에 있는 회사",
     },
     {
+      pic: "city.png",
       title: "김해 시청",
       latlng: new kakao.maps.LatLng(35.22859521186741, 128.88929749274934),
       imgSrc: `${process.env.PUBLIC_URL}/img/marker3.png`,
       imgSize: new kakao.maps.Size(232, 99),
       imgPos: { offset: new kakao.maps.Point(116, 99) },
+      address: "경상남도 김해시 김해대로 2401",
+      description: "살아있는 문화재, 가야왕도 김해",
     },
   ]);
 
@@ -151,38 +162,70 @@ const Contact = () => {
 
   return (
     <Layout title={"Contact"} styleName={styles.contact}>
-      <h2>Contact Me</h2>
       <div className="contactMe">
+        <div className="info">
+          <p>Contact Me</p>
+          <h2>Get in Touch</h2>
+          <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Excepturi
+            molestiae ea non numquam!
+          </p>
+          <p>
+            <b>CALL ME ABOUT</b>
+          </p>
+          <h3>(011)-1234-5678</h3>
+        </div>
         <form ref={form} onSubmit={sendEmail}>
-          <div className="upper">
-            <label>Name</label>
-            <input type="text" name="user_name" className="nameEl" />
-            <label>Email</label>
-            <input type="email" name="user_email" className="emailEl" />
-          </div>
-          <div className="lower">
-            <label>Message</label>
-            <textarea name="message" className="msgEl" />
-          </div>
+          <input
+            type="text"
+            name="user_name"
+            className="nameEl"
+            placeholder="Name"
+          />
+          <input
+            type="email"
+            name="user_email"
+            className="emailEl"
+            placeholder="Email"
+          />
+          <textarea name="message" className="msgEl" placeholder="Message" />
+
           <div className="btnSet">
             <input type="reset" value="Cancel" />
             <input type="submit" value="Send" />
           </div>
         </form>
-
-        <div className="contactInfo">
-          <span>Phone</span>
-          <span>010-1234-5678</span>
-          <span>Email</span>
-          <span>0429el@gmail.com</span>
-          <span>School Address</span>
-          <span>경상남도 함안군 대산면 대산중앙로 102-2 (평림리)</span>
-        </div>
       </div>
 
       {/* 데이터 기반으로 자동 버튼 생성 및 자동 이벤트 연결 처리 */}
       <div className="mapBox">
-        <div className="upperBtn">
+        <div className="mapInfo">
+          {info.current.map((data, idx) => (
+            <article
+              key={idx}
+              onClick={() => {
+                setIndex(idx);
+                setIsMap(true);
+              }}
+              className={index === idx ? "on" : ""}
+            >
+              <div className="pic">
+                <img src={`${path}/img/${data.pic}`} alt={data.title} />
+              </div>
+
+              <h4>{data.title}</h4>
+              <p>{data.address}</p>
+              <p>
+                <b>{data.description}</b>
+              </p>
+            </article>
+          ))}
+        </div>
+        <div className="container">
+          <div className={`view ${isMap ? " " : "on"}`} ref={view}></div>
+          <div className={`map ${isMap ? "on" : " "}`} ref={map}></div>
+        </div>
+        <div className="downBtn">
           <button
             onClick={() => {
               setTraffic(!traffic);
@@ -195,25 +238,6 @@ const Contact = () => {
             {isMap ? "로드뷰보기" : "지도보기"}
           </button>
         </div>
-
-        <div className="container">
-          <div className={`view ${isMap ? " " : "on"}`} ref={view}></div>
-          <div className={`map ${isMap ? "on" : " "}`} ref={map}></div>
-        </div>
-        <ul>
-          {info.current.map((data, idx) => (
-            <li
-              key={idx}
-              onClick={() => {
-                setIndex(idx);
-                setIsMap(true);
-              }}
-              className={index === idx ? "on" : ""}
-            >
-              {data.title}
-            </li>
-          ))}
-        </ul>
       </div>
     </Layout>
   );

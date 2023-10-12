@@ -1,86 +1,67 @@
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&family=Noto+Sans+KR:wght@600;700&display=swap");
 .Contact {
   figure {
     background: orange;
   }
+
   .contactMe {
     display: flex;
-
-    form {
-      width: 70vw;
-      margin-bottom: 100px;
-
-      .upper {
-        width: 100%;
-        display: flex;
-        margin-bottom: 50px;
-        justify-content: space-between;
-        label {
-          font: bold 1rem/1 "arial";
-          color: #555;
-          margin-right: 20px;
-          position: relative;
-          top: 20px;
+    justify-content: space-between;
+    .info {
+      width: 48%;
+      p {
+        &:nth-of-type(1) {
+          font-size: 0.8rem;
+          color: gray;
         }
 
-        input {
-          background: none;
-        }
-
-        input[type="text"],
-        input[type="email"] {
-          border: none;
-          padding: 10px 20px;
-          border-bottom: 1px solid #555;
-          margin-right: 50px;
-          outline: none;
-          transition: 0.5s;
-
-          &.focus {
-            background: lightcyan;
-          }
+        &:nth-of-type(2),
+        &:nth-of-type(3) {
+          margin-top: 30px;
+          font-size: 0.9rem;
         }
       }
 
-      .lower {
+      h2 {
+        margin-top: 10px;
+        font: 2.2rem/1 "Noto Sans KR", sans-serif;
+        margin-right: 2.5vw;
+      }
+
+      h3 {
+        margin-top: 5px;
+      }
+    }
+
+    form {
+      // height: 20vw;
+      width: 49%;
+      background: #fff;
+      padding: 2%;
+      display: flex;
+      flex-wrap: wrap;
+      align-content: space-between; // 여백을 수직으로 분배
+
+      .nameEl,
+      .emailEl,
+      textarea {
         width: 100%;
-        margin-bottom: 10px;
-
-        label {
-          display: block;
-          margin-bottom: 5px;
-          font: bold 1rem/1 "arial";
-          color: #555;
-        }
-
-        textarea {
-          width: 100%;
-          padding: 10px;
-          border: none;
-          border-bottom: 1px solid #555;
-          margin-right: 50px;
-          resize: none;
-          outline: none;
-          transition: 0.5s;
-          background: none;
-
-          &.focus {
-            background: lightcyan;
-          }
-        }
+        background: #f0f0f0;
+        border: none;
+        padding: 2%;
       }
 
       .btnSet {
+        gap: 4px;
         display: flex;
-        justify-content: flex-end;
+        align-items: flex-end;
+        margin-left: auto; // btnSet을 오른쪽 끝으로 이동
 
         input {
-          margin: 0 1%;
-          border-radius: 5%;
           border: none;
-          // background: none;
           padding: 2%;
+          width: 6.5vw;
           color: white;
-
           &:nth-of-type(1) {
             background: #e6c201;
 
@@ -96,84 +77,119 @@
               background: #dba500;
             }
           }
-        }
-        // width: 10vw;
-      }
-    }
-
-    .contactInfo {
-      width: 30vw;
-      padding: 1%;
-      span {
-        display: block;
-
-        &:nth-child(odd) {
-          font: bold 1rem/1 "arial";
-          color: #555;
-          margin-right: 20px;
-          position: relative;
-          margin-top: 5px;
-          // top: 20px;
+          // align-items: flex-end;
+          // padding: 2%;
         }
       }
     }
   }
 
   .mapBox {
-    .upperBtn {
-      width: 30%;
+    margin-top: 100px;
+
+    .mapInfo {
       display: flex;
       justify-content: space-between;
-      button {
-        border: none;
-        padding: 2%;
+
+      article {
+        background: #fff;
+        width: 32%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
 
         &:hover {
-          background: #8f8f8f;
-          color: white;
+          cursor: pointer;
+          box-shadow: 1px 1px 20px #ddd;
+          .pic img {
+            scale: 1.1;
+          }
+        }
+        .pic {
+          width: 35%;
+          height: 35%;
+
+          img {
+            width: 100%;
+            height: 100%;
+          }
+        }
+
+        h4 {
+          margin-top: 15px;
+          font-size: 1.1rem;
+        }
+
+        p {
+          margin-top: 10px;
+          font-size: 0.8rem;
+          text-align: center;
+          &:nth-of-type(1) {
+            color: gray;
+          }
+          &:nth-of-type(2) {
+            color: brown;
+          }
         }
       }
+
+      article.on {
+        background: #f4f4f4;
+        color: hotpink;
+      }
     }
+
     .container {
       width: 100%;
       height: 60vh;
-      background: #111;
       position: relative;
-      margin-top: 10px;
+      margin-top: 30px;
 
       .map,
       .view {
         width: 100%;
         height: 100%;
-        background: #111;
         position: absolute;
-        top: 0;
-        left: 0px;
-        // display: none;
         opacity: 0;
         z-index: 1;
 
         &.on {
           opacity: 1;
           z-index: 2;
-          // display: block;
         }
-        // margin-bottom: 100px;
-      }
-    }
-
-    ul {
-      margin-top: 10px;
-      display: flex;
-      gap: 40px;
-
-      li {
-        cursor: pointer;
-      }
-
-      li.on {
-        color: hotpink;
       }
     }
   }
+  .downBtn {
+    margin-top: 10px;
+    width: 30%;
+    display: flex;
+    justify-content: space-between;
+    button {
+      border: none;
+      padding: 2%;
+
+      &:hover {
+        background: #8f8f8f;
+        color: white;
+      }
+    }
+  }
+  // .mapBox {
+
+  //   ul {
+  //     margin-top: 10px;
+  //     display: flex;
+  //     gap: 40px;
+
+  //     li {
+  //       cursor: pointer;
+  //     }
+
+  //     li.on {
+  //       color: hotpink;
+  //     }
+  //   }
+  // }
 }
