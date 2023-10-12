@@ -43,6 +43,7 @@ const Contact = () => {
     },
   ]);
 
+  // 위의 정보값을 활용한 마커 객체 생성
   const marker = new kakao.maps.Marker({
     position: info.current[index].latlng,
     image: new kakao.maps.MarkerImage(
@@ -52,26 +53,35 @@ const Contact = () => {
     ),
   });
 
+  // 지도 위치를 중심으로 이동시키는
+
   const setCenter = () => {
     instance.current.setCenter(info.current[index].latlng);
   };
 
   useEffect(() => {
+    //Index값이 변경될때마다 새로운 지도 레이어가 중첩되므로
+    //일단은 기존 map안의 모든 요소를 없애서 초기화
     map.current.innerHTML = "";
 
+    // 객체 정보를 활용한 지도 객체 생성
     instance.current = new kakao.maps.Map(map.current, {
       center: info.current[index].latlng,
       level: 1,
     });
     marker.setMap(instance.current);
+
+    // 지도 타입 변경 UI 추가
     const mapTypeControl = new kakao.maps.MapTypeControl();
     instance.current.addControl(
       mapTypeControl,
       kakao.maps.ControlPosition.BOTTOMLEFT
     );
 
+    // 지도 생성 시 마커 고정적으로 적용되기에 브라우저 리사이즈시 마커가 가운데 위치하지 않는 문제
     window.addEventListener("resize", setCenter);
 
+    // 로드뷰 관련 코드
     new kakao.maps.RoadviewClient().getNearestPanoId(
       info.current[index].latlng,
       50,
@@ -82,7 +92,7 @@ const Contact = () => {
         ); //panoId와 중심좌표를 통해 로드뷰 실행
       }
     );
-  }, [index]);
+  }, [index]); // //Index값이 변경될때마다 지도화면이 다시 갱신되어야 하므로 Index값을 의존성 배열에 등록ㄴ
 
   const resetForm = () => {
     const nameForm = form.current.querySelector(".nameEl");
@@ -125,6 +135,7 @@ const Contact = () => {
   };
 
   useEffect(() => {
+    // traffic 값이 바뀔 떄마다 실행
     traffic
       ? instance.current.addOverlayMapTypeId(kakao.maps.MapTypeId.TRAFFIC)
       : instance.current.removeOverlayMapTypeId(kakao.maps.MapTypeId.TRAFFIC);
@@ -160,9 +171,8 @@ const Contact = () => {
           <span>경상남도 함안군 대산면 대산중앙로 102-2 (평림리)</span>
         </div>
       </div>
-      {/* <div className="mailBox"> */}
 
-      {/* </div> */}
+      {/* 데이터 기반으로 자동 버튼 생성 및 자동 이벤트 연결 처리 */}
       <div className="mapBox">
         <div className="upperBtn">
           <button
