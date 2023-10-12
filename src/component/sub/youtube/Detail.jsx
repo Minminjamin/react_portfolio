@@ -20,14 +20,14 @@ const Detail = () => {
 
   return (
     <Layout title={"Detail"}>
-      <h2>{youtube?.title}</h2>
-      <p>{youtube?.description}</p>{" "}
       <div className="vidBox">
         <iframe
           src={`https://www.youtube.com/embed/${youtube?.resourceId.videoId}`}
           title="youtube"
         ></iframe>
       </div>
+      <h2>{youtube?.title}</h2>
+      <p>{youtube?.description}</p>{" "}
     </Layout>
   );
 };

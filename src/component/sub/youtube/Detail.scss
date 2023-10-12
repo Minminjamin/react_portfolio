@@ -3,13 +3,29 @@
   // .content {
   .vidBox {
     width: 100%;
-    height: 60vh;
+    height: 80vh;
     background: #000;
     iframe {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      // object-fit: cover;
     }
+  }
+
+  h2 {
+    margin-top: 10px;
+
+    &::after {
+      content: "";
+      display: block;
+      width: 100%;
+      margin-top: 10px;
+      border: solid 1px gray;
+    }
+  }
+
+  p {
+    margin-top: 10px;
   }
   // }
 }
