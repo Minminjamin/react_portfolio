@@ -1,17 +1,23 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Layout from "../../common/layout/Layout";
 import "../community/Community.scss";
 
 const Community = () => {
+  const getLocalData = () => {
+    const data = localStorage.getItem("post");
+    if (data) return JSON.parse(data);
+    else return [];
+  };
+
   const refInput = useRef(null);
   const refTextArea = useRef(null);
   const refEditInput = useRef(null);
   const refEditTextArea = useRef(null);
 
-  const [post, setPost] = useState([]);
+  // 해당 컴포넌트가 처음 마운트시에는 로컬 저장소에 값이 없기에 빈배열 리턴
+  const [post, setPost] = useState(getLocalData());
   const [allowed, setAllowed] = useState(true);
 
-  console.log(post);
   const resetForm = () => {
     refInput.current.value = "";
     refTextArea.current.value = "";
@@ -23,7 +29,11 @@ const Community = () => {
       return alert("제목과 본문을 모두 입력하세요.");
     }
     setPost([
-      { title: refInput.current.value, content: refTextArea.current.value },
+      {
+        title: refInput.current.value,
+        content: refTextArea.current.value,
+        date: new Date(),
+      },
       ...post,
     ]);
     resetForm();
@@ -75,6 +85,10 @@ const Community = () => {
     );
   };
 
+  useEffect(() => {
+    localStorage.setItem("post", JSON.stringify(post));
+  }, [post]);
+
   return (
     <Layout title={"Community"}>
       <div className="inputBox">
@@ -95,6 +109,8 @@ const Community = () => {
 
       <div className="showBox">
         {post.map((item, idx) => {
+          const [year, month, date] = item.date.split("T")[0].split("-");
+
           if (item.enableUpdate) {
             return (
               <article key={idx}>
@@ -137,6 +153,7 @@ const Community = () => {
                 <div className="txt">
                   <h2>{item.title}</h2>
                   <p>{item.content}</p>
+                  <p>{`${year}-${month}-${date}`}</p>
                 </div>
 
                 <nav className="btnSet">
