@@ -114,6 +114,12 @@ const Community = () => {
             .split("T")[0]
             .split(`"`)[1]
             .split("-");
+          let [hour, min, sec] = dateTime
+            .split("T")[1]
+            .split(".")[0]
+            .split(":");
+          hour = parseInt(hour) + 9;
+          hour >= 24 && (hour = hour - 24);
 
           if (item.enableUpdate) {
             return (
@@ -157,7 +163,8 @@ const Community = () => {
                 <div className="txt">
                   <h2>{item.title}</h2>
                   <p>{item.content}</p>
-                  <p>{`${year}-${month}-${date}`}</p>
+                  <p>글 작성일 : {`${year}-${month}-${date}`}</p>
+                  <p>글 작성 시간 : {`${hour}:${min}:${sec}`}</p>
                 </div>
 
                 <nav className="btnSet">
