@@ -10,6 +10,7 @@ import Contact from "./component/sub/contact/Contact";
 import Footer from "./component/common/footer/Footer";
 import Detail from "./component/sub/youtube/Detail";
 import Community from "./component/sub/community/Community";
+import Main from "./component/main/mainWrap/Main";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       <Switch>
         <Route exact path="/">
           <Header isMain={true} />
+          <Main />
         </Route>
         <Route path="/">
           <Header isMain={false} />
