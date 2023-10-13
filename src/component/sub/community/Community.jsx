@@ -5,8 +5,11 @@ import "../community/Community.scss";
 const Community = () => {
   const refInput = useRef(null);
   const refTextArea = useRef(null);
+  const refEditInput = useRef(null);
+  const refEditTextArea = useRef(null);
 
   const [post, setPost] = useState([]);
+  const [allowed, setAllowed] = useState(true);
 
   console.log(post);
   const resetForm = () => {
@@ -27,11 +30,16 @@ const Community = () => {
   };
 
   const deletePost = (delIndex) => {
-    setPost(post.filter((_, idx) => delIndex !== idx));
+    if (window.confirm("해당 게시글을 삭제하겠습니까?")) {
+      setPost(post.filter((_, idx) => delIndex !== idx));
+    }
   };
 
   // 해당 글을 수정모드로 변경시키는 함수
   const enableUpdate = (editIndex) => {
+    if (!allowed) return;
+
+    setAllowed(false);
     setPost(
       // post 배열값을 반복돌면서 인수로 전달된 수정할 포스트의 순번값과 현재 반복도는 배열의 post 순번값이 일치하면 해당 글을 수정처리해야되므로 해당 객체의 enableUpdate=true 값을 추가
       post.map((item, idx) => {
@@ -44,6 +52,7 @@ const Community = () => {
 
   // 해당 글을 출력모드로 변경시키는 함수
   const disableUpdate = (editIndex) => {
+    setAllowed(true);
     setPost(
       post.map((item, idx) => {
         if (editIndex === idx) item.enableUpdate = false;
@@ -52,6 +61,20 @@ const Community = () => {
       })
     );
   };
+
+  const updatePost = (updateIndex) => {
+    setPost(
+      post.map((item, idx) => {
+        if (updateIndex === idx) {
+          item.title = refEditInput.current.value;
+          item.content = refEditTextArea.current.value;
+        }
+
+        return item;
+      })
+    );
+  };
+
   return (
     <Layout title={"Community"}>
       <div className="inputBox">
@@ -82,6 +105,7 @@ const Community = () => {
                     onChange={(e) => {
                       console.log(e.target.value);
                     }}
+                    ref={refEditInput}
                   />
                   <br />
                   <textarea
@@ -91,11 +115,19 @@ const Community = () => {
                     onChange={(e) => {
                       console.log(e.target.value);
                     }}
+                    ref={refEditTextArea}
                   ></textarea>
                 </div>
                 <nav className="btnSet">
                   <button onClick={() => disableUpdate(idx)}>Cancel</button>
-                  <button>Update</button>
+                  <button
+                    onClick={() => {
+                      updatePost(idx);
+                      disableUpdate(idx);
+                    }}
+                  >
+                    Update
+                  </button>
                 </nav>
               </article>
             );
