@@ -9,6 +9,7 @@ import Gallery from "./component/sub/gallery/Gallery";
 import Contact from "./component/sub/contact/Contact";
 import Footer from "./component/common/footer/Footer";
 import Detail from "./component/sub/youtube/Detail";
+import Community from "./component/sub/community/Community";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
       <Route path="/members" component={Members} />
       <Route path="/contact" component={Contact} />
       <Route path="/gallery" component={Gallery} />
+      <Route path="/community" component={Community} />
       <Route path="/detail/:id" component={Detail} />
 
       <Route path="/" component={Footer} />

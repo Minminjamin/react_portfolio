@@ -29,13 +29,16 @@ const Header = ({ isMain }) => {
         </li>
         <li>
           <NavLink to="/members" activeClassName={styles.active}>
-            {" "}
             Members
           </NavLink>
         </li>
         <li>
+          <NavLink to="/community" activeClassName={styles.active}>
+            Community
+          </NavLink>
+        </li>
+        <li>
           <NavLink to="/contact" activeClassName={styles.active}>
-            {" "}
             Contact
           </NavLink>
         </li>
