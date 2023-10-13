@@ -2,7 +2,7 @@ import "../info/Info.scss";
 
 const Info = () => {
   return (
-    <section className="info">
+    <section className="maininfo">
       <div className="wrap">
         <article>1</article>
         <article>2</article>
