@@ -1,10 +1,11 @@
 import React from "react";
+import "../visual/Visual.scss";
 
 const Visual = () => {
   return (
-    <secion className="visual">
+    <section className="visual">
       <h2>Visual</h2>
-    </secion>
+    </section>
   );
 };
 

@@ -1,7 +1,7 @@
 import News from "../news/News";
 import Visual from "../visual/Visual";
 import Info from "../info/Info";
-import "./Main.scss";
+import "../mainWrap/Main.scss";
 
 const Main = () => {
   return (
