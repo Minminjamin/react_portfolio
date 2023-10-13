@@ -50,8 +50,10 @@ const Community = () => {
       <div className="showBox">
         {post.map((item, idx) => (
           <article key={idx}>
-            <h2>{item.title}</h2>
-            <p>{item.content}</p>
+            <div className="txt">
+              <h2>{item.title}</h2>
+              <p>{item.content}</p>
+            </div>
 
             <nav className="btnSet">
               <button>Edit</button>
