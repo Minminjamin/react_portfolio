@@ -109,7 +109,11 @@ const Community = () => {
 
       <div className="showBox">
         {post.map((item, idx) => {
-          const [year, month, date] = item.date.split("T")[0].split("-");
+          const dateTime = JSON.stringify(item.date);
+          const [year, month, date] = dateTime
+            .split("T")[0]
+            .split(`"`)[1]
+            .split("-");
 
           if (item.enableUpdate) {
             return (
