@@ -163,7 +163,7 @@ const Contact = () => {
   return (
     <Layout title={"Contact"} styleName={styles.contact}>
       <div className="contactMe">
-        <div className="info">
+        <div className="contactInfo">
           <p>Contact Me</p>
           <h2>Get in Touch</h2>
           <p>
