@@ -42,6 +42,16 @@ const Community = () => {
     );
   };
 
+  // 해당 글을 출력모드로 변경시키는 함수
+  const disableUpdate = (editIndex) => {
+    setPost(
+      post.map((item, idx) => {
+        if (editIndex === idx) item.enableUpdate = false;
+
+        return item;
+      })
+    );
+  };
   return (
     <Layout title={"Community"}>
       <div className="inputBox">
@@ -68,7 +78,7 @@ const Community = () => {
                 <div className="txt">
                   <input
                     type="text"
-                    Value={post.title}
+                    defaultValue={item.title}
                     onChange={(e) => {
                       console.log(e.target.value);
                     }}
@@ -77,15 +87,15 @@ const Community = () => {
                   <textarea
                     // react에서 value 속성을 적용하려면 무조건 onChange 이벤트 연결 필수
                     // 그렇지 않다면 defaultValue가 필요
-                    Value={post.content}
+                    defaultValue={item.content}
                     onChange={(e) => {
                       console.log(e.target.value);
                     }}
                   ></textarea>
                 </div>
                 <nav className="btnSet">
-                  <button onClick={() => enableUpdate(idx)}>Edit</button>
-                  <button onClick={() => deletePost(idx)}>Delete</button>
+                  <button onClick={() => disableUpdate(idx)}>Cancel</button>
+                  <button>Update</button>
                 </nav>
               </article>
             );
