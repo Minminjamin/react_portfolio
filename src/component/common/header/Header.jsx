@@ -18,6 +18,11 @@ const Header = ({ isMain }) => {
           </NavLink>
         </li>
         <li>
+          <NavLink to="/community" activeClassName={styles.active}>
+            Community
+          </NavLink>
+        </li>
+        <li>
           <NavLink to="/gallery" activeClassName={styles.active}>
             Gallery
           </NavLink>
@@ -30,11 +35,6 @@ const Header = ({ isMain }) => {
         <li>
           <NavLink to="/members" activeClassName={styles.active}>
             Members
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to="/community" activeClassName={styles.active}>
-            Community
           </NavLink>
         </li>
         <li>
