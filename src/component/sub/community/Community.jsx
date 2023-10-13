@@ -22,6 +22,11 @@ const Community = () => {
       { title: refInput.current.value, content: refTextArea.current.value },
       ...post,
     ]);
+    resetForm();
+  };
+
+  const deletePost = (delIndex) => {
+    setPost(post.filter((_, idx) => delIndex !== idx));
   };
 
   return (
@@ -47,6 +52,11 @@ const Community = () => {
           <article key={idx}>
             <h2>{item.title}</h2>
             <p>{item.content}</p>
+
+            <nav className="btnSet">
+              <button>Edit</button>
+              <button onClick={() => deletePost(idx)}>Delete</button>
+            </nav>
           </article>
         ))}
       </div>
