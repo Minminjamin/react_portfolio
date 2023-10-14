@@ -1,6 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import Layout from "../../common/layout/Layout";
 import "../community/Community.scss";
+import { AiOutlineStar, AiOutlineShareAlt } from "react-icons/ai";
+import { BiCommentDetail } from "react-icons/bi";
 
 const Community = () => {
   const getLocalData = () => {
@@ -91,9 +93,20 @@ const Community = () => {
 
   return (
     <Layout title={"Community"}>
+      <div className="topBox">
+        <h2>Hello User!</h2>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Et vero
+          beatae sequi sunt! Dignissimos quis rem, neque dolorum error sapiente
+          doloribus, accusantium laudantium obcaecati tempora quas ullam veniam,
+          voluptatibus porro!
+        </p>
+      </div>
+
       <div className="inputBox">
+        <h3>Create Post</h3>
         <input type="text" placeholder="제목을 입력하세요." ref={refInput} />
-        <br />
+
         <textarea
           ref={refTextArea}
           cols="30"
@@ -114,17 +127,15 @@ const Community = () => {
             .split("T")[0]
             .split(`"`)[1]
             .split("-");
-          let [hour, min, sec] = dateTime
-            .split("T")[1]
-            .split(".")[0]
-            .split(":");
+          let [hour, min] = dateTime.split("T")[1].split(".")[0].split(":");
           hour = parseInt(hour) + 9;
           hour >= 24 && (hour = hour - 24);
 
           if (item.enableUpdate) {
             return (
-              <article key={idx}>
+              <article key={idx} className="editMode">
                 <div className="txt">
+                  <h3>Update Post</h3>
                   <input
                     type="text"
                     defaultValue={item.title}
@@ -159,18 +170,24 @@ const Community = () => {
             );
           } else {
             return (
-              <article key={idx}>
-                <div className="txt">
-                  <h2>{item.title}</h2>
-                  <p>{item.content}</p>
-                  <p>글 작성일 : {`${year}-${month}-${date}`}</p>
-                  <p>글 작성 시간 : {`${hour}:${min}:${sec}`}</p>
-                </div>
+              <article key={idx} className="showContent">
+                {/* <div className="txt"> */}
+                <h3>{item.title}</h3>
+                <p>{`${year}-${month}-${date} · ${hour}:${min}`}</p>
+                <p className="content">{item.content}</p>
 
-                <nav className="btnSet">
-                  <button onClick={() => enableUpdate(idx)}>Edit</button>
-                  <button onClick={() => deletePost(idx)}>Delete</button>
-                </nav>
+                <div className="lower">
+                  <div className="iconBox">
+                    <AiOutlineStar />
+                    <BiCommentDetail />
+                    <AiOutlineShareAlt />
+                  </div>
+                  <nav className="btnSet">
+                    <button onClick={() => enableUpdate(idx)}>Edit</button>
+                    <button onClick={() => deletePost(idx)}>Delete</button>
+                  </nav>
+                </div>
+                {/* </div> */}
               </article>
             );
           }
