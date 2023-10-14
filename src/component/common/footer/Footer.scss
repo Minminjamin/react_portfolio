@@ -1,31 +1,93 @@
 footer {
-  text-align: center;
-  background: #f4f4f4;
-  border-top: 2px solid #c3c3c3;
-  //   display: inline;
-  //   width: 70vw;
+  padding: 2% 10vw;
+  background: white;
+  border-top: solid 4px black;
 
-  ul {
-    margin: 10px 0px 20px 0px;
-
+  .top {
     display: flex;
-    gap: 6vw;
-    color: gray;
-    justify-content: center;
+    justify-content: space-between;
 
-    li {
-      &:hover {
-        border-bottom: solid 1px gray;
+    .menu {
+      width: 65%;
+      // border: solid 1px red;
+      display: flex;
+      justify-content: space-between;
+
+      ul {
+        li {
+          color: #585858;
+          margin-bottom: 10px;
+          position: relative;
+          &:hover {
+            scale: 1.1;
+            cursor: pointer;
+            font-weight: bolder;
+          }
+          h3 {
+            font-size: 1.3rem;
+            color: #585858;
+            margin-bottom: 15px;
+          }
+        }
       }
     }
   }
+  .lower {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
 
-  span {
-    color: gray;
-    margin-bottom: 10px;
-  }
+    .sns {
+      display: flex;
+      width: 10%;
+      justify-content: space-between;
 
-  .underLine {
-    border-bottom: 2px solid #c3c3c3;
+      li * {
+        &:hover {
+          scale: 1.1;
+        }
+      }
+    }
+    // ul {
+    //   display: flex;
+    //   gap: 2vw;
+    // }
+    // .router {
+    //   width: 40%;
+    // }
+    // .sns {
+    //   width: 25%;
+    // }
   }
 }
+// footer {
+//   text-align: center;
+//   background: #f4f4f4;
+//   border-top: 2px solid #c3c3c3;
+//   //   display: inline;
+//   //   width: 70vw;
+
+//   ul {
+//     margin: 10px 0px 20px 0px;
+
+//     display: flex;
+//     gap: 6vw;
+//     color: gray;
+//     justify-content: center;
+
+//     li {
+//       &:hover {
+//         border-bottom: solid 1px gray;
+//       }
+//     }
+//   }
+
+//   span {
+//     color: gray;
+//     margin-bottom: 10px;
+//   }
+
+//   .underLine {
+//     border-bottom: 2px solid #c3c3c3;
+//   }
+// }
