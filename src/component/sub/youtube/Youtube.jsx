@@ -3,9 +3,11 @@ import clsx from "clsx";
 import "./Youtube.scss";
 import Layout from "../../common/layout/Layout";
 import { useState, useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 const Youtube = () => {
+  const history = useHistory();
+
   const [youtube, setYoutube] = useState([]);
   const refEl = useRef(null);
 
@@ -71,7 +73,9 @@ const Youtube = () => {
                 </p>
 
                 <div className="btnSet">
-                  <button>View More</button>
+                  <button onClick={() => history.push(`/detail/${data.id}`)}>
+                    View More
+                  </button>
                 </div>
               </div>
             </article>
