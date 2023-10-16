@@ -1,51 +1,118 @@
-.Members {
-  table {
-    width: 100%;
-    border: none;
-    border-top: 2px solid #333;
-    border-bottom: 2px solid #333;
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&family=Noto+Sans+KR:wght@100;200;300&display=swap");
+@import "../../../styles/variable.scss";
 
-    th {
-      width: 20%;
-      border: none;
-      border-bottom: 1px solid #bbb;
-      padding: 15px 30px;
-      text-align: left;
-      &:last-child {
-        text-align: center;
-        input[type="submit"],
-        input[type="reset"] {
-          border: 1px solid #aaa;
-          width: 150px;
-          height: 30px;
-          display: inline-flex;
-          justify-content: center;
-          align-items: center;
-          margin: 0px 10px;
-          cursor: pointer;
+.Members {
+  h2 {
+    position: relative;
+    &::before {
+      content: "";
+      // display: block;
+      position: absolute;
+      // left: -5px;
+      top: 0;
+      height: calc(50%);
+      width: 5px;
+      background: $emphasis;
+    }
+    font: 2.5rem/1 "Noto Sans KR", sans-serif;
+  }
+
+  content {
+    margin-top: 40px;
+    // background: $emphasis;
+    border-top: solid 1px $emphasis;
+
+    padding-top: 30px;
+    // padding: 0px 2%;
+    display: flex;
+    .leftBox {
+      width: 65%;
+
+      // padding: 0px 2%;
+      table {
+        width: 100%;
+        border: none;
+        border-top: 2px solid #333;
+        border-bottom: 2px solid #333;
+
+        // tr {
+        //   &:nth-of-type(5) {
+        //     td {
+        //       display: flex;
+        //     }
+        //   }
+        // }
+        th {
+          width: 20%;
+          border: none;
+          border-bottom: 1px solid #bbb;
+          padding: 15px 30px;
+          text-align: left;
+          &:last-child {
+            text-align: center;
+            input[type="submit"],
+            input[type="reset"] {
+              border: 1px solid #aaa;
+              width: 150px;
+              height: 30px;
+              display: inline-flex;
+              justify-content: center;
+              align-items: center;
+              margin: 0px 10px;
+              cursor: pointer;
+            }
+          }
+        }
+
+        td {
+          border: none;
+          border-bottom: 1px solid #bbb;
+          border-left: 1px solid #bbb;
+          padding: 15px 30px;
+
+          input[type="text"],
+          input[type="password"] {
+            width: 40%;
+            border: 1px solid #aaa;
+            padding: 6px 10px;
+            background: #fff;
+          }
+          input[type="radio"],
+          input[type="checkbox"] {
+            display: inline;
+            width: auto;
+            margin-right: 4px;
+          }
+        }
+
+        p {
+          font: 0.8rem/1.2 "돋움";
+          color: hotpink;
+          margin-top: 5px;
         }
       }
-    }
-
-    td {
-      border: none;
-      border-bottom: 1px solid #bbb;
-      border-left: 1px solid #bbb;
-      padding: 15px 30px;
-
-      input[type="text"],
-      input[type="password"] {
-        width: 40%;
-        border: 1px solid #aaa;
-        padding: 6px 10px;
-        background: #f3ffff;
+      p {
+        text-indent: 1vw;
       }
     }
+    .rightBox {
+      padding-left: 2%;
 
-    p {
-      font: 0.8rem/1.2 "돋움";
-      color: hotpink;
-      margin-top: 5px;
+      h3 {
+        margin-top: 40px;
+        padding-bottom: 10px;
+        border-bottom: 2px solid #333;
+
+        &:nth-of-type(1) {
+          padding-bottom: 0;
+          margin-top: 0;
+          // border: none;
+        }
+      }
+      p {
+        margin-top: 10px;
+      }
+      width: 35%;
     }
   }
 }

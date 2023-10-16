@@ -9,7 +9,7 @@ const Members = () => {
     pw1: "",
     pw2: "",
     email: "",
-    genders: false,
+    gender: false,
     interests: false,
     edu: "",
     comments: "",
@@ -96,8 +96,8 @@ const Members = () => {
       }
     }
 
-    if (!value.genders) {
-      checkeErrs.genders = "성별은 필수 체크항목입니다.";
+    if (!value.gender) {
+      checkeErrs.gender = "성별은 필수 체크항목입니다.";
     }
 
     if (!value.interests) {
@@ -129,186 +129,210 @@ const Members = () => {
 
   return (
     <Layout title={"Members"}>
-      <form onSubmit={onHanldeSubmit}>
-        <fieldset>
-          <legend>회원가입 폼 양식</legend>
-          <table border="1">
-            <tbody>
-              {/* userId */}
-              <tr>
-                <th scope="row">
-                  <label htmlFor="userId">user id</label>
-                </th>
-                <td>
-                  <input
-                    type="text"
-                    id="userId"
-                    name="userId"
-                    value={val.userId}
-                    onChange={onHandleChange}
-                  />
-                  {errs?.userId && <p>{errs?.userId}</p>}
-                </td>
-              </tr>
+      <h2>
+        Welcome to our website. Give me your brief information for membership
+        registration.
+      </h2>
 
-              {/* password */}
-              <tr>
-                <th scope="row">
-                  <label htmlFor="pw1">password</label>
-                </th>
-                <td>
-                  <input
-                    type="password"
-                    id="pw1"
-                    name="pw1"
-                    value={val.pw1}
-                    onChange={onHandleChange}
-                  />
-                  {errs?.pw1 && <p>{errs?.pw1}</p>}
-                </td>
-              </tr>
+      <content>
+        <div className="leftBox">
+          <form onSubmit={onHanldeSubmit}>
+            <fieldset>
+              <legend>
+                <h3>회원가입</h3>
+              </legend>
+              <table border="1">
+                <tbody>
+                  {/* userId */}
+                  <tr>
+                    <th scope="row">
+                      <label htmlFor="userId">id</label>
+                    </th>
+                    <td>
+                      <input
+                        type="text"
+                        id="userId"
+                        name="userId"
+                        value={val.userId}
+                        onChange={onHandleChange}
+                      />
+                      {errs?.userId && <p>{errs?.userId}</p>}
+                    </td>
+                  </tr>
 
-              {/*re password */}
-              <tr>
-                <th scope="row">
-                  <label htmlFor="pw2">re-password</label>
-                </th>
-                <td>
-                  <input
-                    type="password"
-                    id="pw2"
-                    name="pw2"
-                    value={val.pw2}
-                    onChange={onHandleChange}
-                  />
-                  {errs?.pw2 && <p>{errs?.pw2}</p>}
-                </td>
-              </tr>
+                  {/* password */}
+                  <tr>
+                    <th scope="row">
+                      <label htmlFor="pw1">password</label>
+                    </th>
+                    <td>
+                      <input
+                        type="password"
+                        id="pw1"
+                        name="pw1"
+                        value={val.pw1}
+                        onChange={onHandleChange}
+                      />
+                      {errs?.pw1 && <p>{errs?.pw1}</p>}
+                    </td>
+                  </tr>
 
-              {/* e-mail */}
-              <tr>
-                <th scope="row">
-                  <label htmlFor="email">email</label>
-                </th>
-                <td>
-                  <input
-                    type="text"
-                    id="email"
-                    name="email"
-                    value={val.email}
-                    onChange={onHandleChange}
-                  />
-                  {errs?.email && <p>{errs?.email}</p>}
-                </td>
-              </tr>
+                  {/*re password */}
+                  <tr>
+                    <th scope="row">
+                      <label htmlFor="pw2">re-password</label>
+                    </th>
+                    <td>
+                      <input
+                        type="password"
+                        id="pw2"
+                        name="pw2"
+                        value={val.pw2}
+                        onChange={onHandleChange}
+                      />
+                      {errs?.pw2 && <p>{errs?.pw2}</p>}
+                    </td>
+                  </tr>
 
-              {/* genders */}
-              <tr>
-                <th scope="row">
-                  <label htmlFor="genders">genders</label>
-                </th>
-                <td useRef={refRadioGroup}>
-                  <label htmlFor="female">female</label>
-                  <input
-                    type="radio"
-                    id="female"
-                    name="genders"
-                    value={val.radio}
-                    onChange={onHanldeRadio}
-                  />
+                  {/* e-mail */}
+                  <tr>
+                    <th scope="row">
+                      <label htmlFor="email">email</label>
+                    </th>
+                    <td>
+                      <input
+                        type="text"
+                        id="email"
+                        name="email"
+                        value={val.email}
+                        onChange={onHandleChange}
+                      />
+                      {errs?.email && <p>{errs?.email}</p>}
+                    </td>
+                  </tr>
 
-                  <label htmlFor="female">male</label>
-                  <input
-                    type="radio"
-                    id="male"
-                    name="genders"
-                    value={val.radio}
-                    onChange={onHanldeRadio}
-                  />
-                  {errs?.genders && <p>{errs?.genders}</p>}
-                </td>
-              </tr>
+                  {/* gender */}
+                  <tr>
+                    <th scope="row">
+                      <label htmlFor="gender">gender</label>
+                    </th>
+                    <td useRef={refRadioGroup}>
+                      <label htmlFor="female">female</label>
+                      <input
+                        type="radio"
+                        id="female"
+                        name="gender"
+                        onChange={onHanldeRadio}
+                      />
 
-              {/* interest */}
-              <tr>
-                <th scope="row">
-                  <label htmlFor="interests">Interests</label>
-                </th>
-                <td useRef={refCheckGroup}>
-                  <label htmlFor="sports">sports</label>
-                  <input
-                    type="checkbox"
-                    id="sport"
-                    name="interests"
-                    onChange={onHandleCheck}
-                  />
+                      <label htmlFor="female">male</label>
+                      <input
+                        type="radio"
+                        id="male"
+                        name="gender"
+                        onChange={onHanldeRadio}
+                      />
+                      {errs?.gender && <p>{errs?.gender}</p>}
+                    </td>
+                  </tr>
 
-                  <label htmlFor="sports">misic</label>
-                  <input
-                    type="checkbox"
-                    id="misuc"
-                    name="interests"
-                    onChange={onHandleCheck}
-                  />
+                  {/* interest */}
+                  <tr>
+                    <th scope="row">
+                      <label htmlFor="interests">Interests</label>
+                    </th>
+                    <td useRef={refCheckGroup}>
+                      <label htmlFor="sports">sports</label>
+                      <input
+                        type="checkbox"
+                        id="sport"
+                        name="interests"
+                        onChange={onHandleCheck}
+                      />
 
-                  <label htmlFor="sports">game</label>
-                  <input
-                    type="checkbox"
-                    id="game"
-                    name="interests"
-                    onChange={onHandleCheck}
-                  />
-                  {errs?.interests && <p>{errs?.interests}</p>}
-                </td>
-              </tr>
+                      <label htmlFor="sports">misic</label>
+                      <input
+                        type="checkbox"
+                        id="misuc"
+                        name="interests"
+                        onChange={onHandleCheck}
+                      />
 
-              {/* Education */}
-              <tr>
-                <th scope="row">
-                  <label htmlFor="edu">Education</label>
-                </th>
-                <td useRef={refSelGroup}>
-                  <select name="edu" id="edu" onChange={onHandleChange}>
-                    <option value="">최종학력을 선택하세요.</option>
-                    <option value="elementary-school">초등학교 졸업</option>
-                    <option value="middle-school">중학교 졸업</option>
-                    <option value="high-school">고등학교 졸업</option>
-                    <option value="college">대학교 졸업</option>
-                  </select>
+                      <label htmlFor="sports">game</label>
+                      <input
+                        type="checkbox"
+                        id="game"
+                        name="interests"
+                        onChange={onHandleCheck}
+                      />
+                      {errs?.interests && <p>{errs?.interests}</p>}
+                    </td>
+                  </tr>
 
-                  {errs?.edu && <p>{errs?.edu}</p>}
-                </td>
-              </tr>
+                  {/* Education */}
+                  <tr>
+                    <th scope="row">
+                      <label htmlFor="edu">Education</label>
+                    </th>
+                    <td useRef={refSelGroup}>
+                      <select name="edu" id="edu" onChange={onHandleChange}>
+                        <option value="">최종학력을 선택하세요.</option>
+                        <option value="elementary-school">초등학교 졸업</option>
+                        <option value="middle-school">중학교 졸업</option>
+                        <option value="high-school">고등학교 졸업</option>
+                        <option value="college">대학교 졸업</option>
+                      </select>
 
-              {/* comments */}
-              <tr>
-                <th scope="row">
-                  <label htmlFor="comments">comments</label>
-                </th>
-                <td>
-                  <textarea
-                    name="comments"
-                    id=""
-                    cols="30"
-                    rows="3"
-                    value={val.comments}
-                    onChange={onHandleChange}
-                  ></textarea>
-                  {errs?.comments && <p>{errs?.comments}</p>}
-                </td>
-              </tr>
+                      {errs?.edu && <p>{errs?.edu}</p>}
+                    </td>
+                  </tr>
 
-              {/* btnSet */}
-              <tr>
-                <th colSpan="2">
-                  <input type="reset" value="cancel" onClick={resetForm} />
-                  <input type="submit" value="send" />
-                </th>
-              </tr>
-            </tbody>
-          </table>
-        </fieldset>
-      </form>
+                  {/* comments */}
+                  <tr>
+                    <th scope="row">
+                      <label htmlFor="comments">comments</label>
+                    </th>
+                    <td>
+                      <textarea
+                        name="comments"
+                        id=""
+                        cols="30"
+                        rows="3"
+                        value={val.comments}
+                        onChange={onHandleChange}
+                      ></textarea>
+                      {errs?.comments && <p>{errs?.comments}</p>}
+                    </td>
+                  </tr>
+
+                  {/* btnSet */}
+                  <tr>
+                    <th colSpan="2">
+                      <input type="reset" value="cancel" onClick={resetForm} />
+                      <input type="submit" value="send" />
+                    </th>
+                  </tr>
+                </tbody>
+              </table>
+            </fieldset>
+          </form>
+        </div>
+        <div className="rightBox">
+          <h3>Volutpat odio facilisis</h3>
+          <p>A lacus vestibulum sed arcu non odio euismod lacinia. </p>
+
+          <h3>Faucibus interdum posuere.</h3>
+          <p>Ut sem nulla pharetra diam. Fames ac turpis egestas maecenas.</p>
+
+          <h3> Nulla facilisi cras fermentum odio eu.</h3>
+          <p>Etiam erat velit scelerisque in dictum non consectetur a erat. </p>
+
+          <h3>Feugiat in fermentum posuere.</h3>
+          <p>
+            Porttitor rhoncus dolor purus non enim praesent elementum facilisis.
+          </p>
+        </div>
+      </content>
     </Layout>
   );
 };
