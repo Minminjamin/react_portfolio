@@ -4,6 +4,8 @@ import "../community/Community.scss";
 import { AiOutlineStar, AiOutlineShareAlt } from "react-icons/ai";
 import { BiCommentDetail } from "react-icons/bi";
 
+const path = process.env.PUBLIC_URL;
+
 const Community = () => {
   const getLocalData = () => {
     const data = localStorage.getItem("post");
@@ -93,106 +95,139 @@ const Community = () => {
 
   return (
     <Layout title={"Community"}>
-      <div className="topBox">
-        <h2>Hello User!</h2>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Et vero
-          beatae sequi sunt! Dignissimos quis rem, neque dolorum error sapiente
-          doloribus, accusantium laudantium obcaecati tempora quas ullam veniam,
-          voluptatibus porro!
-        </p>
-      </div>
+      <content>
+        <div className="leftBox">
+          <div className="inputBox">
+            <h2>Create Post</h2>
+            <input
+              type="text"
+              placeholder="제목을 입력하세요."
+              ref={refInput}
+            />
 
-      <div className="inputBox">
-        <h3>Create Post</h3>
-        <input type="text" placeholder="제목을 입력하세요." ref={refInput} />
+            <textarea
+              ref={refTextArea}
+              cols="30"
+              rows="3"
+              placeholder="본문을 입력하세요."
+            ></textarea>
 
-        <textarea
-          ref={refTextArea}
-          cols="30"
-          rows="3"
-          placeholder="본문을 입력하세요."
-        ></textarea>
+            <nav className="btnSet">
+              <button onClick={resetForm}>Cancel</button>
+              <button onClick={createPost}>Write</button>
+            </nav>
+          </div>
+          <div className="conBox">
+            <div className="con">
+              <div className="pic">
+                <img src={`${path}/img/park.jpg`} alt="park" />
+              </div>
+              <div className="text">
+                <h2>Hello User!</h2>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Itaque sint vero, laborum cumque officia ipsa enim iste sit
+                  delectus aspernatur rerum odit quisquam assumenda. Nihil
+                  impedit, quam ipsa perspiciatis temporibus dolores eos
+                  laudantium animi quo ad. Ab vero beatae eum laudantium
+                  accusamus corporis ipsam. Impedit a corrupti itaque delectus,
+                  distinctio cumque commodi! Ut, quia placeat. Ipsum sit
+                  corrupti nobis rem iste amet nam blanditiis reiciendis quod
+                  consectetur, dolorem voluptatem minus officiis ullam nulla
+                  optio neque assumenda fugiat. Tempore laborum asperiores
+                  provident dignissimos mollitia eveniet iste hic excepturi enim
+                  accusantium illo, ipsa repellendus facilis assumenda magni
+                  omnis optio. Excepturi aspernatur vitae quia maxime qui, porro
+                  animi maiores quasi eum cum ipsa provident exercitationem illo
+                  accusamus ea labore, adipisci reiciendis a fugiat facilis!
+                  Aliquam minima eligendi aliquid fuga provident, eum nihil
+                  nulla nostrum sint magni totam impedit blanditiis neque
+                  voluptate incidunt commodi ea hic enim quam, temporibus,
+                  assumenda facilis. Temporibus, harum fugiat!
+                </p>
+              </div>
+            </div>
 
-        <nav className="btnSet">
-          <button onClick={resetForm}>Cancel</button>
-          <button onClick={createPost}>Write</button>
-        </nav>
-      </div>
+            <div className="con"></div>
+          </div>
+        </div>
 
-      <div className="showBox">
-        {post.map((item, idx) => {
-          const dateTime = JSON.stringify(item.date);
-          const [year, month, date] = dateTime
-            .split("T")[0]
-            .split(`"`)[1]
-            .split("-");
-          let [hour, min] = dateTime.split("T")[1].split(".")[0].split(":");
-          hour = parseInt(hour) + 9;
-          hour >= 24 && (hour = hour - 24);
+        <div className="rightBox">
+          <div className="showBox">
+            {post.map((item, idx) => {
+              const dateTime = JSON.stringify(item.date);
+              const [year, month, date] = dateTime
+                .split("T")[0]
+                .split(`"`)[1]
+                .split("-");
+              let [hour, min] = dateTime.split("T")[1].split(".")[0].split(":");
+              hour = parseInt(hour) + 9;
+              hour >= 24 && (hour = hour - 24);
 
-          if (item.enableUpdate) {
-            return (
-              <article key={idx} className="editMode">
-                <div className="txt">
-                  <h3>Update Post</h3>
-                  <input
-                    type="text"
-                    defaultValue={item.title}
-                    onChange={(e) => {
-                      console.log(e.target.value);
-                    }}
-                    ref={refEditInput}
-                  />
-                  <br />
-                  <textarea
-                    // react에서 value 속성을 적용하려면 무조건 onChange 이벤트 연결 필수
-                    // 그렇지 않다면 defaultValue가 필요
-                    defaultValue={item.content}
-                    onChange={(e) => {
-                      console.log(e.target.value);
-                    }}
-                    ref={refEditTextArea}
-                  ></textarea>
-                </div>
-                <nav className="btnSet">
-                  <button onClick={() => disableUpdate(idx)}>Cancel</button>
-                  <button
-                    onClick={() => {
-                      updatePost(idx);
-                      disableUpdate(idx);
-                    }}
-                  >
-                    Update
-                  </button>
-                </nav>
-              </article>
-            );
-          } else {
-            return (
-              <article key={idx} className="showContent">
-                {/* <div className="txt"> */}
-                <h3>{item.title}</h3>
-                <p>{`${year}-${month}-${date} · ${hour}:${min}`}</p>
-                <p className="content">{item.content}</p>
+              if (item.enableUpdate) {
+                return (
+                  <article key={idx} className="editMode">
+                    <div className="txt">
+                      <h2>Update Post</h2>
+                      <input
+                        type="text"
+                        defaultValue={item.title}
+                        onChange={(e) => {
+                          console.log(e.target.value);
+                        }}
+                        ref={refEditInput}
+                      />
+                      <br />
+                      <textarea
+                        // react에서 value 속성을 적용하려면 무조건 onChange 이벤트 연결 필수
+                        // 그렇지 않다면 defaultValue가 필요
+                        defaultValue={item.content}
+                        onChange={(e) => {
+                          console.log(e.target.value);
+                        }}
+                        ref={refEditTextArea}
+                      ></textarea>
+                    </div>
+                    <nav className="btnSet">
+                      <button onClick={() => disableUpdate(idx)}>Cancel</button>
+                      <button
+                        onClick={() => {
+                          updatePost(idx);
+                          disableUpdate(idx);
+                        }}
+                      >
+                        Update
+                      </button>
+                    </nav>
+                  </article>
+                );
+              } else {
+                return (
+                  <article key={idx} className="showContent">
+                    {/* <div className="txt"> */}
+                    <h2>{item.title}</h2>
+                    <p>{`${year}-${month}-${date} · ${hour}:${min}`}</p>
+                    <p className="content">{item.content}</p>
 
-                <div className="lower">
-                  <div className="iconBox">
-                    <AiOutlineStar />
-                    <BiCommentDetail />
-                    <AiOutlineShareAlt />
-                  </div>
-                  <nav className="btnSet">
-                    <button onClick={() => enableUpdate(idx)}>Edit</button>
-                    <button onClick={() => deletePost(idx)}>Delete</button>
-                  </nav>
-                </div>
-                {/* </div> */}
-              </article>
-            );
-          }
-        })}
-      </div>
+                    <div className="lower">
+                      <div className="iconBox">
+                        <AiOutlineStar />
+                        <BiCommentDetail />
+                        <AiOutlineShareAlt />
+                      </div>
+                      <nav className="btnSet">
+                        <button onClick={() => enableUpdate(idx)}>Edit</button>
+                        <button onClick={() => deletePost(idx)}>Delete</button>
+                      </nav>
+                    </div>
+                    {/* </div> */}
+                  </article>
+                );
+              }
+            })}
+          </div>
+        </div>
+      </content>
     </Layout>
   );
 };
