@@ -4,6 +4,7 @@ import "./Gallery.scss";
 import { useState, useEffect, useRef } from "react";
 import Masonry from "react-masonry-component";
 import Modal from "../../common/modal/Modal";
+import { BiSearchAlt } from "react-icons/bi";
 
 const path = process.env.PUBLIC_URL;
 
@@ -93,6 +94,14 @@ const Gallery = () => {
     setIsUser(true);
   };
 
+  const sliceTxt = (text, num) => {
+    if (text.length > num) {
+      return text.substr(0, num) + "...";
+    } else {
+      return text;
+    }
+  };
+
   useEffect(() => {
     console.log(fetchData({ type: "user", id: myId }));
     // fetchData({ type: "search", tags: "landscape" });
@@ -148,9 +157,7 @@ const Gallery = () => {
                       alt={`https://live.staticflickr.com/${item.server}/${item.id}_${item.secret}_b.jpg`}
                       className="galleryImg"
                     />
-                    <img
-                      src={`${path}/img/search.png`}
-                      alt="detail"
+                    <BiSearchAlt
                       className="search"
                       onClick={(e) => {
                         setActiveUrl(
@@ -161,22 +168,23 @@ const Gallery = () => {
                     />
                   </div>
 
-                  {/* <h2>{item.title}</h2> */}
+                  <div className="lower">
+                    <h3>{sliceTxt(item.title, 25)}</h3>
+                    <div className="profile">
+                      <img
+                        src={`http://farm${item.farm}.staticflickr.com/${item.server}/buddyicons/${item.owner}.jpg`}
+                        alt={item.owner}
+                        onError={(e) => {
+                          console.log(e.target);
 
-                  <div className="profile">
-                    <img
-                      src={`http://farm${item.farm}.staticflickr.com/${item.server}/buddyicons/${item.owner}.jpg`}
-                      alt={item.owner}
-                      onError={(e) => {
-                        console.log(e.target);
-
-                        e.target.setAttribute(
-                          "src",
-                          "https://www.flickr.com/images/buddyicon.gif"
-                        );
-                      }}
-                    />
-                    <span onClick={onHanldeProfile}>{item.owner}</span>
+                          e.target.setAttribute(
+                            "src",
+                            "https://www.flickr.com/images/buddyicon.gif"
+                          );
+                        }}
+                      />
+                      <span onClick={onHanldeProfile}>{item.owner}</span>
+                    </div>
                   </div>
                 </div>
               </article>
