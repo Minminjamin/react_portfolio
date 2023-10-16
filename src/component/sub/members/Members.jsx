@@ -32,10 +32,10 @@ const Members = () => {
     const num = /[0-9]/;
     const txt = /[a-zA-Z]/;
     const spc = /[!@#$%^&*()_]/; //모든 특수 문자 지정
-    const errs = {};
+    const checkeErrs = {};
 
     if (value.userId.length < 5) {
-      errs.userId = "아이디는 최소 5글자 이상 입력하세요.";
+      checkeErrs.userId = "아이디는 최소 5글자 이상 입력하세요.";
     }
 
     if (
@@ -44,32 +44,32 @@ const Members = () => {
       !txt.test(value.pw1) ||
       !spc.test(value.pw1)
     ) {
-      errs.pw1 =
+      checkeErrs.pw1 =
         "비밀번호는 5글자 이상, 문자, 숫자, 특수문자를 모두 포함하세요.";
     }
 
     if (value.pw1 !== value.pw2) {
-      errs.pw2 = "2개의 비밀번호를 같게 입력하세요.";
+      checkeErrs.pw2 = "2개의 비밀번호를 같게 입력하세요.";
     }
 
     if (!value.email || !/@/.test(value.email)) {
-      errs.email = "이메일은 무조건 @를 포함해야 합니다.";
+      checkeErrs.email = "이메일은 무조건 @를 포함해야 합니다.";
     } else {
       const [forward, backwrad] = value.email.split("@");
       if (!forward || !backwrad) {
-        errs.email = "이메일에 @앞뒤로 문자값이 있어야 됩니다.";
+        checkeErrs.email = "이메일에 @앞뒤로 문자값이 있어야 됩니다.";
       } else {
         const [forward, backwrad] = value.email.split(".");
         if (!forward || !backwrad) {
-          errs.email = "이메일 . 앞뒤로 문자값이 있어야 됩니다";
+          checkeErrs.email = "이메일 . 앞뒤로 문자값이 있어야 됩니다";
         }
       }
     }
 
     if (!value.genders) {
-      errs.genders = "성별을 하나 이상 체크해주세요.";
+      checkeErrs.genders = "성별을 하나 이상 체크해주세요.";
     }
-    return errs;
+    return checkeErrs;
   };
 
   // 전송이벤트 발생시 state에 있는 input 값들을 check 함수에 전달해서 호출
@@ -105,7 +105,7 @@ const Members = () => {
                     value={val.userId}
                     onChange={onHandleChange}
                   />
-                  {errs.userId && <p>{errs.userId}</p>}
+                  {errs?.userId && <p>{errs?.userId}</p>}
                 </td>
               </tr>
 
@@ -122,7 +122,7 @@ const Members = () => {
                     value={val.pw1}
                     onChange={onHandleChange}
                   />
-                  {errs.pw1 && <p>{errs.pw1}</p>}
+                  {errs?.pw1 && <p>{errs?.pw1}</p>}
                 </td>
               </tr>
 
@@ -139,7 +139,7 @@ const Members = () => {
                     value={val.pw2}
                     onChange={onHandleChange}
                   />
-                  {errs.pw2 && <p>{errs.pw2}</p>}
+                  {errs?.pw2 && <p>{errs?.pw2}</p>}
                 </td>
               </tr>
 
@@ -156,7 +156,7 @@ const Members = () => {
                     value={val.email}
                     onChange={onHandleChange}
                   />
-                  {errs.email && <p>{errs.email}</p>}
+                  {errs?.email && <p>{errs?.email}</p>}
                 </td>
               </tr>
 
@@ -183,7 +183,7 @@ const Members = () => {
                     value={val.radio}
                     onChange={onHanldeRadio}
                   />
-                  {errs.genders && <p>{errs.genders}</p>}
+                  {errs?.genders && <p>{errs?.genders}</p>}
                 </td>
               </tr>
 
