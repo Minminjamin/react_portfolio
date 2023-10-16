@@ -306,7 +306,7 @@ const Members = () => {
                   </tr>
 
                   {/* btnSet */}
-                  <tr>
+                  <tr className="btnSet">
                     <th colSpan="2">
                       <input type="reset" value="cancel" onClick={resetForm} />
                       <input type="submit" value="send" />
