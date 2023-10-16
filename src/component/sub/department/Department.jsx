@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styles from "../department/Department.module.scss";
 import Layout from "../../common/layout/Layout";
-import clsx from "clsx";
 
 const path = process.env.PUBLIC_URL;
 

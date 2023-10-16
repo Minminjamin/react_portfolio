@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap");
+@import "../../../styles/variable.scss";
 
 .department {
   figure {
@@ -35,8 +36,8 @@
       margin-bottom: 50px;
 
       .pic {
-        width: 100%;
-        height: 20vw;
+        width: 90%;
+        height: 15vw;
         overflow: hidden;
         margin-top: 10px;
 
@@ -67,7 +68,7 @@
           margin-top: 5px;
           a {
             &:hover {
-              color: #995454;
+              color: $emphasis;
             }
           }
         }
@@ -129,43 +130,7 @@
       b {
         font-weight: lighter;
       }
-      // .innerText {
-      //   margin: 30px 0px;
-      //   // width: 70%;
-      //   display: flex;
-      //   justify-content: center;
-      //   padding: 5%;
-      //   h4 {
-      //     // width: 70%;
-      //     text-align: center;
-      //     text-indent: 0.5vw;
-      //     word-break: break-all;
-      //   }
-      // }
-      // h4 {
-      //   margin-top: 24px;
-      //   text-align: right;
-      //   // width: 70%;
-      //   right: 0;
-      // }
-      // p {
-      //   display: block;
-      // }
     }
-    // .pic {
-    //   width: 60%;
-    //   height: 30vh;
-    //   // background: #000;
-    //   img {
-    //     width: 100%;
-    //     height: 100%;
-    //     object-fit: contain;
-    //   }
-    // }
-
-    // .text {
-    //   width: 40vw;
-    // }
   }
 }
 
