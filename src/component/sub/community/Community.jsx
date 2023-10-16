@@ -95,10 +95,26 @@ const Community = () => {
 
   return (
     <Layout title={"Community"}>
+      <div className="top">
+        <h2>This is the community page where we all communicate</h2>
+        <div className="sub">
+          <p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint
+            perferendis, fuga veritatis non velit atque eum dicta sunt vero
+            magnam earum voluptates aut, quod provident quam ea! Magnam, ea
+            dolorum.
+          </p>
+
+          <p>
+            <b>Create Post</b>
+          </p>
+        </div>
+      </div>
+
       <content>
         <div className="leftBox">
           <div className="inputBox">
-            <h2>Create Post</h2>
+            <h3>Create Post</h3>
             <input
               type="text"
               placeholder="제목을 입력하세요."
@@ -123,7 +139,7 @@ const Community = () => {
                 <img src={`${path}/img/park.jpg`} alt="park" />
               </div>
               <div className="text">
-                <h2>Hello User!</h2>
+                <h3>Hello User!</h3>
                 <p>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
                   Itaque sint vero, laborum cumque officia ipsa enim iste sit
@@ -168,7 +184,7 @@ const Community = () => {
                 return (
                   <article key={idx} className="editMode">
                     <div className="txt">
-                      <h2>Update Post</h2>
+                      <h3>Update Post</h3>
                       <input
                         type="text"
                         defaultValue={item.title}
@@ -205,7 +221,7 @@ const Community = () => {
                 return (
                   <article key={idx} className="showContent">
                     {/* <div className="txt"> */}
-                    <h2>{item.title}</h2>
+                    <h3>{item.title}</h3>
                     <p>{`${year}-${month}-${date} · ${hour}:${min}`}</p>
                     <p className="content">{item.content}</p>
 
