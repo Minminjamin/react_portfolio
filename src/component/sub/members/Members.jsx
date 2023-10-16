@@ -1,7 +1,7 @@
 import React from "react";
 import Layout from "../../common/layout/Layout";
 import "./Members.scss";
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 const Members = () => {
   const initval = {
@@ -18,10 +18,21 @@ const Members = () => {
   const [val, setVal] = useState(initval);
   const [errs, setErrs] = useState();
 
+  const refCheckGroup = useRef(null);
+  const refRadioGroup = useRef(null);
+  const refSelGroup = useRef(null);
+
   const resetForm = (e) => {
     e.preventDefault();
 
     setVal(initval);
+    [refCheckGroup, refRadioGroup].forEach((item) =>
+      item.current
+        .querySelectorAll("input")
+        .forEach((input) => (input.checked = false))
+    );
+
+    refSelGroup.current.value = "";
   };
 
   const onHandleChange = (e) => {
@@ -196,7 +207,7 @@ const Members = () => {
                 <th scope="row">
                   <label htmlFor="genders">genders</label>
                 </th>
-                <td>
+                <td useRef={refRadioGroup}>
                   <label htmlFor="female">female</label>
                   <input
                     type="radio"
@@ -223,7 +234,7 @@ const Members = () => {
                 <th scope="row">
                   <label htmlFor="interests">Interests</label>
                 </th>
-                <td>
+                <td useRef={refCheckGroup}>
                   <label htmlFor="sports">sports</label>
                   <input
                     type="checkbox"
@@ -256,7 +267,7 @@ const Members = () => {
                 <th scope="row">
                   <label htmlFor="edu">Education</label>
                 </th>
-                <td>
+                <td useRef={refSelGroup}>
                   <select name="edu" id="edu" onChange={onHandleChange}>
                     <option value="">최종학력을 선택하세요.</option>
                     <option value="elementary-school">초등학교 졸업</option>
