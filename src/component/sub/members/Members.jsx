@@ -18,6 +18,12 @@ const Members = () => {
   const [val, setVal] = useState(initval);
   const [errs, setErrs] = useState();
 
+  const resetForm = (e) => {
+    e.preventDefault();
+
+    setVal(initval);
+  };
+
   const onHandleChange = (e) => {
     const { name, value } = e.target;
 
@@ -284,7 +290,7 @@ const Members = () => {
               {/* btnSet */}
               <tr>
                 <th colSpan="2">
-                  <input type="reset" value="cancel" />
+                  <input type="reset" value="cancel" onClick={resetForm} />
                   <input type="submit" value="send" />
                 </th>
               </tr>
