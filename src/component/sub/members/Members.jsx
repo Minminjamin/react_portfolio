@@ -1,5 +1,6 @@
 import React from "react";
 import Layout from "../../common/layout/Layout";
+import "./Members.scss";
 
 const Members = () => {
   return (
