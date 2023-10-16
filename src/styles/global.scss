@@ -38,3 +38,16 @@ h3 {
 h4 {
   font-size: 1.25rem;
 }
+
+table {
+  border-collapse: collapse;
+}
+
+fieldset {
+  border: none;
+}
+.h {
+  position: absolute;
+  top: -9999px;
+  opacity: 0;
+}
