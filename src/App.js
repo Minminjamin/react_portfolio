@@ -13,10 +13,17 @@ import Community from "./component/sub/community/Community";
 import Main from "./component/main/mainWrap/Main";
 import { useEffect, useRef } from "react";
 import { useMedia } from "./hooks/useMedia";
+import { fetchYoutube } from "./redux/youtubeSlice";
+import { useDispatch } from "react-redux";
 // import "./styles/index.css";
 
 function App() {
-  const refMain = useRef(null);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchYoutube());
+  }, []);
+  // const refMain = useRef(null);
 
   return (
     <main className={useMedia()}>
