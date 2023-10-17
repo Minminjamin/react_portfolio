@@ -3,12 +3,10 @@
 
 .Gallery {
   .topBox {
-    // margin-top: 10px;
     display: flex;
     height: auto;
     justify-content: space-between;
-    // flex-wrap: wrap;
-    // align-content: center;
+    flex-wrap: wrap;
 
     .title {
       display: flex;
@@ -30,8 +28,6 @@
     }
 
     .searchBox {
-      width: 15vw;
-
       label {
         color: gray;
         font-weight: bold;
@@ -61,7 +57,6 @@
   }
 
   .btnSet {
-    // width: 20%;
     margin-top: 40px;
     display: flex;
     gap: 2vw;
@@ -161,60 +156,106 @@
       }
     }
   }
-
-  @media screen and (max-width: var(--laptop)) {
-    .Gallery {
-      .picFrame {
-        article {
-          width: 33.3333%;
-        }
-      }
-    }
-  }
-
-  @media screen and (max-width: var(--tablet)) {
-    .Gallery {
-      .picFrame {
-        article {
-          width: 50%;
-        }
-      }
-    }
-  }
-  @media screen and (max-width: var(--mobile)) {
-    .Gallery {
-      .picFrame {
-        article {
-          width: 100%;
-        }
-      }
-    }
-  }
 }
 
-.laptop {
-  .Gallery {
-    .picFrame {
-      article {
-        width: 32%;
-      }
-    }
-  }
-}
-.tablet {
-  .Gallery {
-    .picFrame {
-      article {
-        width: 48%;
-      }
-    }
-  }
-}
+.tablet,
 .mobile {
   .Gallery {
+    .topBox {
+      flex-direction: column;
+
+      .title {
+        h2 {
+          font: 2rem/1 "Noto Sans KR", sans-serif;
+          margin-right: 0vw;
+        }
+
+        p {
+          display: none;
+        }
+      }
+
+      .searchBox {
+        margin-top: 30px;
+      }
+    }
+
+    .picFrame {
+      article {
+        width: 49.5%;
+
+        &:nth-of-type(odd) {
+          padding-left: 0;
+        }
+
+        &:nth-of-type(even) {
+          padding-right: 0;
+        }
+
+        .lower {
+          h3 {
+            font-size: 0.75rem;
+          }
+        }
+      }
+    }
+
+    .lower {
+      padding: 0px 2%;
+
+      h3 {
+        font-family: "Noto Sans KR";
+        margin-top: 5px;
+        font-size: 0.85rem;
+      }
+      .profile {
+        margin-top: 5px;
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+
+        img {
+          height: 80%;
+          width: 10%;
+        }
+
+        span {
+          margin-left: 2%;
+        }
+      }
+    }
+  }
+}
+
+.tablet,
+.mobile {
+  .Gallery {
+    .topBox {
+      flex-direction: column;
+
+      .title {
+        h2 {
+          font: 2rem/1 "Noto Sans KR", sans-serif;
+          margin-right: 0vw;
+        }
+
+        p {
+          display: none;
+        }
+      }
+
+      .searchBox {
+        margin-top: 30px;
+      }
+    }
+
     .picFrame {
       article {
         width: 100%;
+
+        padding-left: 0;
+        padding-right: 0;
+        padding-bottom: 30px;
       }
     }
   }
