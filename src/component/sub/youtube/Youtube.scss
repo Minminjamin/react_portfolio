@@ -18,7 +18,7 @@
       scale: 1.05;
     }
     .pic {
-      width: 40vw;
+      width: 40%;
 
       img {
         width: 100%;
@@ -31,7 +31,7 @@
     }
 
     .info {
-      width: 60vw;
+      width: 60%;
       padding: 1.5%;
       padding-bottom: 0%;
       display: flex;
@@ -43,6 +43,7 @@
           display: block;
         }
         p {
+          width: 100%;
           display: block;
           font-weight: bold;
           margin-top: 3px;
@@ -50,6 +51,7 @@
       }
 
       p {
+        word-wrap: break-word;
         color: gray;
       }
 
@@ -82,44 +84,44 @@
   }
 }
 
-.tablet,
-.mobile {
-  .Youtube {
-    .content {
-      article {
-        flex-wrap: wrap;
+// .tablet,
+// .mobile {
+//   .Youtube {
+//     .content {
+//       article {
+//         flex-wrap: wrap;
 
-        &:nth-of-type(even) {
-          flex-direction: row;
-        }
+//         &:nth-of-type(even) {
+//           flex-direction: row;
+//         }
 
-        .titBox {
-          width: 48%;
-        }
-        .conBox {
-          width: 48%;
-        }
-        .picBox {
-          width: 100%;
-          margin-top: 30px;
-        }
-      }
-    }
-  }
-}
+//         .titBox {
+//           width: 48%;
+//         }
+//         .conBox {
+//           width: 48%;
+//         }
+//         .picBox {
+//           width: 100%;
+//           margin-top: 30px;
+//         }
+//       }
+//     }
+//   }
+// }
 
-//mobile
-.mobile {
-  .Youtube {
-    .content {
-      article {
-        .titBox {
-          width: 100%;
-        }
-        .conBox {
-          width: 100%;
-        }
-      }
-    }
-  }
-}
+// //mobile
+// .mobile {
+//   .Youtube {
+//     .content {
+//       article {
+//         .titBox {
+//           width: 100%;
+//         }
+//         .conBox {
+//           width: 100%;
+//         }
+//       }
+//     }
+//   }
+// }
