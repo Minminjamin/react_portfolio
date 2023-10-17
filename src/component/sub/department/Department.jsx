@@ -49,7 +49,7 @@ const Department = () => {
 
       <h2>About</h2>
       <div className={styles.line}></div>
-      <div className={styles.aboutBox}>
+      <article className={styles.aboutBox}>
         <div className={styles.pic}>
           <>
             <img src={`${path}/img/department01.jpg`} alt="bird" />
@@ -80,7 +80,7 @@ const Department = () => {
             itaque animi nulla harum et sit cumque aperiam culpa?
           </p>
         </div>
-      </div>
+      </article>
     </Layout>
   );
 };

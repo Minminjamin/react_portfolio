@@ -11,13 +11,16 @@
     font-size: 2rem;
     font-family: "Nanum Myeongjo";
   }
+
   h3,
   h4 {
     font-family: "Nanum Myeongjo";
   }
+
   p {
     font-size: 1.1rem;
   }
+
   .line {
     width: 100%;
     margin: 10px 0px;
@@ -76,14 +79,13 @@
     }
   }
 
-  .aboutBox {
+  article.aboutBox {
     margin-top: 30px;
     width: 100%;
     display: flex;
     flex-wrap: nowrap;
     margin-top: 30px;
     gap: 2vw;
-    // justify-content: space-between;
     .pic {
       width: 50vw;
       overflow: hidden;
@@ -101,16 +103,11 @@
           filter: grayscale(0);
           transform: translateX(-25px);
         }
-        // object-fit: contain;
       }
     }
 
     .text {
       width: 25vw;
-      // display: flex;
-      // flex-wrap: wrap;
-      // align-content: space-between;
-
       h4 {
         margin: 20px 0px;
         padding-left: 20%;
