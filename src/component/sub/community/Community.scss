@@ -189,32 +189,86 @@ textarea {
         }
 
         article.editMode {
-          input {
-            margin-top: 5px;
+          display: flex;
+          flex-wrap: wrap;
+          align-content: space-between;
+
+          .txt {
+            width: 100%;
           }
-          textarea {
-            margin-top: 0px;
-          }
-          .btnSet {
+
+          .lower {
+            // margin-top: 20px;
+            width: 100%;
             display: flex;
             justify-content: flex-end;
-            gap: 1vw;
 
-            button {
-              margin-top: 10px;
-              border: none;
-              background: none;
+            .iconBox {
+              gap: 0.5vw;
+              display: flex;
 
-              &:nth-of-type(2) {
+              .edit {
                 color: $emphasis;
               }
+            }
 
+            .iconBox * {
               &:hover {
                 scale: 1.1;
-                cursor: pointer;
               }
             }
+            // .btnSet {
+            //   button {
+            //     background: none;
+            //     border: none;
+
+            //     &:nth-of-type(2) {
+            //       color: $emphasis;
+            //     }
+
+            //     &:hover {
+            //       scale: 1.1;
+            //       cursor: pointer;
+            //     }
+            //   }
+            // }
           }
+          // flex-direction: column;
+
+          // display: flex;
+          // flex-wrap: wrap;
+          // align-content: space-between;
+          // input,
+          // textarea {
+          //   width: 100%;
+          //   // display: block;
+          // }
+          // input {
+          //   margin-top: 5px;
+          // }
+          // textarea {
+          //   margin-top: 0px;
+          // }
+          // .btnSet {
+          //   display: flex;
+          //   justify-content: flex-end;
+          //   gap: 1vw;
+
+          //   button {
+          //     margin-top: 10px;
+          //     border: none;
+          //     background: none;
+
+          //     &:nth-of-type(2) {
+          //       color: $emphasis;
+          //     }
+
+          //     &:hover {
+          //       scale: 1.1;
+          //       cursor: pointer;
+          //     }
+          //   }
+          // }
         }
       }
     }

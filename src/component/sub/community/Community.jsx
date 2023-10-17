@@ -203,27 +203,30 @@ const Community = () => {
                         ref={refEditTextArea}
                       ></textarea>
                     </div>
-                    <nav className="btnSet">
-                      <button onClick={() => disableUpdate(idx)}>Cancel</button>
-                      <button
-                        onClick={() => {
-                          updatePost(idx);
-                          disableUpdate(idx);
-                        }}
-                      >
-                        Update
-                      </button>
-                    </nav>
+
+                    <div className="lower">
+                      <nav className="iconBox">
+                        <AiOutlineDelete onClick={() => disableUpdate(idx)} />
+                        <AiOutlineEdit
+                          className="edit"
+                          onClick={() => {
+                            updatePost(idx);
+                            disableUpdate(idx);
+                          }}
+                        />
+                      </nav>
+                    </div>
                   </article>
                 );
               } else {
                 return (
                   <article key={idx} className="showContent">
-                    <>
-                      <h3>{item.title}</h3>
+                    <div>
                       <p>{`${year}-${month}-${date} · ${hour}:${min}`}</p>
+                      <h3>{item.title}</h3>
+
                       <p className="content">{item.content}</p>
-                    </>
+                    </div>
                     {/* <div className="txt"> */}
 
                     <div className="lower">
