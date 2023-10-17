@@ -2,6 +2,9 @@ import React from "react";
 import Layout from "../../common/layout/Layout";
 import "./Members.scss";
 import { useState, useRef } from "react";
+import { AiFillNotification } from "react-icons/ai";
+import { BsPeopleFill } from "react-icons/bs";
+import { BiSolidPhoneCall } from "react-icons/bi";
 
 const Members = () => {
   const initval = {
@@ -146,7 +149,7 @@ const Members = () => {
                   {/* userId */}
                   <tr>
                     <th scope="row">
-                      <label htmlFor="userId">id</label>
+                      <label htmlFor="userId">User id</label>
                     </th>
                     <td>
                       <input
@@ -155,6 +158,7 @@ const Members = () => {
                         name="userId"
                         value={val.userId}
                         onChange={onHandleChange}
+                        placeholder="아이디를 입력해주세요."
                       />
                       {errs?.userId && <p>{errs?.userId}</p>}
                     </td>
@@ -163,7 +167,7 @@ const Members = () => {
                   {/* password */}
                   <tr>
                     <th scope="row">
-                      <label htmlFor="pw1">password</label>
+                      <label htmlFor="pw1">Password</label>
                     </th>
                     <td>
                       <input
@@ -172,6 +176,7 @@ const Members = () => {
                         name="pw1"
                         value={val.pw1}
                         onChange={onHandleChange}
+                        placeholder="비밀번호를 입력해주세요."
                       />
                       {errs?.pw1 && <p>{errs?.pw1}</p>}
                     </td>
@@ -180,7 +185,7 @@ const Members = () => {
                   {/*re password */}
                   <tr>
                     <th scope="row">
-                      <label htmlFor="pw2">re-password</label>
+                      <label htmlFor="pw2">Re-Password</label>
                     </th>
                     <td>
                       <input
@@ -189,6 +194,7 @@ const Members = () => {
                         name="pw2"
                         value={val.pw2}
                         onChange={onHandleChange}
+                        placeholder="비밀번호를 다시 한 번 입력해주세요."
                       />
                       {errs?.pw2 && <p>{errs?.pw2}</p>}
                     </td>
@@ -197,7 +203,7 @@ const Members = () => {
                   {/* e-mail */}
                   <tr>
                     <th scope="row">
-                      <label htmlFor="email">email</label>
+                      <label htmlFor="email">E-mail</label>
                     </th>
                     <td>
                       <input
@@ -206,6 +212,7 @@ const Members = () => {
                         name="email"
                         value={val.email}
                         onChange={onHandleChange}
+                        placeholder="E-mail을 입력해주세요."
                       />
                       {errs?.email && <p>{errs?.email}</p>}
                     </td>
@@ -214,10 +221,10 @@ const Members = () => {
                   {/* gender */}
                   <tr>
                     <th scope="row">
-                      <label htmlFor="gender">gender</label>
+                      <label htmlFor="gender">Gender</label>
                     </th>
                     <td useRef={refRadioGroup}>
-                      <label htmlFor="female">female</label>
+                      <label htmlFor="female">Female</label>
                       <input
                         type="radio"
                         id="female"
@@ -225,7 +232,7 @@ const Members = () => {
                         onChange={onHanldeRadio}
                       />
 
-                      <label htmlFor="female">male</label>
+                      <label htmlFor="female">Male</label>
                       <input
                         type="radio"
                         id="male"
@@ -242,7 +249,7 @@ const Members = () => {
                       <label htmlFor="interests">Interests</label>
                     </th>
                     <td useRef={refCheckGroup}>
-                      <label htmlFor="sports">sports</label>
+                      <label htmlFor="sports">Sports</label>
                       <input
                         type="checkbox"
                         id="sport"
@@ -250,7 +257,7 @@ const Members = () => {
                         onChange={onHandleCheck}
                       />
 
-                      <label htmlFor="sports">misic</label>
+                      <label htmlFor="sports">Music</label>
                       <input
                         type="checkbox"
                         id="misuc"
@@ -258,7 +265,7 @@ const Members = () => {
                         onChange={onHandleCheck}
                       />
 
-                      <label htmlFor="sports">game</label>
+                      <label htmlFor="sports">Game</label>
                       <input
                         type="checkbox"
                         id="game"
@@ -290,7 +297,7 @@ const Members = () => {
                   {/* comments */}
                   <tr>
                     <th scope="row">
-                      <label htmlFor="comments">comments</label>
+                      <label htmlFor="comments">Comments</label>
                     </th>
                     <td>
                       <textarea
@@ -299,6 +306,7 @@ const Members = () => {
                         cols="30"
                         rows="3"
                         value={val.comments}
+                        placeholder="남기는 말을 써주세요."
                         onChange={onHandleChange}
                       ></textarea>
                       {errs?.comments && <p>{errs?.comments}</p>}
@@ -318,19 +326,40 @@ const Members = () => {
           </form>
         </div>
         <div className="rightBox">
-          <h3>Volutpat odio facilisis</h3>
-          <p>A lacus vestibulum sed arcu non odio euismod lacinia. </p>
+          <div className="inner">
+            <h3>Volutpat odio facilisis</h3>
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ad quis
+              at quaerat veritatis doloremque. In ipsa et cumque non ducimus?
+            </p>
 
-          <h3>Faucibus interdum posuere.</h3>
-          <p>Ut sem nulla pharetra diam. Fames ac turpis egestas maecenas.</p>
-
-          <h3> Nulla facilisi cras fermentum odio eu.</h3>
-          <p>Etiam erat velit scelerisque in dictum non consectetur a erat. </p>
-
-          <h3>Feugiat in fermentum posuere.</h3>
-          <p>
-            Porttitor rhoncus dolor purus non enim praesent elementum facilisis.
-          </p>
+            <article>
+              <div className="con">
+                <AiFillNotification fontSize={44} />
+                <div className="txt">
+                  <h4>Nisl tincidunt eget nullam non. </h4>
+                  <p>
+                    Non tellus orci ac auctor augue. Elit at imperdiet dui
+                    accumsan sit. Ornare arcu dui vivamus arcu felis.
+                  </p>
+                </div>
+              </div>
+              <div className="con">
+                <BsPeopleFill fontSize={33} />
+                <div className="txt">
+                  <h4>Ut sem nulla pharetra diam.</h4>
+                  <p>Bibendum neque egestas congue quisque egestas diam.</p>
+                </div>
+              </div>
+              <div className="con">
+                <BiSolidPhoneCall fontSize={33} />
+                <div className="txt">
+                  <h4> Quis hendrerit dolor.</h4>
+                  <p>Pulvinar elementum integer enim neque volutpat ac.</p>
+                </div>
+              </div>
+            </article>
+          </div>
         </div>
       </content>
     </Layout>
