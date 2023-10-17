@@ -17,7 +17,6 @@ import { useMedia } from "./hooks/useMedia";
 
 function App() {
   const refMain = useRef(null);
-  useMedia();
 
   return (
     <main className={useMedia()}>
