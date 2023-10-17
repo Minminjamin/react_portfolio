@@ -1,8 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import Layout from "../../common/layout/Layout";
 import "../community/Community.scss";
-import { AiOutlineStar, AiOutlineShareAlt } from "react-icons/ai";
-import { BiCommentDetail } from "react-icons/bi";
+import { AiOutlineEdit, AiOutlineDelete } from "react-icons/ai";
 
 const path = process.env.PUBLIC_URL;
 
@@ -220,21 +219,25 @@ const Community = () => {
               } else {
                 return (
                   <article key={idx} className="showContent">
+                    <>
+                      <h3>{item.title}</h3>
+                      <p>{`${year}-${month}-${date} · ${hour}:${min}`}</p>
+                      <p className="content">{item.content}</p>
+                    </>
                     {/* <div className="txt"> */}
-                    <h3>{item.title}</h3>
-                    <p>{`${year}-${month}-${date} · ${hour}:${min}`}</p>
-                    <p className="content">{item.content}</p>
 
                     <div className="lower">
-                      <div className="iconBox">
-                        <AiOutlineStar />
-                        <BiCommentDetail />
-                        <AiOutlineShareAlt />
-                      </div>
-                      <nav className="btnSet">
+                      <nav className="iconBox">
+                        <AiOutlineDelete onClick={() => deletePost(idx)} />
+                        <AiOutlineEdit
+                          className="edit"
+                          onClick={() => enableUpdate(idx)}
+                        />
+                      </nav>
+                      {/* <nav className="btnSet">
                         <button onClick={() => enableUpdate(idx)}>Edit</button>
                         <button onClick={() => deletePost(idx)}>Delete</button>
-                      </nav>
+                      </nav> */}
                     </div>
                     {/* </div> */}
                   </article>

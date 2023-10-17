@@ -11,6 +11,7 @@ input {
 }
 
 textarea {
+  resize: none;
   margin-top: 10px;
   width: 100%;
   border: none;
@@ -25,14 +26,14 @@ textarea {
     justify-content: space-between;
 
     h2 {
-      width: 70%;
+      width: 40%;
       font: 2.5rem/1 "Noto Sans KR", sans-serif;
       margin-right: 2.5vw;
     }
 
     .sub {
       padding: 0px 2%;
-      width: 30%;
+      width: 60%;
 
       p {
         margin-bottom: 20px;
@@ -51,13 +52,13 @@ textarea {
     display: flex;
 
     .leftBox {
-      width: 70%;
+      width: 40%;
       // border: solid 1px red;
       padding: 2%;
       padding-left: 0%;
 
       .inputBox {
-        border: solid 1px $emphasis;
+        // border: solid 1px $emphasis;
         padding: 2%;
         background: #fff;
         box-shadow: 1px 1px 20px #ececec;
@@ -115,16 +116,28 @@ textarea {
     .rightBox {
       padding: 2%;
       padding-right: 0%;
-      width: 30%;
+      width: 60%;
 
       .showBox {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
         border-top: 1px solid $emphasis;
 
         article {
+          width: 49%;
           margin-top: 20px;
           box-shadow: 1px 1px 20px #ececec;
           background: #fff;
           padding: 3%;
+          // display: flex;
+          display: flex;
+          flex-wrap: wrap;
+          align-content: space-between;
+
+          h3 {
+            width: 100%;
+          }
         }
 
         article.showContent {
@@ -138,13 +151,18 @@ textarea {
           }
 
           .lower {
-            margin-top: 20px;
+            // margin-top: 20px;
+            width: 100%;
             display: flex;
-            justify-content: space-between;
-            .iconBox,
-            .btnSet {
+            justify-content: flex-end;
+
+            .iconBox {
+              gap: 0.5vw;
               display: flex;
-              gap: 1vw;
+
+              .edit {
+                color: $emphasis;
+              }
             }
 
             .iconBox * {
@@ -152,21 +170,21 @@ textarea {
                 scale: 1.1;
               }
             }
-            .btnSet {
-              button {
-                background: none;
-                border: none;
+            // .btnSet {
+            //   button {
+            //     background: none;
+            //     border: none;
 
-                &:nth-of-type(2) {
-                  color: $emphasis;
-                }
+            //     &:nth-of-type(2) {
+            //       color: $emphasis;
+            //     }
 
-                &:hover {
-                  scale: 1.1;
-                  cursor: pointer;
-                }
-              }
-            }
+            //     &:hover {
+            //       scale: 1.1;
+            //       cursor: pointer;
+            //     }
+            //   }
+            // }
           }
         }
 
