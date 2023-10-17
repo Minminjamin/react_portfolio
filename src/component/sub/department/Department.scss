@@ -134,10 +134,6 @@
 .tablet,
 .mobile {
   .Department {
-    p {
-      font-size: 1rem;
-    }
-
     .memberBox {
       margin-top: 20px;
 
@@ -167,6 +163,7 @@
         }
 
         p {
+          // font-size: $tableth4;
           text-indent: 1vw;
         }
       }
@@ -176,10 +173,6 @@
 
 .mobile {
   .Department {
-    p {
-      font-size: 1rem;
-    }
-
     .memberBox {
       article {
         width: 100%;
