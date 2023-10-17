@@ -51,3 +51,20 @@
     }
   }
 }
+
+.tablet,
+.mobile {
+  .layout {
+    h1 {
+      font-style: 80px;
+    }
+  }
+}
+
+.mobile {
+  .layout {
+    h1 {
+      font-style: 50px;
+    }
+  }
+}
