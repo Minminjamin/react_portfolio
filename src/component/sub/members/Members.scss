@@ -103,7 +103,6 @@
     .rightBox {
       width: 33%;
       margin-top: 1.5rem;
-      // padding: 2%;
 
       p {
         color: #333;
@@ -142,6 +141,17 @@
 
         table {
           width: 100%;
+
+          &:last-child {
+            input[type="submit"],
+            input[type="reset"] {
+              width: 50px;
+            }
+
+            input[type="submit"] {
+              color: $emphasis;
+            }
+          }
 
           td {
             input[type="text"],
