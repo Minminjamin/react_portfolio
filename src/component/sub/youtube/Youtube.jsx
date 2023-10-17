@@ -47,6 +47,8 @@ const Youtube = () => {
   return (
     <>
       <Layout title={"Youtube"}>
+        <h2>Happy video page. Listen to the songs of my favorite musicians.</h2>
+
         {youtube.map((data, idx) => {
           let date = data.snippet.publishedAt;
           return (
@@ -63,7 +65,7 @@ const Youtube = () => {
 
               <div className="info">
                 <div className="innerTopText">
-                  <h2>{sliceTxt(data.snippet.title, 60)}</h2>
+                  <h3>{sliceTxt(data.snippet.title, 60)}</h3>
                   <p>{data.snippet.videoOwnerChannelTitle}</p>
                 </div>
 
