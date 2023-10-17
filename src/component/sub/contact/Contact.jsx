@@ -2,6 +2,9 @@ import React, { useRef, useEffect, useState } from "react";
 import Layout from "../../common/layout/Layout";
 import styles from "../contact/Contact.scss";
 import emailjs from "@emailjs/browser";
+import { PiParkBold } from "react-icons/pi";
+import { HiOutlineBuildingOffice2 } from "react-icons/hi2";
+import { GiModernCity } from "react-icons/gi";
 
 const Contact = () => {
   const instance = useRef(null);
@@ -23,7 +26,7 @@ const Contact = () => {
   //  이 정보값은 자주 정보값이 자주 바뀌지 않기에 굳이 state에 담아서 불필요한 제렌더링을 막기 위해서 ref에 담음
   const info = useRef([
     {
-      pic: "park.png",
+      pic: "PiParkBold",
       title: "망원한강공원",
       latlng: new kakao.maps.LatLng(37.555552791692904, 126.89473732590281),
       imgSrc: `${process.env.PUBLIC_URL}/img/marker1.png`,
@@ -33,7 +36,7 @@ const Contact = () => {
       description: "맑은 강",
     },
     {
-      pic: "office.png",
+      pic: "HiOutlineBuildingOffice2",
       title: "DMC 첨단산업센터",
       latlng: new kakao.maps.LatLng(37.585, 126.8854),
       imgSrc: `${process.env.PUBLIC_URL}/img/marker2.png`,
@@ -43,7 +46,7 @@ const Contact = () => {
       description: "마포구에 있는 회사",
     },
     {
-      pic: "city.png",
+      pic: "GiModernCity",
       title: "김해 시청",
       latlng: new kakao.maps.LatLng(35.22859521186741, 128.88929749274934),
       imgSrc: `${process.env.PUBLIC_URL}/img/marker3.png`,
@@ -176,6 +179,7 @@ const Contact = () => {
           <h3>(011)-1234-5678</h3>
         </div>
         <form ref={form} onSubmit={sendEmail}>
+          <h2>Send E-mail</h2>
           <input
             type="text"
             name="user_name"
@@ -192,6 +196,7 @@ const Contact = () => {
 
           <div className="btnSet">
             <input type="reset" value="Cancel" />
+
             <input type="submit" value="Send" />
           </div>
         </form>
@@ -210,7 +215,11 @@ const Contact = () => {
               className={index === idx ? "on" : ""}
             >
               <div className="pic">
-                <img src={`${path}/img/${data.pic}`} alt={data.title} />
+                {data.pic === "PiParkBold" && <PiParkBold />}
+                {data.pic === "HiOutlineBuildingOffice2" && (
+                  <HiOutlineBuildingOffice2 />
+                )}
+                {data.pic === "GiModernCity" && <GiModernCity />}
               </div>
 
               <h4>{data.title}</h4>

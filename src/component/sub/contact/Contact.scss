@@ -1,4 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&family=Noto+Sans+KR:wght@600;700&display=swap");
+@import "../../../styles/variable.scss";
+
 .Contact {
   figure {
     background: orange;
@@ -52,33 +54,43 @@
       }
 
       .btnSet {
-        gap: 4px;
+        gap: 1vw;
         display: flex;
         align-items: flex-end;
         margin-left: auto; // btnSet을 오른쪽 끝으로 이동
 
         input {
           border: none;
-          padding: 2%;
-          width: 6.5vw;
-          color: white;
-          &:nth-of-type(1) {
-            background: #e6c201;
-
-            &:hover {
-              background: #998200;
-            }
-          }
+          background: none;
 
           &:nth-of-type(2) {
-            background: #f2a10c;
-
-            &:hover {
-              background: #dba500;
-            }
+            color: $emphasis;
           }
-          // align-items: flex-end;
+
+          &:hover {
+            scale: 1.1;
+          }
+          // border: none;
           // padding: 2%;
+          // width: 6.5vw;
+          // color: white;
+          // &:nth-of-type(1) {
+          //   background: #e6c201;
+
+          //   &:hover {
+          //     background: #998200;
+          //   }
+          // }
+
+          // &:nth-of-type(2) {
+          //   background: #f2a10c;
+
+          //   &:hover {
+          //     background: #dba500;
+          //   }
+          // }
+          // // align-items: flex-end;
+          // // padding: 2%;
         }
       }
     }
@@ -110,7 +122,9 @@
           width: 35%;
           height: 35%;
 
-          img {
+          // border: solid 1px red;
+
+          * {
             width: 100%;
             height: 100%;
           }
@@ -136,7 +150,10 @@
 
       article.on {
         background: #f4f4f4;
-        color: hotpink;
+
+        h4 {
+          color: $emphasis;
+        }
       }
     }
 
@@ -162,17 +179,21 @@
     }
   }
   .downBtn {
-    margin-top: 10px;
+    margin-top: 30px;
     width: 30%;
     display: flex;
     justify-content: space-between;
+
     button {
       border: none;
+      background: #fff;
       padding: 2%;
 
       &:hover {
-        background: #8f8f8f;
-        color: white;
+        // background: #8f8f8f;
+        // scale: 1.1;
+        box-shadow: 1px 1px 20px #ddd;
+        // color: white;
       }
     }
   }
