@@ -132,39 +132,6 @@ const Community = () => {
               <button onClick={createPost}>Write</button>
             </nav>
           </div>
-          <div className="conBox">
-            <div className="con">
-              <div className="pic">
-                <img src={`${path}/img/park.jpg`} alt="park" />
-              </div>
-              <div className="text">
-                <h3>Hello User!</h3>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Itaque sint vero, laborum cumque officia ipsa enim iste sit
-                  delectus aspernatur rerum odit quisquam assumenda. Nihil
-                  impedit, quam ipsa perspiciatis temporibus dolores eos
-                  laudantium animi quo ad. Ab vero beatae eum laudantium
-                  accusamus corporis ipsam. Impedit a corrupti itaque delectus,
-                  distinctio cumque commodi! Ut, quia placeat. Ipsum sit
-                  corrupti nobis rem iste amet nam blanditiis reiciendis quod
-                  consectetur, dolorem voluptatem minus officiis ullam nulla
-                  optio neque assumenda fugiat. Tempore laborum asperiores
-                  provident dignissimos mollitia eveniet iste hic excepturi enim
-                  accusantium illo, ipsa repellendus facilis assumenda magni
-                  omnis optio. Excepturi aspernatur vitae quia maxime qui, porro
-                  animi maiores quasi eum cum ipsa provident exercitationem illo
-                  accusamus ea labore, adipisci reiciendis a fugiat facilis!
-                  Aliquam minima eligendi aliquid fuga provident, eum nihil
-                  nulla nostrum sint magni totam impedit blanditiis neque
-                  voluptate incidunt commodi ea hic enim quam, temporibus,
-                  assumenda facilis. Temporibus, harum fugiat!
-                </p>
-              </div>
-            </div>
-
-            <div className="con"></div>
-          </div>
         </div>
 
         <div className="rightBox">

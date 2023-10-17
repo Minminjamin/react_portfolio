@@ -53,12 +53,10 @@ textarea {
 
     .leftBox {
       width: 40%;
-      // border: solid 1px red;
       padding: 2%;
       padding-left: 0%;
 
       .inputBox {
-        // border: solid 1px $emphasis;
         padding: 2%;
         background: #fff;
         box-shadow: 1px 1px 20px #ececec;
@@ -67,7 +65,6 @@ textarea {
           display: flex;
           justify-content: flex-end;
           gap: 1vw;
-          // margin: 15px;
           margin-top: 15px;
 
           button {
@@ -86,32 +83,6 @@ textarea {
           }
         }
       }
-
-      .conBox {
-        border-top: 1px solid $emphasis;
-        margin-top: 50px;
-        padding: 2%;
-
-        .con {
-          display: flex;
-          .pic {
-            width: 40%;
-
-            img {
-              width: 100%;
-              object-fit: contain;
-            }
-          }
-          .text {
-            padding: 0px 2%;
-            width: 60%;
-          }
-        }
-
-        h3 {
-          font-family: "Nanum Myeongjo";
-        }
-      }
     }
     .rightBox {
       padding: 2%;
@@ -122,7 +93,7 @@ textarea {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
-        border-top: 1px solid $emphasis;
+        border-top: solid 0.5px gray;
 
         article {
           width: 49%;
@@ -130,7 +101,6 @@ textarea {
           box-shadow: 1px 1px 20px #ececec;
           background: #fff;
           padding: 3%;
-          // display: flex;
           display: flex;
           flex-wrap: wrap;
           align-content: space-between;
@@ -151,7 +121,6 @@ textarea {
           }
 
           .lower {
-            // margin-top: 20px;
             width: 100%;
             display: flex;
             justify-content: flex-end;
@@ -170,21 +139,6 @@ textarea {
                 scale: 1.1;
               }
             }
-            // .btnSet {
-            //   button {
-            //     background: none;
-            //     border: none;
-
-            //     &:nth-of-type(2) {
-            //       color: $emphasis;
-            //     }
-
-            //     &:hover {
-            //       scale: 1.1;
-            //       cursor: pointer;
-            //     }
-            //   }
-            // }
           }
         }
 
@@ -198,7 +152,6 @@ textarea {
           }
 
           .lower {
-            // margin-top: 20px;
             width: 100%;
             display: flex;
             justify-content: flex-end;
@@ -217,58 +170,34 @@ textarea {
                 scale: 1.1;
               }
             }
-            // .btnSet {
-            //   button {
-            //     background: none;
-            //     border: none;
-
-            //     &:nth-of-type(2) {
-            //       color: $emphasis;
-            //     }
-
-            //     &:hover {
-            //       scale: 1.1;
-            //       cursor: pointer;
-            //     }
-            //   }
-            // }
           }
-          // flex-direction: column;
+        }
+      }
+    }
+  }
+}
 
-          // display: flex;
-          // flex-wrap: wrap;
-          // align-content: space-between;
-          // input,
-          // textarea {
-          //   width: 100%;
-          //   // display: block;
-          // }
-          // input {
-          //   margin-top: 5px;
-          // }
-          // textarea {
-          //   margin-top: 0px;
-          // }
-          // .btnSet {
-          //   display: flex;
-          //   justify-content: flex-end;
-          //   gap: 1vw;
+.tablet,
+.mobile {
+  .Community {
+    .content {
+      .inputBox {
+        input[type="text"],
+        textarea {
+          width: 100%;
+        }
 
-          //   button {
-          //     margin-top: 10px;
-          //     border: none;
-          //     background: none;
+        .btnSet {
+          display: flex;
+          justify-content: space-between;
+          button {
+            width: 47%;
+            margin-right: 3%;
 
-          //     &:nth-of-type(2) {
-          //       color: $emphasis;
-          //     }
-
-          //     &:hover {
-          //       scale: 1.1;
-          //       cursor: pointer;
-          //     }
-          //   }
-          // }
+            &:last-child {
+              margin-right: 0%;
+            }
+          }
         }
       }
     }
