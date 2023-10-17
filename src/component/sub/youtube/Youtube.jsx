@@ -4,29 +4,13 @@ import "./Youtube.scss";
 import Layout from "../../common/layout/Layout";
 import { useState, useEffect, useRef } from "react";
 import { Link, useHistory } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Youtube = () => {
+  const youtube = useSelector((store) => store.youtube.data);
   const history = useHistory();
 
-  const [youtube, setYoutube] = useState([]);
   const refEl = useRef(null);
-
-  const fetchYoutube = async () => {
-    const api_key = process.env.REACT_APP_GOOGLE_API_KEY;
-    const baseURL = "https://www.googleapis.com/youtube/v3/playlistItems";
-    const pid = "PLNXichiUWg4Ax7wNBYcC4rw16mS6MTind";
-    const index = 8;
-    const resultURL = `${baseURL}?key=${api_key}&part=snippet&playlistId=${pid}&maxResults=${index}`;
-
-    const res = await fetch(resultURL);
-    const json = await res.json();
-
-    setYoutube(json.items);
-  };
-
-  useEffect(() => {
-    fetchYoutube();
-  }, []);
 
   const sliceTxt = (text, num) => {
     if (text.length > num) {
@@ -39,10 +23,6 @@ const Youtube = () => {
   const sliceDate = (date) => {
     return date.splite("T")[0];
   };
-
-  useEffect(() => {
-    console.log(youtube);
-  }, [youtube]);
 
   return (
     <>
