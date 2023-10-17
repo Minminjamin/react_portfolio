@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import styles from "../department/Department.module.scss";
+import "./Department.scss";
 import Layout from "../../common/layout/Layout";
 
 const path = process.env.PUBLIC_URL;
@@ -25,15 +25,15 @@ const Department = () => {
   }, [history]);
 
   return (
-    <Layout title={"Department"} styleName={styles.department}>
+    <Layout title={"Department"}>
       <h2>Team</h2>
-      <div className={styles.line}></div>
-      <div className={styles.memberBox}>
+      <div className="line"></div>
+      <div className="memberBox">
         {department.map((member, index) => (
           <article key={index}>
             <h3>{member.name}</h3>
-            {/* <div className={styles.line}></div> */}
-            <div className={styles.pic}>
+            {/* <div className={line}></div> */}
+            <div className="pic">
               <img src={`${path}/img/${member.pic}`} alt={member.name} />
             </div>
             <h4>{member.position}</h4>
@@ -48,16 +48,16 @@ const Department = () => {
       </div>
 
       <h2>About</h2>
-      <div className={styles.line}></div>
-      <article className={styles.aboutBox}>
-        <div className={styles.pic}>
+      <div className="line"></div>
+      <article className="aboutBox">
+        <div className="pic">
           <>
             <img src={`${path}/img/department01.jpg`} alt="bird" />
           </>
         </div>
-        <div className={styles.text}>
+        <div className="text">
           <h3>Philosophy</h3>
-          {/* <div className={styles.innerText}> */}
+          {/* <div className={innerText}> */}
           <h4>
             "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorem
             tempore quibusdam odio! Eius esse adipisci possimus voluptatem eos

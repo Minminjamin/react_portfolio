@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap");
 @import "../../../styles/variable.scss";
 
-.department {
+.Department {
   figure {
     background-color: lightblue;
   }
@@ -131,6 +131,75 @@
   }
 }
 
+.tablet,
+.mobile {
+  .Department {
+    p {
+      font-size: 1rem;
+    }
+
+    .memberBox {
+      margin-top: 20px;
+
+      article {
+        width: 48%;
+        margin-bottom: 40px;
+        .pic {
+          width: 100%;
+          height: 20vw;
+        }
+      }
+    }
+
+    article.aboutBox {
+      flex-wrap: wrap;
+      .pic {
+        width: 100%;
+      }
+
+      .text {
+        width: 100%;
+
+        h4 {
+          margin-top: 20px;
+
+          padding-left: 15%;
+        }
+
+        p {
+          text-indent: 1vw;
+        }
+      }
+    }
+  }
+}
+
+.mobile {
+  .Department {
+    p {
+      font-size: 1rem;
+    }
+
+    .memberBox {
+      article {
+        width: 100%;
+        margin-bottom: 20px;
+
+        .pic {
+          height: auto;
+        }
+      }
+    }
+
+    article.aboutBox {
+      .text {
+        h3 {
+          margin-top: 15px;
+        }
+      }
+    }
+  }
+}
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -139,7 +208,6 @@
 
   to {
     opacity: 1;
-    // transform: none;
   }
 }
 
