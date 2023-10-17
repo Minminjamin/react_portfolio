@@ -37,11 +37,10 @@
       display: flex;
       flex-wrap: wrap;
       align-content: space-between;
-      // flex-direction: column;
+
       .innerTopText {
         h3 {
           display: block;
-          // width: 100%;
         }
         p {
           display: block;
@@ -57,7 +56,6 @@
       .date {
         font-weight: bold;
         color: $emphasis;
-        // display: block;
         width: 100%;
       }
 
@@ -65,17 +63,13 @@
         width: 100%;
         display: flex;
         justify-content: flex-end;
-        // border: solid 1px red;
+
         button {
           padding: 1%;
           background: white;
           border: none;
           border: solid 2px #d5d5d5;
           border-bottom: none;
-          // border-color: gray;
-          // border-color: #d5d5d5;
-          // border-right-color: #d5d5d5;
-          // border-width: 1px;
 
           &:hover {
             background: #d5d5d5;
@@ -129,33 +123,3 @@
     }
   }
 }
-// .modal {
-//   width: 100%;
-//   height: 100vh;
-//   background: rgba(0, 0, 0, 0.9);
-//   position: fixed;
-//   top: 0;
-//   left: 0;
-//   padding: 5vw;
-
-//   .con {
-//     width: 100%;
-//     height: 100%;
-
-//     iframe {
-//       width: 100%;
-//       height: 100%;
-//       object-fit: cover;
-//       border: none;
-//     }
-//   }
-
-//   span {
-//     position: absolute;
-//     top: 30px;
-//     right: 30px;
-//     font: bold 14px/1 "arial";
-//     color: #fff;
-//     cursor: pointer;
-//   }
-// }
