@@ -1,19 +1,13 @@
-@import "/src/styles/variable.scss";
-
 .header {
   width: 100%;
-  padding: 5vh 10vw;
+  padding: 3vh 10vw;
   display: flex;
   justify-content: space-between;
-  box-shadow: 4px gray;
-  background: white;
+
   h1 {
     font-size: 1.5rem;
-    color: #333;
-
-    a {
-      color: inherit;
-    }
+    //color: #333;
+    color: var(--color1);
   }
 
   ul {
@@ -26,13 +20,6 @@
     li {
       a.active {
         color: hotpink;
-      }
-
-      a {
-        &:hover {
-          border-bottom: 1px solid gray;
-          // border: solid 1px gray;
-        }
       }
     }
   }
@@ -49,7 +36,9 @@
     color: hotpink;
   }
 }
-@media screen and (max-width: $tablet) {
+
+.tablet,
+.mobile {
   .header {
     ul {
       display: none;
