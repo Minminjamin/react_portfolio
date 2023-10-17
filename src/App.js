@@ -11,10 +11,16 @@ import Footer from "./component/common/footer/Footer";
 import Detail from "./component/sub/youtube/Detail";
 import Community from "./component/sub/community/Community";
 import Main from "./component/main/mainWrap/Main";
+import { useEffect, useRef } from "react";
+import { useMedia } from "./hooks/useMedia";
+// import "./styles/index.css";
 
 function App() {
+  const refMain = useRef(null);
+  useMedia();
+
   return (
-    <>
+    <main className={useMedia()}>
       <Switch>
         <Route exact path="/">
           <Header isMain={true} />
@@ -34,7 +40,7 @@ function App() {
 
       <Route path="/" component={Footer} />
       {/* // <Footer /> */}
-    </>
+    </main>
   );
 }
 
