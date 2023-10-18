@@ -9,7 +9,7 @@ const Info = () => {
     <section className="info">
       <div className="wrap">
         {data.map((item, idx) => {
-          if (idx >= 5) return;
+          if (idx >= 6) return;
           return (
             <article key={idx}>
               <img
