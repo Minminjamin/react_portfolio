@@ -29,15 +29,15 @@ const Youtube = () => {
       <Layout title={"Youtube"}>
         <h2>Happy video page. Listen to the songs of my favorite musicians.</h2>
 
-        {youtube.map((data, idx) => {
-          let date = data.snippet.publishedAt;
+        {youtube.map((item, idx) => {
+          let date = item.snippet.publishedAt;
           return (
             <article key={idx}>
               <div className="pic">
-                <Link to={`/detail/${data.id}`}>
+                <Link to={`/detail/${item.id}`}>
                   <img
-                    src={data.snippet.thumbnails.standard.url}
-                    alt={data.title}
+                    src={item.snippet.thumbnails.standard.url}
+                    alt={item.title}
                     // onClick={() => setIndex(idx)}
                   />
                 </Link>
@@ -45,17 +45,17 @@ const Youtube = () => {
 
               <div className="info">
                 <div className="innerTopText">
-                  <h3>{sliceTxt(data.snippet.title, 60)}</h3>
-                  <p>{data.snippet.videoOwnerChannelTitle}</p>
+                  <h3>{sliceTxt(item.snippet.title, 60)}</h3>
+                  <p>{item.snippet.videoOwnerChannelTitle}</p>
                 </div>
 
-                <p>{sliceTxt(data.snippet.description, 200)}</p>
+                <p>{sliceTxt(item.snippet.description, 200)}</p>
                 <p className="date">
                   {date.split("T")[0].split("-").join(".")}
                 </p>
 
                 <div className="btnSet">
-                  <button onClick={() => history.push(`/detail/${data.id}`)}>
+                  <button onClick={() => history.push(`/detail/${item.id}`)}>
                     View More
                   </button>
                 </div>
