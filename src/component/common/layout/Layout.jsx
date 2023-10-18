@@ -4,6 +4,8 @@ import clsx from "clsx";
 import { useEffect, useRef, useState } from "react";
 import useSplitText from "../../../hooks/useSplitText";
 
+const path = process.env.PUBLIC_URL;
+
 const Layout = ({ title, children, styleName }) => {
   const [isOn, setIsOn] = useState(false);
 
@@ -22,7 +24,9 @@ const Layout = ({ title, children, styleName }) => {
       ref={frame}
       className={clsx(styles.layout, styleName, title, isOn ? styles.on : " ")}
     >
-      <figure></figure>
+      <figure>
+        <img src={`${path}/img/banner.jpg`} />
+      </figure>
 
       <div className={clsx(styles.content, styleName)}>
         <h1 ref={tit}>{title}</h1>

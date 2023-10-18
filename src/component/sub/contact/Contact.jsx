@@ -6,6 +6,8 @@ import { PiParkBold } from "react-icons/pi";
 import { HiOutlineBuildingOffice2 } from "react-icons/hi2";
 import { GiModernCity } from "react-icons/gi";
 
+const path = process.env.PUBLIC_URL;
+
 const Contact = () => {
   const instance = useRef(null);
   const map = useRef(null);
