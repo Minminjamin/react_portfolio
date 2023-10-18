@@ -1,20 +1,13 @@
-import clsx from "clsx";
 import React from "react";
-import "./Header.scss";
-import { Link, NavLink } from "react-router-dom";
-import { FaBars } from "react-icons/fa";
-import { toggle } from "../../../redux/menuSlice";
-import { useDispatch } from "react-redux";
+import { NavLink, Link } from "react-router-dom";
+import "./Menu.scss";
 
-const Header = ({ isMain }) => {
-  const dispatch = useDispatch();
-
+const Menu = () => {
   return (
-    <header className="header">
+    <aside className="mainMenu">
       <h1>
         <Link to="/">LOGO</Link>
       </h1>
-
       <ul>
         <li>
           <NavLink to="/department" activeClassName="active">
@@ -47,17 +40,8 @@ const Header = ({ isMain }) => {
           </NavLink>
         </li>
       </ul>
-
-      <FaBars
-        className="bars"
-        fontSize={22}
-        color={"#333"}
-        onClick={() => {
-          dispatch(toggle());
-        }}
-      />
-    </header>
+    </aside>
   );
 };
 
-export default Header;
+export default Menu;
