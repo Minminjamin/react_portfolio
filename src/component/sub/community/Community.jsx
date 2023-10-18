@@ -6,10 +6,37 @@ import { AiOutlineEdit, AiOutlineDelete } from "react-icons/ai";
 const path = process.env.PUBLIC_URL;
 
 const Community = () => {
+  const dummyData = [
+    {
+      title: "title4",
+      content:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta, iure?4",
+      date: new Date(),
+    },
+    {
+      title: "title3",
+      content:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta, iure?3",
+      date: new Date(),
+    },
+    {
+      title: "title2",
+      content:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta, iure?2",
+      date: new Date(),
+    },
+    {
+      title: "title1",
+      content:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta, iure?1",
+      date: new Date(),
+    },
+  ];
+
   const getLocalData = () => {
     const data = localStorage.getItem("post");
     if (data) return JSON.parse(data);
-    else return [];
+    else return dummyData;
   };
 
   const refInput = useRef(null);
