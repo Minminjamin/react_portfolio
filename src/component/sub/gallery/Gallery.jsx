@@ -55,7 +55,6 @@ const Gallery = () => {
     const btns = btnSet.current.querySelectorAll("button");
     btns.forEach((btn) => btn.classList.remove("on"));
     e.target.classList.add("on");
-
     dispatch(fetchFlickr({ type: "interest" }));
   };
 

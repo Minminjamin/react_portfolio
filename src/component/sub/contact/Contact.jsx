@@ -179,7 +179,7 @@ const Contact = () => {
           <h3>(011)-1234-5678</h3>
         </div>
         <form ref={form} onSubmit={sendEmail}>
-          <h2>Send E-mail</h2>
+          <h3>Send E-mail</h3>
           <input
             type="text"
             name="user_name"
