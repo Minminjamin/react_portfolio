@@ -7,14 +7,17 @@ import Modal from "../../common/modal/Modal";
 import { BiSearchAlt } from "react-icons/bi";
 import { useSelector, useDispatch } from "react-redux";
 import fetchFlickr from "../../../redux/flickrSlice";
+import { open } from "../../../redux/modalSlice";
 
 const Gallery = () => {
   const [isUser, setIsUser] = useState(true);
   const [activeUrl, setActiveUrl] = useState("");
-  const [isModal, setIsModal] = useState(false);
 
   const dispatch = useDispatch();
+
   const pics = useSelector((store) => store.flickr.data);
+  const isModal = useSelector((store) => store.modal.isOpen);
+
   const search = useRef(null);
   const btnSet = useRef(null);
 
@@ -127,7 +130,7 @@ const Gallery = () => {
                         setActiveUrl(
                           `https://live.staticflickr.com/${item.server}/${item.id}_${item.secret}_b.jpg`
                         );
-                        setIsModal(true);
+                        dispatch(open());
                       }}
                     />
                   </div>
@@ -158,7 +161,7 @@ const Gallery = () => {
       </Layout>
 
       {isModal && (
-        <Modal setIsModal={setIsModal}>
+        <Modal>
           <img src={activeUrl} alt="img" />
         </Modal>
       )}

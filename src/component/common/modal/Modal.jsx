@@ -1,7 +1,9 @@
 import React, { useEffect } from "react";
 import "../modal/Modal.scss";
+import { close } from "../../../redux/modalSlice";
+import { useDispatch } from "react-redux";
 
-const Modal = ({ children, setIsModal }) => {
+const Modal = ({ children }) => {
   useEffect(() => {
     document.body.style.overflow = "hidden";
 
@@ -10,10 +12,12 @@ const Modal = ({ children, setIsModal }) => {
     };
   }, []);
 
+  const dispatch = useDispatch();
+
   return (
     <aside className="modal">
       <div className="con">{children}</div>
-      <span onClick={() => setIsModal(false)}>close</span>
+      <span onClick={() => dispatch(close())}>close</span>
     </aside>
   );
 };
