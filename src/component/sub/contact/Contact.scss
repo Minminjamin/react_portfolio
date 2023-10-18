@@ -36,7 +36,6 @@
     }
 
     form {
-      // height: 20vw;
       width: 49%;
       background: #fff;
       padding: 2%;
@@ -70,27 +69,6 @@
           &:hover {
             scale: 1.1;
           }
-          // border: none;
-          // padding: 2%;
-          // width: 6.5vw;
-          // color: white;
-          // &:nth-of-type(1) {
-          //   background: #e6c201;
-
-          //   &:hover {
-          //     background: #998200;
-          //   }
-          // }
-
-          // &:nth-of-type(2) {
-          //   background: #f2a10c;
-
-          //   &:hover {
-          //     background: #dba500;
-          //   }
-          // }
-          // // align-items: flex-end;
-          // // padding: 2%;
         }
       }
     }
@@ -121,8 +99,6 @@
         .pic {
           width: 35%;
           height: 35%;
-
-          // border: solid 1px red;
 
           * {
             width: 100%;
@@ -180,58 +156,185 @@
   }
   .downBtn {
     margin-top: 30px;
-    width: 30%;
+    gap: 10px;
     display: flex;
-    justify-content: space-between;
 
     button {
       border: none;
       background: #fff;
-      padding: 2%;
+      padding: 1%;
 
       &:hover {
-        // background: #8f8f8f;
-        // scale: 1.1;
         box-shadow: 1px 1px 20px #ddd;
-        // color: white;
       }
     }
   }
-  // .mapBox {
-
-  //   ul {
-  //     margin-top: 10px;
-  //     display: flex;
-  //     gap: 40px;
-
-  //     li {
-  //       cursor: pointer;
-  //     }
-
-  //     li.on {
-  //       color: hotpink;
-  //     }
-  //   }
-  // }
 }
 
 .tablet,
 .mobile {
   .Contact {
-    .content {
-      .upperBox {
-        #mailBox {
-          width: 100%;
-          padding-right: 0px;
+    .contactMe {
+      display: flex;
+      flex-wrap: wrap;
+
+      .contactInfo {
+        width: 100%;
+        p {
+          &:nth-of-type(2),
+          &:nth-of-type(3) {
+            margin-top: 10px;
+          }
         }
 
-        #etc {
+        h2 {
+          margin-right: 0vw;
+        }
+
+        h3 {
+          margin-top: 10px;
+        }
+      }
+
+      form {
+        margin-top: 30px;
+        width: 100%;
+      }
+    }
+
+    .mapBox {
+      margin-top: 100px;
+
+      .mapInfo {
+        display: flex;
+        justify-content: space-between;
+
+        article {
+          background: #fff;
+          width: 32%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+
+          &:hover {
+            cursor: pointer;
+            box-shadow: 1px 1px 20px #ddd;
+            .pic img {
+              scale: 1.1;
+            }
+          }
+          .pic {
+            width: 35%;
+            height: 35%;
+
+            * {
+              width: 100%;
+              height: 100%;
+            }
+          }
+
+          h4 {
+            margin-top: 15px;
+            font-size: 1.1rem;
+          }
+
+          p {
+            margin-top: 10px;
+            font-size: 0.8rem;
+            text-align: center;
+            &:nth-of-type(1) {
+              color: gray;
+            }
+            &:nth-of-type(2) {
+              color: brown;
+            }
+          }
+        }
+
+        article.on {
+          background: #f4f4f4;
+
+          h4 {
+            color: $emphasis;
+          }
+        }
+      }
+
+      .container {
+        width: 100%;
+        height: 60vh;
+        position: relative;
+        margin-top: 30px;
+
+        .map,
+        .view {
           width: 100%;
-          height: auto;
-          padding-left: 0px;
-          border-left: none;
+          height: 100%;
+          position: absolute;
+          opacity: 0;
+          z-index: 1;
+
+          &.on {
+            opacity: 1;
+            z-index: 2;
+          }
+        }
+      }
+    }
+    .downBtn {
+      gap: 5px;
+
+      button {
+        width: auto;
+        border: none;
+        background: #fff;
+        padding: 2%;
+
+        &:hover {
+          box-shadow: 1px 1px 20px #ddd;
         }
       }
     }
   }
 }
+
+.mobile {
+  .Contact {
+    .mapBox {
+      .mapInfo {
+        article {
+          h4 {
+            text-align: center;
+          }
+
+          p {
+            &:nth-of-type(1) {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+// .tablet,
+// .mobile {
+//   .Contact {
+//     .content {
+//       .upperBox {
+//         #mailBox {
+//           width: 100%;
+//           padding-right: 0px;
+//         }
+
+//         #etc {
+//           width: 100%;
+//           height: auto;
+//           padding-left: 0px;
+//           border-left: none;
+//         }
+//       }
+//     }
+//   }
+// }
