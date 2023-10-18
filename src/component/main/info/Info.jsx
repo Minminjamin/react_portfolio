@@ -6,7 +6,7 @@ const Info = () => {
 
   console.log(data);
   return (
-    <section className="info">
+    <section className="mainInfo">
       <div className="wrap">
         {data.map((item, idx) => {
           if (idx >= 6) return;
