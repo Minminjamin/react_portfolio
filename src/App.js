@@ -21,7 +21,7 @@ import Menu from "./component/common/menu/Menu";
 
 function App() {
   const dispatch = useDispatch();
-  const isOpen = useSelector((store) => store.menu.isOpen);
+  // const isOpen = useSelector((store) => store.menu.isOpen);
 
   useEffect(() => {
     dispatch(fetchYoutube());
@@ -49,7 +49,8 @@ function App() {
       <Route path="/community" component={Community} />
       <Route path="/detail/:id" component={Detail} />
 
-      {isOpen && <Menu />}
+      <Menu />
+      {/* {isOpen && <Menu />} */}
       <Route path="/" component={Footer} />
       {/* <Footer /> */}
     </main>

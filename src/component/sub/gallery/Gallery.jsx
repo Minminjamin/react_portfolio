@@ -160,11 +160,11 @@ const Gallery = () => {
         </div>
       </Layout>
 
-      {isModal && (
-        <Modal>
-          <img src={activeUrl} alt="img" />
-        </Modal>
-      )}
+      {/* {isModal && ( */}
+      <Modal>
+        <img src={activeUrl} alt="img" />
+      </Modal>
+      {/* )} */}
     </>
   );
 };
