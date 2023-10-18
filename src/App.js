@@ -15,6 +15,7 @@ import { useEffect, useRef } from "react";
 import { useMedia } from "./hooks/useMedia";
 import { fetchYoutube } from "./redux/youtubeSlice";
 import { useDispatch } from "react-redux";
+import { fetchFlickr } from "./redux/flickrSlice";
 // import "./styles/index.css";
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
 
   useEffect(() => {
     dispatch(fetchYoutube());
+    dispatch(fetchFlickr({ type: "user", id: "199348831@N08" }));
   }, []);
   // const refMain = useRef(null);
 
