@@ -2,10 +2,12 @@ import React from "react";
 import { NavLink, Link } from "react-router-dom";
 import "./Menu.scss";
 import { AnimatePresence, motion } from "framer-motion";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { close } from "../../../redux/menuSlice";
 
 const Menu = () => {
   const { isOpen } = useSelector((store) => store.menu);
+  const dispatch = useDispatch();
 
   return (
     <AnimatePresence>
@@ -16,6 +18,7 @@ const Menu = () => {
           animate={{ x: "0%" }}
           exit={{ x: "-100%" }}
           transition={{ duration: 0.7 }}
+          onClick={() => dispatch(close())}
         >
           <h1>
             <Link to="/">LOGO</Link>

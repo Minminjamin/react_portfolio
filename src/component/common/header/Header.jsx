@@ -4,6 +4,7 @@ import "./Header.scss";
 import { Link, NavLink } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
 import { toggle } from "../../../redux/menuSlice";
+// import { toggle } from "../../../redux/menuSlice";
 import { useDispatch } from "react-redux";
 
 const Header = ({ isMain }) => {
