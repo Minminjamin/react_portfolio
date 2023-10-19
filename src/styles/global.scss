@@ -2,6 +2,29 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+
+  h2 {
+    font-size: 1.7rem;
+  }
+  h3 {
+    font-size: 1.5rem;
+  }
+  h4 {
+    font-size: 1.25rem;
+  }
+
+  .tablet,
+  .mobile {
+    h2 {
+      font-size: 2.3rem;
+    }
+    h3 {
+      font-size: 1.3rem;
+    }
+    h4 {
+      font-size: 1.1rem;
+    }
+  }
 }
 
 ul,
@@ -29,16 +52,6 @@ html {
   }
 }
 
-h2 {
-  font-size: 1.7rem;
-}
-h3 {
-  font-size: 1.5rem;
-}
-h4 {
-  font-size: 1.25rem;
-}
-
 table {
   border-collapse: collapse;
 }
@@ -50,17 +63,4 @@ fieldset {
   position: absolute;
   top: -9999px;
   opacity: 0;
-}
-
-.tablet,
-.mobile {
-  h2 {
-    font-size: 2.3rem;
-  }
-  h3 {
-    font-size: 1.3rem;
-  }
-  h4 {
-    font-size: 1.1rem;
-  }
 }
