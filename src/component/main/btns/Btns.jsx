@@ -16,7 +16,7 @@ const Btns = () => {
   };
 
   const activation = () => {
-    const btns = refBtns.current.children;
+    const btns = refBtns.current.querySelectorAll("li");
     const scroll = window.scrollY;
 
     if (scroll >= pos.current[0]) {
