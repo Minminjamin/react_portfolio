@@ -4,12 +4,6 @@ import "./News.scss";
 const News = () => {
   const dummyData = [
     {
-      title: "title4",
-      content:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta, iure?4",
-      date: new Date(),
-    },
-    {
       title: "title3",
       content:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta, iure?3",
@@ -44,15 +38,19 @@ const News = () => {
 
   return (
     <section className="news">
-      <h2>News</h2>
+      <h2>News Page</h2>
+      <p>
+        Maecenas volutpat blandit aliquam etiam. Sit amet luctus venenatis
+        lectus magna fringilla urna porttitor rhoncus.
+      </p>
       <div className="postWrap">
         {post.map((item, idx) => {
-          if (idx >= 4) return null;
+          if (idx >= 3) return null;
           else
             return (
               <article key={idx}>
                 <h2>{item.title}</h2>
-                <span>{item.content}</span>
+                <p>{item.content}</p>
               </article>
             );
         })}

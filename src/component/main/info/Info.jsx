@@ -7,6 +7,11 @@ const Info = () => {
   console.log(data);
   return (
     <section className="mainInfo">
+      <h2>City Gallery</h2>
+      <p>
+        Congue quisque egestas diam in arcu cursus euismod. Sodales neque
+        sodales ut etiam sit.
+      </p>
       <div className="wrap">
         {data.map((item, idx) => {
           if (idx >= 6) return;

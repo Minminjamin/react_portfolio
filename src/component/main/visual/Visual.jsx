@@ -7,15 +7,29 @@ const Visual = () => {
 
   return (
     <section className="visual">
-      <h2>Visual</h2>
-      {data.map((item, idx) => {
-        if (idx >= 5) return;
-        return (
-          <article key={idx}>
-            <h2>{item.snippet.title}</h2>
-          </article>
-        );
-      })}
+      <div className="left">
+        <p>Video</p>
+        <h2>The whole world in one this page</h2>
+        <p>
+          Senectus et netus et malesuada. Nunc pulvinar sapien et ligula
+          ullamcorper malesuada proin.
+        </p>
+      </div>
+
+      <div className="right">
+        {data.map((item, idx) => {
+          if (idx >= 4) return;
+          return (
+            <article key={idx}>
+              <img
+                src={item.snippet.thumbnails.standard.url}
+                alt={item.title}
+                // onClick={() => setIndex(idx)}
+              />
+            </article>
+          );
+        })}
+      </div>
     </section>
   );
 };
