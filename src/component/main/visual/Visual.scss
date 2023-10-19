@@ -4,10 +4,6 @@
   width: 100%;
   height: calc(100vh - 90px);
   display: flex;
-  flex-wrap: wrap;
-  overflow-x: hidden;
-  justify-content: space-between;
-  // justify-content: flex-end;
 
   .titBox {
     width: 40%;
@@ -40,7 +36,7 @@
           font-size: 1.5rem;
           margin-top: 10vh;
           position: relative;
-
+          z-index: 1;
           &::before {
             content: "";
             display: block;
@@ -67,10 +63,11 @@
             transition: 0.5s 0.5s;
           }
         }
+
         &.on {
           opacity: 1;
           transform: translateX(0px) scale(1);
-
+          z-index: 2;
           button {
             &::before,
             &::after {

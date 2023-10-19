@@ -1,22 +1,26 @@
 .news {
   width: 100%;
   height: 100vh;
-  background: green;
+  // background: green;
   padding: 10vw;
 
   h2 {
     font: bold 40px/1 "arial";
-    margin-bottom: 50px;
+    // margin-bottom: 50px;
+  }
+
+  p {
+    margin-top: 15px;
   }
 
   .postWrap {
+    margin-top: 40px;
     width: 100%;
     display: flex;
     justify-content: space-between;
 
     article {
-      width: 20%;
-      // height: 300px;
+      width: 33%;
       padding: 20px;
       background: white;
     }

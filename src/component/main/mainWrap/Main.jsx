@@ -8,8 +8,8 @@ const Main = () => {
   return (
     <main className="mainWrap">
       <Visual />
-      <News />
       <Info />
+      <News />
       <Btns />
     </main>
   );
