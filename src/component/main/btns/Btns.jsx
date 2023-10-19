@@ -37,6 +37,10 @@ const Btns = () => {
     getPos();
 
     window.addEventListener("scroll", activation);
+
+    return () => {
+      window.removeEventListener("scroll", activation);
+    };
   }, []);
 
   return (
