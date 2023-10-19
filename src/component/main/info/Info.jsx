@@ -6,7 +6,7 @@ const Info = () => {
 
   console.log(data);
   return (
-    <section className="mainInfo">
+    <section className="mainInfo myScroll">
       <h2>City Gallery</h2>
       <p>
         Congue quisque egestas diam in arcu cursus euismod. Sodales neque

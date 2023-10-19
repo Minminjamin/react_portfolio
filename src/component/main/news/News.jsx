@@ -37,7 +37,7 @@ const News = () => {
   }, []);
 
   return (
-    <section className="news">
+    <section className="news myScroll">
       <h2>News Page</h2>
       <p>
         Maecenas volutpat blandit aliquam etiam. Sit amet luctus venenatis
