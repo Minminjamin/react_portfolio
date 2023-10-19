@@ -6,7 +6,7 @@ import Masonry from "react-masonry-component";
 import Modal from "../../common/modal/Modal";
 import { BiSearchAlt } from "react-icons/bi";
 import { useSelector, useDispatch } from "react-redux";
-import fetchFlickr from "../../../redux/flickrSlice";
+import { fetchFlickr } from "../../../redux/flickrSlice";
 import { open } from "../../../redux/modalSlice";
 
 const Gallery = () => {

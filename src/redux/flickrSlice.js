@@ -24,7 +24,7 @@ export const fetchFlickr = createAsyncThunk("flicker/request", async (opt) => {
 });
 
 const flickrSlice = createSlice({
-  name: "fliker",
+  name: "flikr",
   initialState: {
     data: [],
     isLoading: false,
