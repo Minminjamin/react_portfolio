@@ -4,11 +4,14 @@ import { useSelector } from "react-redux";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useState } from "react";
 import "swiper/css";
+import { useHistory } from "react-router-dom";
 
 const Visual = () => {
   const { data } = useSelector((store) => store.youtube);
 
   const [index, setIndex] = useState();
+
+  const history = useHistory();
 
   return (
     <section className="visual">
@@ -20,7 +23,13 @@ const Visual = () => {
               <li key={idx} className={idx === index ? "on" : ""}>
                 <h3>{item.snippet.title}</h3>
                 <p>{item.snippet.description.substr(0, 300) + "..."}</p>
-                <button>View Detail</button>
+                <button
+                  onClick={() => {
+                    history.push(`/detail/${item.id}`);
+                  }}
+                >
+                  View Detail
+                </button>
               </li>
             );
           })}
