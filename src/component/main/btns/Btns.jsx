@@ -1,5 +1,5 @@
 import React from "react";
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import "./Btns.scss";
 import Anime from "../../../asset/Anime";
 
@@ -7,45 +7,63 @@ const Btns = () => {
   const refBtns = useRef(null); //btns와 구분을 위해 refBtns로 명명
   let pos = useRef([]);
 
+  const [num, setNum] = useState(0);
+
   const getPos = () => {
+    pos.current = [];
     const secs = document.body.querySelectorAll(".myScroll");
 
     for (let sec of secs) {
       pos.current.push(sec.offsetTop);
     }
+    setNum(pos.current.length);
   };
 
   const activation = () => {
     const btns = refBtns.current.querySelectorAll("li");
     const scroll = window.scrollY;
 
-    if (scroll >= pos.current[0]) {
-      for (let btn of btns) btn.classList.remove("on");
-      btns[0].classList.add("on");
-    }
-    if (scroll >= pos.current[1]) {
-      for (let btn of btns) btn.classList.remove("on");
-      btns[1].classList.add("on");
-    }
-    if (scroll >= pos.current[2]) {
-      for (let btn of btns) btn.classList.remove("on");
-      btns[2].classList.add("on");
-    }
+    pos.current.forEach((item, idx) => {
+      if (scroll >= item) {
+        for (let btn of btns) {
+          btn.classList.remove("on");
+        }
+        btns[idx].classList.add("on");
+      }
+    });
   };
 
   useEffect(() => {
     getPos();
 
+    window.addEventListener("resize", getPos);
     window.addEventListener("scroll", activation);
 
     return () => {
+      window.removeEventListener("resize", getPos);
       window.removeEventListener("scroll", activation);
     };
   }, []);
 
   return (
     <ul className="scrollNavi" ref={refBtns}>
-      <li
+      {Array(num)
+        .fill()
+        .map((item, idx) => {
+          return (
+            <li
+              key={idx}
+              onClick={() => {
+                new Anime(window, {
+                  prop: "scroll",
+                  value: pos.current[idx],
+                  duration: 500,
+                });
+              }}
+            ></li>
+          );
+        })}
+      {/* <li
         className="on"
         onClick={() => {
           new Anime(window, {
@@ -72,7 +90,7 @@ const Btns = () => {
             duration: 500,
           });
         }}
-      ></li>
+      ></li> */}
     </ul>
   );
 };
