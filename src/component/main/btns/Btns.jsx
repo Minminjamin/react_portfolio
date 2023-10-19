@@ -4,7 +4,7 @@ import "./Btns.scss";
 import Anime from "../../../asset/Anime";
 
 const Btns = () => {
-  const btns = useRef(null);
+  const refBtns = useRef(null); //btns와 구분을 위해 refBtns로 명명
   let pos = useRef([]);
 
   const getPos = () => {
@@ -15,12 +15,32 @@ const Btns = () => {
     }
   };
 
+  const activation = () => {
+    const btns = refBtns.current.children;
+    const scroll = window.scrollY;
+
+    if (scroll >= pos.current[0]) {
+      for (let btn of btns) btn.classList.remove("on");
+      btns[0].classList.add("on");
+    }
+    if (scroll >= pos.current[1]) {
+      for (let btn of btns) btn.classList.remove("on");
+      btns[1].classList.add("on");
+    }
+    if (scroll >= pos.current[2]) {
+      for (let btn of btns) btn.classList.remove("on");
+      btns[2].classList.add("on");
+    }
+  };
+
   useEffect(() => {
     getPos();
+
+    window.addEventListener("scroll", activation);
   }, []);
 
   return (
-    <ul className="scrollNavi" ref={btns}>
+    <ul className="scrollNavi" ref={refBtns}>
       <li
         className="on"
         onClick={() => {
