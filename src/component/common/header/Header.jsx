@@ -11,7 +11,7 @@ const Header = ({ isMain }) => {
   const dispatch = useDispatch();
 
   return (
-    <header className="header">
+    <header className="header myScroll">
       <h1>
         <Link to="/">LOGO</Link>
       </h1>
