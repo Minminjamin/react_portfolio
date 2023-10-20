@@ -21,13 +21,26 @@ const Btns = () => {
     setNum(pos.current.length);
   };
 
+  // 브라우저 리사이즈 시 새로 위치값을 개선하는 함수
+  const modifyPos = () => {
+    let activeIdx = 0;
+    const lis = refBtns.current.querySelectorAll("li");
+
+    lis.forEach((li, idx) => {
+      li.classList.contains("on") && (activeIdx = idx);
+    });
+
+    window.scrollTo(0, pos.current[activeIdx]);
+    // console.log(lis);
+  };
+
   const activation = () => {
     console.log("activation 호출");
     const btns = refBtns.current.querySelectorAll("li");
     const scroll = window.scrollY;
 
     pos.current.forEach((item, idx) => {
-      if (scroll >= item) {
+      if (scroll >= item - window.innerHeight / 2) {
         for (let btn of btns) {
           btn.classList.remove("on");
         }
@@ -41,8 +54,10 @@ const Btns = () => {
 
   useEffect(() => {
     getPos();
+    modifyPos();
 
     window.addEventListener("resize", throttledGetPos);
+    window.addEventListener("resize", modifyPos);
     window.addEventListener("scroll", throttledActivation);
 
     return () => {
