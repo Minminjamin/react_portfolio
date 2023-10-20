@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import Layout from "../../common/layout/Layout";
 import "./Members.scss";
-import { useState, useRef } from "react";
+import { useState, useRef, memo } from "react";
 import { AiFillNotification } from "react-icons/ai";
 import { BsPeopleFill } from "react-icons/bs";
 import { BiSolidPhoneCall } from "react-icons/bi";
@@ -390,4 +390,4 @@ const Members = () => {
   );
 };
 
-export default Members;
+export default memo(Members);
