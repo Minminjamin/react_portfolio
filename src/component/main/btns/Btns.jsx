@@ -35,7 +35,7 @@ const Btns = () => {
   };
 
   const activation = () => {
-    console.log("activation 호출");
+    if (!refBtns.current) return;
     const btns = refBtns.current.querySelectorAll("li");
     const scroll = window.scrollY;
 
@@ -62,7 +62,9 @@ const Btns = () => {
 
     return () => {
       window.removeEventListener("resize", throttledGetPos);
+      window.removeEventListener("resize", modifyPos);
       window.removeEventListener("scroll", throttledActivation);
+      window.scrollTo(0, 0);
     };
   }, []);
 
