@@ -2,6 +2,7 @@ import React from "react";
 import { useRef, useEffect, useState } from "react";
 import "./Btns.scss";
 import Anime from "../../../asset/Anime";
+import { useThrottle } from "../../../hooks/useThrottle";
 
 const Btns = () => {
   const refBtns = useRef(null); //btns와 구분을 위해 refBtns로 명명
@@ -10,6 +11,7 @@ const Btns = () => {
   const [num, setNum] = useState(0);
 
   const getPos = () => {
+    console.log("pos 호출");
     pos.current = [];
     const secs = document.body.querySelectorAll(".myScroll");
 
@@ -20,6 +22,7 @@ const Btns = () => {
   };
 
   const activation = () => {
+    console.log("activation 호출");
     const btns = refBtns.current.querySelectorAll("li");
     const scroll = window.scrollY;
 
@@ -33,15 +36,18 @@ const Btns = () => {
     });
   };
 
+  const throttledActivation = useThrottle(activation);
+  const throttledGetPos = useThrottle(getPos);
+
   useEffect(() => {
     getPos();
 
-    window.addEventListener("resize", getPos);
-    window.addEventListener("scroll", activation);
+    window.addEventListener("resize", throttledGetPos);
+    window.addEventListener("scroll", throttledActivation);
 
     return () => {
-      window.removeEventListener("resize", getPos);
-      window.removeEventListener("scroll", activation);
+      window.removeEventListener("resize", throttledGetPos);
+      window.removeEventListener("scroll", throttledActivation);
     };
   }, []);
 
