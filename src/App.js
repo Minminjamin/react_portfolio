@@ -11,10 +11,8 @@ import Footer from "./component/common/footer/Footer";
 import Detail from "./component/sub/youtube/Detail";
 import Community from "./component/sub/community/Community";
 import Main from "./component/main/mainWrap/Main";
-import { useEffect, useRef } from "react";
 import { useMedia } from "./hooks/useMedia";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchFlickr } from "./redux/flickrSlice";
+import { useDispatch } from "react-redux";
 import Menu from "./component/common/menu/Menu";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
@@ -22,12 +20,6 @@ import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 function App() {
   const dispatch = useDispatch();
   const queryClient = new QueryClient();
-  // const isOpen = useSelector((store) => store.menu.isOpen);
-
-  useEffect(() => {
-    dispatch(fetchFlickr({ type: "user", id: "199348831@N08" }));
-  }, []);
-  // const refMain = useRef(null);
 
   return (
     <QueryClientProvider client={queryClient}>

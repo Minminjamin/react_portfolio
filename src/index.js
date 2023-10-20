@@ -4,13 +4,11 @@ import App from "./App";
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import { configureStore } from "@reduxjs/toolkit";
-import flickrReducer from "./redux/flickrSlice";
 import modalReducer from "./redux/modalSlice";
 import menuReduver from "./redux/menuSlice";
 
 const store = configureStore({
   reducer: {
-    flickr: flickrReducer,
     modal: modalReducer,
     menu: menuReduver,
   },

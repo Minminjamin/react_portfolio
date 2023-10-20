@@ -1,10 +1,15 @@
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
+import { useFlickrQuery } from "../../../hooks/useFlickr";
 import "../info/Info.scss";
 
 const Info = () => {
-  const { data } = useSelector((store) => store.flickr);
+  const { data, isSuccess } = useFlickrQuery({
+    type: "user",
+    id: "199348831@N08",
+  });
+  // const { data } = useSelector((store) => store.flickr);
 
-  console.log(data);
+  // console.log(data);
   return (
     <section className="mainInfo myScroll">
       <h2>City Gallery</h2>
@@ -13,18 +18,19 @@ const Info = () => {
         sodales ut etiam sit.
       </p>
       <div className="wrap">
-        {data.map((item, idx) => {
-          if (idx >= 6) return;
-          return (
-            <article key={idx}>
-              <img
-                src={`https://live.staticflickr.com/${item.server}/${item.id}_${item.secret}_m.jpg`}
-                alt={`https://live.staticflickr.com/${item.server}/${item.id}_${item.secret}_b.jpg`}
-                className="galleryImg"
-              />
-            </article>
-          );
-        })}
+        {isSuccess &&
+          data.map((item, idx) => {
+            if (idx >= 6) return;
+            return (
+              <article key={idx}>
+                <img
+                  src={`https://live.staticflickr.com/${item.server}/${item.id}_${item.secret}_m.jpg`}
+                  alt={`https://live.staticflickr.com/${item.server}/${item.id}_${item.secret}_b.jpg`}
+                  className="galleryImg"
+                />
+              </article>
+            );
+          })}
       </div>
     </section>
   );

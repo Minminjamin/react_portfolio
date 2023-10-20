@@ -7,22 +7,22 @@ import { useState, useRef } from "react";
 import Masonry from "react-masonry-component";
 import Modal from "../../common/modal/Modal";
 import { BiSearchAlt } from "react-icons/bi";
-import { useSelector, useDispatch } from "react-redux";
-import { fetchFlickr } from "../../../redux/flickrSlice";
 import { open } from "../../../redux/modalSlice";
-
+import { useFlickrQuery } from "../../../hooks/useFlickr";
+import { useDispatch } from "react-redux";
 const Gallery = () => {
   const [isUser, setIsUser] = useState(true);
   const [activeUrl, setActiveUrl] = useState("");
+  const [opt, setOpt] = useState({ type: "user", id: "199348831@N08" });
 
   const dispatch = useDispatch();
-
-  const pics = useSelector((store) => store.flickr.data);
 
   const search = useRef(null);
   const btnSet = useRef(null);
 
   const myId = "199348831@N08";
+
+  const { data: pics, isSuccess } = useFlickrQuery(opt);
 
   //submit이벤트 발생시 실행할 함수
   const onHanldeSubmit = (e) => {
@@ -35,7 +35,7 @@ const Gallery = () => {
     if (search.current.value.trim() === "") {
       return alert("검색어를 입력하세요");
     }
-    dispatch(fetchFlickr({ type: "search", tags: search.current.value }));
+    setOpt({ type: "search", tags: search.current.value });
     search.current.value = "";
   };
 
@@ -46,7 +46,7 @@ const Gallery = () => {
     const btns = btnSet.current.querySelectorAll("button");
     btns.forEach((btn) => btn.classList.remove("on"));
     e.target.classList.add("on");
-    dispatch(fetchFlickr({ type: "user", id: myId }));
+    setOpt({ type: "user", id: myId });
   };
 
   //Interest Gallery 클릭 이벤트 발생시 실행할 함수
@@ -56,7 +56,7 @@ const Gallery = () => {
     const btns = btnSet.current.querySelectorAll("button");
     btns.forEach((btn) => btn.classList.remove("on"));
     e.target.classList.add("on");
-    dispatch(fetchFlickr({ type: "interest" }));
+    setOpt({ type: "interest" });
   };
 
   //profile 아이디 클릭시 실행할 함수
@@ -64,7 +64,7 @@ const Gallery = () => {
     if (isUser) return;
 
     //fetchData가 실행이 되면 다시 User type갤러리로 변경되므로 다시 IsUser값을 true로 변경
-    dispatch(fetchFlickr({ type: "user", id: e.target.innerText }));
+    setOpt({ type: "user", id: e.target.innerText });
     setIsUser(true);
   };
 
@@ -115,7 +115,7 @@ const Gallery = () => {
             updateOnEachImageLoad={false}
             className="mesonry" // default false and works only if disableImagesLoaded is false
           >
-            {pics.length !== 0 &&
+            {isSuccess &&
               pics.map((item, index) => (
                 <article key={index}>
                   <div className="inner">
