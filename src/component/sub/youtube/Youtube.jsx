@@ -4,12 +4,15 @@ import "./Youtube.scss";
 import Layout from "../../common/layout/Layout";
 import { useState, useEffect, useRef } from "react";
 import { Link, useHistory } from "react-router-dom";
+import { useYoutubeQuery } from "../../../hooks/useYoutube";
 
 const Youtube = () => {
   // const youtube = useSelector((store) => store.youtube.data);
   const history = useHistory();
 
   const refEl = useRef(null);
+
+  const { data: youtube, isSuccess } = useYoutubeQuery();
 
   const sliceTxt = (text, num) => {
     if (text.length > num) {
@@ -28,40 +31,41 @@ const Youtube = () => {
       <Layout title={"Youtube"}>
         <h2>Happy video page. Listen to the songs of my favorite musicians.</h2>
 
-        {/* {youtube.map((item, idx) => {
-          let date = item.snippet.publishedAt;
-          return (
-            <article key={idx}>
-              <div className="pic">
-                <Link to={`/detail/${item.id}`}>
-                  <img
-                    src={item.snippet.thumbnails.standard.url}
-                    alt={item.title}
-                    // onClick={() => setIndex(idx)}
-                  />
-                </Link>
-              </div>
-
-              <div className="info">
-                <div className="innerTopText">
-                  <h3>{sliceTxt(item.snippet.title, 60)}</h3>
-                  <p>{item.snippet.videoOwnerChannelTitle}</p>
+        {isSuccess &&
+          youtube.map((item, idx) => {
+            let date = item.snippet.publishedAt;
+            return (
+              <article key={idx}>
+                <div className="pic">
+                  <Link to={`/detail/${item.id}`}>
+                    <img
+                      src={item.snippet.thumbnails.standard.url}
+                      alt={item.title}
+                      // onClick={() => setIndex(idx)}
+                    />
+                  </Link>
                 </div>
 
-                <p>{sliceTxt(item.snippet.description, 200)}</p>
-                <p className="date">
-                  {date.split("T")[0].split("-").join(".")}
-                </p>
+                <div className="info">
+                  <div className="innerTopText">
+                    <h3>{sliceTxt(item.snippet.title, 60)}</h3>
+                    <p>{item.snippet.videoOwnerChannelTitle}</p>
+                  </div>
 
-                <div className="btnSet">
-                  <button onClick={() => history.push(`/detail/${item.id}`)}>
-                    View More
-                  </button>
+                  <p>{sliceTxt(item.snippet.description, 200)}</p>
+                  <p className="date">
+                    {date.split("T")[0].split("-").join(".")}
+                  </p>
+
+                  <div className="btnSet">
+                    <button onClick={() => history.push(`/detail/${item.id}`)}>
+                      View More
+                    </button>
+                  </div>
                 </div>
-              </div>
-            </article>
-          );
-        })} */}
+              </article>
+            );
+          })}
       </Layout>
     </>
   );
