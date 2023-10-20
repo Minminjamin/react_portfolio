@@ -13,15 +13,15 @@ const Members = () => {
     pw1: "",
     pw2: "",
     email: "",
-    gender: false,
-    interests: false,
+    gender: "",
+    interests: [],
     edu: "",
     comments: "",
   };
 
   const [val, setVal] = useState(initval);
   const [errs, setErrs] = useState();
-
+  const [mounted, setMounted] = useState(false);
   const refCheckGroup = useRef(null);
   const refRadioGroup = useRef(null);
   const refSelGroup = useRef(null);
@@ -32,6 +32,7 @@ const Members = () => {
     e.preventDefault();
 
     setVal(initval);
+
     [refCheckGroup, refRadioGroup].forEach((item) =>
       item.current
         .querySelectorAll("input")
@@ -47,19 +48,22 @@ const Members = () => {
     setVal({ ...val, [name]: value });
   };
 
-  const onHanldeRadio = (e) => {
-    const { name, checked } = e.target;
-    setVal({ ...val, [name]: checked });
-  };
+  // const onHanldeRadio = (e) => {
+  //   const { name, checked } = e.target;
+  //   setVal({ ...val, [name]: checked });
+  // };
 
   const onHandleCheck = (e) => {
     const { name } = e.target;
-    let isChecked = false;
+    let checkArray = [];
+    // let isChecked = false;
     const inputs = e.target.parentElement.querySelectorAll("input");
 
-    inputs.forEach((input) => input.checked && (isChecked = true));
+    inputs.forEach((input) => {
+      if (input.checked) input.checked && checkArray.push(input.value);
+    });
 
-    setVal({ ...val, [name]: isChecked });
+    setVal({ ...val, [name]: checkArray });
   };
 
   // 인수값으로 state를 전달받아서 각 데이터별로 인증처리 후 만약 인증 에러가 발생하면 해당 name 값으로 에러 문구를 생성해서 반환하는 함수
@@ -105,7 +109,7 @@ const Members = () => {
       checkeErrs.gender = "성별은 필수 체크항목입니다.";
     }
 
-    if (!value.interests) {
+    if (value.interests.length === 0) {
       checkeErrs.interests = "관심사를 하나 이상 체크해주세요.";
     }
 
@@ -133,7 +137,7 @@ const Members = () => {
   };
 
   const showCheck = () => {
-    setErrs(check(val));
+    mounted && setErrs(check(debouncedVal));
   };
 
   // 의존성 배열에 debouncing이 적용된 state 값을 등록해서 함수의 핸들러 함수 호출의 빈도를 줄여줌
@@ -142,6 +146,8 @@ const Members = () => {
   useEffect(() => {
     console.log("val state 변경에 의해서 showCheck 함수 호출");
     showCheck();
+
+    return () => setMounted(false);
   }, [debouncedVal]);
 
   return (
@@ -243,7 +249,8 @@ const Members = () => {
                         type="radio"
                         id="female"
                         name="gender"
-                        onChange={onHanldeRadio}
+                        defaultValue="female"
+                        onChange={onHandleChange}
                       />
 
                       <label htmlFor="female">Male</label>
@@ -251,7 +258,8 @@ const Members = () => {
                         type="radio"
                         id="male"
                         name="gender"
-                        onChange={onHanldeRadio}
+                        defaultValue="male"
+                        onChange={onHandleChange}
                       />
                       {errs?.gender && <p>{errs?.gender}</p>}
                     </td>
@@ -268,25 +276,26 @@ const Members = () => {
                         type="checkbox"
                         id="sport"
                         name="interests"
+                        defaultValue="sport"
                         onChange={onHandleCheck}
                       />
-
                       <label htmlFor="sports">Music</label>
                       <input
                         type="checkbox"
-                        id="misuc"
+                        id="music"
                         name="interests"
+                        defaultValue="misuc"
                         onChange={onHandleCheck}
                       />
-
                       <label htmlFor="sports">Game</label>
                       <input
                         type="checkbox"
                         id="game"
                         name="interests"
+                        defaultValue="game"
                         onChange={onHandleCheck}
                       />
-                      {errs?.interests && <p>{errs?.interests}</p>}
+                      {errs?.interests && <p>{errs?.interests}</p>}{" "}
                     </td>
                   </tr>
 
