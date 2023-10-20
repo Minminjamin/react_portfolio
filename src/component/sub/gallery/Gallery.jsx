@@ -18,7 +18,6 @@ const Gallery = () => {
   const dispatch = useDispatch();
 
   const pics = useSelector((store) => store.flickr.data);
-  const isModal = useSelector((store) => store.modal.isOpen);
 
   const search = useRef(null);
   const btnSet = useRef(null);
@@ -65,7 +64,7 @@ const Gallery = () => {
     if (isUser) return;
 
     //fetchData가 실행이 되면 다시 User type갤러리로 변경되므로 다시 IsUser값을 true로 변경
-    dispatch(fetchFlickr({ type: "user", id: e.owner }));
+    dispatch(fetchFlickr({ type: "user", id: e.target.innerText }));
     setIsUser(true);
   };
 
