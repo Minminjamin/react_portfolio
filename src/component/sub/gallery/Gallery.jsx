@@ -1,3 +1,5 @@
+//
+
 import React from "react";
 import Layout from "../../common/layout/Layout";
 import "./Gallery.scss";
@@ -114,47 +116,48 @@ const Gallery = () => {
             updateOnEachImageLoad={false}
             className="mesonry" // default false and works only if disableImagesLoaded is false
           >
-            {pics.map((item, index) => (
-              <article key={index}>
-                <div className="inner">
-                  <div className="pic">
-                    <img
-                      src={`https://live.staticflickr.com/${item.server}/${item.id}_${item.secret}_m.jpg`}
-                      alt={`https://live.staticflickr.com/${item.server}/${item.id}_${item.secret}_b.jpg`}
-                      className="galleryImg"
-                    />
-                    <BiSearchAlt
-                      className="search"
-                      onClick={(e) => {
-                        setActiveUrl(
-                          `https://live.staticflickr.com/${item.server}/${item.id}_${item.secret}_b.jpg`
-                        );
-                        dispatch(open());
-                      }}
-                    />
-                  </div>
-
-                  <div className="lower">
-                    <h3>{sliceTxt(item.title, 25)}</h3>
-                    <div className="profile">
+            {pics.length !== 0 &&
+              pics.map((item, index) => (
+                <article key={index}>
+                  <div className="inner">
+                    <div className="pic">
                       <img
-                        src={`http://farm${item.farm}.staticflickr.com/${item.server}/buddyicons/${item.owner}.jpg`}
-                        alt={item.owner}
-                        onError={(e) => {
-                          console.log(e.target);
-
-                          e.target.setAttribute(
-                            "src",
-                            "https://www.flickr.com/images/buddyicon.gif"
+                        src={`https://live.staticflickr.com/${item.server}/${item.id}_${item.secret}_m.jpg`}
+                        alt={`https://live.staticflickr.com/${item.server}/${item.id}_${item.secret}_b.jpg`}
+                        className="galleryImg"
+                      />
+                      <BiSearchAlt
+                        className="search"
+                        onClick={(e) => {
+                          setActiveUrl(
+                            `https://live.staticflickr.com/${item.server}/${item.id}_${item.secret}_b.jpg`
                           );
+                          dispatch(open());
                         }}
                       />
-                      <span onClick={onHanldeProfile}>{item.owner}</span>
+                    </div>
+
+                    <div className="lower">
+                      <h3>{sliceTxt(item.title, 25)}</h3>
+                      <div className="profile">
+                        <img
+                          src={`http://farm${item.farm}.staticflickr.com/${item.server}/buddyicons/${item.owner}.jpg`}
+                          alt={item.owner}
+                          onError={(e) => {
+                            console.log(e.target);
+
+                            e.target.setAttribute(
+                              "src",
+                              "https://www.flickr.com/images/buddyicon.gif"
+                            );
+                          }}
+                        />
+                        <span onClick={onHanldeProfile}>{item.owner}</span>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </article>
-            ))}
+                </article>
+              ))}
           </Masonry>
         </div>
       </Layout>
