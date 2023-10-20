@@ -5,6 +5,7 @@ import { useState, useRef } from "react";
 import { AiFillNotification } from "react-icons/ai";
 import { BsPeopleFill } from "react-icons/bs";
 import { BiSolidPhoneCall } from "react-icons/bi";
+import { useDebounce } from "../../../hooks/useDebounce";
 
 const Members = () => {
   const initval = {
@@ -25,6 +26,8 @@ const Members = () => {
   const refRadioGroup = useRef(null);
   const refSelGroup = useRef(null);
 
+  const debouncedVal = useDebounce(val);
+
   const resetForm = (e) => {
     e.preventDefault();
 
@@ -41,7 +44,6 @@ const Members = () => {
   const onHandleChange = (e) => {
     const { name, value } = e.target;
 
-    console.log(name, value);
     setVal({ ...val, [name]: value });
   };
 
@@ -134,9 +136,13 @@ const Members = () => {
     setErrs(check(val));
   };
 
+  // 의존성 배열에 debouncing이 적용된 state 값을 등록해서 함수의 핸들러 함수 호출의 빈도를 줄여줌
+  // uaeDebounce는 stateㅇ의 변경횟수 자체를 줄이는 게 아니라 해당 state에 따라 호출되는 함수의 빈도를 줄임
+
   useEffect(() => {
+    console.log("val state 변경에 의해서 showCheck 함수 호출");
     showCheck();
-  }, [val]);
+  }, [debouncedVal]);
 
   return (
     <Layout title={"Members"}>
