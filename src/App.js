@@ -17,10 +17,12 @@ import { fetchYoutube } from "./redux/youtubeSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchFlickr } from "./redux/flickrSlice";
 import Menu from "./component/common/menu/Menu";
-// import "./styles/index.css";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 function App() {
   const dispatch = useDispatch();
+  const queryClient = new QueryClient();
   // const isOpen = useSelector((store) => store.menu.isOpen);
 
   useEffect(() => {
@@ -30,30 +32,33 @@ function App() {
   // const refMain = useRef(null);
 
   return (
-    <main className={useMedia()}>
-      <Switch>
-        <Route exact path="/">
-          <Header isMain={true} />
-          <Main />
-        </Route>
-        <Route path="/">
-          <Header isMain={false} />
-        </Route>
-      </Switch>
+    <QueryClientProvider client={queryClient}>
+      <main className={useMedia()}>
+        <Switch>
+          <Route exact path="/">
+            <Header isMain={true} />
+            <Main />
+          </Route>
+          <Route path="/">
+            <Header isMain={false} />
+          </Route>
+        </Switch>
 
-      <Route path="/department" component={Department} />
-      <Route path="/youtube" component={Youtube} />
-      <Route path="/members" component={Members} />
-      <Route path="/contact" component={Contact} />
-      <Route path="/gallery" component={Gallery} />
-      <Route path="/community" component={Community} />
-      <Route path="/detail/:id" component={Detail} />
+        <Route path="/department" component={Department} />
+        <Route path="/youtube" component={Youtube} />
+        <Route path="/members" component={Members} />
+        <Route path="/contact" component={Contact} />
+        <Route path="/gallery" component={Gallery} />
+        <Route path="/community" component={Community} />
+        <Route path="/detail/:id" component={Detail} />
 
-      <Menu />
-      {/* {isOpen && <Menu />} */}
-      <Route path="/" component={Footer} />
-      {/* <Footer /> */}
-    </main>
+        <Menu />
+        {/* {isOpen && <Menu />} */}
+        <Route path="/" component={Footer} />
+        {/* <Footer /> */}
+      </main>
+      <ReactQueryDevtools />
+    </QueryClientProvider>
   );
 }
 
