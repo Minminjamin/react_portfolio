@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Layout from "../../common/layout/Layout";
 import "./Members.scss";
 import { useState, useRef } from "react";
@@ -129,6 +129,14 @@ const Members = () => {
       setErrs(check(val));
     }
   };
+
+  const showCheck = () => {
+    setErrs(check(val));
+  };
+
+  useEffect(() => {
+    showCheck();
+  }, [val]);
 
   return (
     <Layout title={"Members"}>
