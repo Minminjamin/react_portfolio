@@ -13,7 +13,6 @@ import Community from "./component/sub/community/Community";
 import Main from "./component/main/mainWrap/Main";
 import { useEffect, useRef } from "react";
 import { useMedia } from "./hooks/useMedia";
-import { fetchYoutube } from "./redux/youtubeSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchFlickr } from "./redux/flickrSlice";
 import Menu from "./component/common/menu/Menu";
@@ -26,7 +25,6 @@ function App() {
   // const isOpen = useSelector((store) => store.menu.isOpen);
 
   useEffect(() => {
-    dispatch(fetchYoutube());
     dispatch(fetchFlickr({ type: "user", id: "199348831@N08" }));
   }, []);
   // const refMain = useRef(null);

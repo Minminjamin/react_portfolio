@@ -4,14 +4,12 @@ import App from "./App";
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import { configureStore } from "@reduxjs/toolkit";
-import youtubeReducer from "./redux/youtubeSlice";
 import flickrReducer from "./redux/flickrSlice";
 import modalReducer from "./redux/modalSlice";
 import menuReduver from "./redux/menuSlice";
 
 const store = configureStore({
   reducer: {
-    youtube: youtubeReducer,
     flickr: flickrReducer,
     modal: modalReducer,
     menu: menuReduver,
@@ -39,7 +37,7 @@ ReactDOM.render(
 	- 서버 데이터를 전역에 저장하는 것 자체가 잘못된 방식이기 때문에 
 	- 서버 데이터가 필요할때마다 계속 가져와야됨
 	- 새로 fetching을 할때 이미 불러온적이 있는 똑같은 데이터경우는 caching 처리된 데이터를 재활용해서 불필요한 refetching방지
-  
+
 	client-side-data (useContext를 활용한 커스텀훅을 전역관리)
 	server-side-data (react-query를 활용해서 전역상태로 저장하는 것이 아닌 캐싱처리)
 

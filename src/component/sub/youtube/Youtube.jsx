@@ -4,10 +4,9 @@ import "./Youtube.scss";
 import Layout from "../../common/layout/Layout";
 import { useState, useEffect, useRef } from "react";
 import { Link, useHistory } from "react-router-dom";
-import { useSelector } from "react-redux";
 
 const Youtube = () => {
-  const youtube = useSelector((store) => store.youtube.data);
+  // const youtube = useSelector((store) => store.youtube.data);
   const history = useHistory();
 
   const refEl = useRef(null);
@@ -29,7 +28,7 @@ const Youtube = () => {
       <Layout title={"Youtube"}>
         <h2>Happy video page. Listen to the songs of my favorite musicians.</h2>
 
-        {youtube.map((item, idx) => {
+        {/* {youtube.map((item, idx) => {
           let date = item.snippet.publishedAt;
           return (
             <article key={idx}>
@@ -62,7 +61,7 @@ const Youtube = () => {
               </div>
             </article>
           );
-        })}
+        })} */}
       </Layout>
     </>
   );

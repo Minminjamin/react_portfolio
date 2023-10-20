@@ -1,38 +1,48 @@
 import React from "react";
 import "./Visual.scss";
-import { useSelector } from "react-redux";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useState } from "react";
 import "swiper/css";
 import { useHistory } from "react-router-dom";
+import { useYoutubeQuery } from "../../../hooks/useYoutube";
 
 const Visual = () => {
-  const { data } = useSelector((store) => store.youtube);
+  // const { data } = useSelector((store) => store.youtube);
+  const { data, isSuccess } = useYoutubeQuery();
 
   const [index, setIndex] = useState();
 
   const history = useHistory();
 
+  /*
+    data : react-query가 반환 데이터
+    isError : 데이터 응답 실패시 true,
+    isSuccess : 데이터 응답 성공시 true,
+    isLoading :  데이터 요청 peding 상태일 때 true
+    isRefetching : true 동일한 데이터라도 다시 refetching 처리 유무(기본값 false)
+   */
+
   return (
     <section className="visual">
       <div className="titBox">
         <ul>
-          {data.map((item, idx) => {
-            if (idx >= 6) return null;
-            return (
-              <li key={idx} className={idx === index ? "on" : ""}>
-                <h3>{item.snippet.title}</h3>
-                <p>{item.snippet.description.substr(0, 300) + "..."}</p>
-                <button
-                  onClick={() => {
-                    history.push(`/detail/${item.id}`);
-                  }}
-                >
-                  View Detail
-                </button>
-              </li>
-            );
-          })}
+          {isSuccess &&
+            data.map((item, idx) => {
+              if (idx >= 6) return null;
+              return (
+                <li key={idx} className={idx === index ? "on" : ""}>
+                  <h3>{item.snippet.title}</h3>
+                  <p>{item.snippet.description.substr(0, 300) + "..."}</p>
+                  <button
+                    onClick={() => {
+                      history.push(`/detail/${item.id}`);
+                    }}
+                  >
+                    View Detail
+                  </button>
+                </li>
+              );
+            })}
         </ul>
       </div>
       <Swiper
@@ -53,23 +63,24 @@ const Visual = () => {
           },
         }}
       >
-        {data.map((item, idx) => {
-          if (idx >= 6) return null;
-          return (
-            <SwiperSlide key={idx}>
-              <div className="pic">
-                <img
-                  src={item.snippet.thumbnails.maxres.url}
-                  alt={item.title}
-                />
-                <img
-                  src={item.snippet.thumbnails.maxres.url}
-                  alt={item.title}
-                />
-              </div>
-            </SwiperSlide>
-          );
-        })}
+        {isSuccess &&
+          data.map((item, idx) => {
+            if (idx >= 6) return null;
+            return (
+              <SwiperSlide key={idx}>
+                <div className="pic">
+                  <img
+                    src={item.snippet.thumbnails.maxres.url}
+                    alt={item.title}
+                  />
+                  <img
+                    src={item.snippet.thumbnails.maxres.url}
+                    alt={item.title}
+                  />
+                </div>
+              </SwiperSlide>
+            );
+          })}
       </Swiper>
     </section>
   );
