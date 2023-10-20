@@ -22,6 +22,7 @@ const Members = () => {
   const [val, setVal] = useState(initval);
   const [errs, setErrs] = useState();
   const [mounted, setMounted] = useState(false);
+
   const refCheckGroup = useRef(null);
   const refRadioGroup = useRef(null);
   const refSelGroup = useRef(null);
@@ -243,7 +244,7 @@ const Members = () => {
                     <th scope="row">
                       <label htmlFor="gender">Gender</label>
                     </th>
-                    <td useRef={refRadioGroup}>
+                    <td ref={refRadioGroup}>
                       <label htmlFor="female">Female</label>
                       <input
                         type="radio"
@@ -270,7 +271,7 @@ const Members = () => {
                     <th scope="row">
                       <label htmlFor="interests">Interests</label>
                     </th>
-                    <td useRef={refCheckGroup}>
+                    <td ref={refCheckGroup}>
                       <label htmlFor="sports">Sports</label>
                       <input
                         type="checkbox"
@@ -304,7 +305,7 @@ const Members = () => {
                     <th scope="row">
                       <label htmlFor="edu">Education</label>
                     </th>
-                    <td useRef={refSelGroup}>
+                    <td ref={refSelGroup}>
                       <select name="edu" id="edu" onChange={onHandleChange}>
                         <option value="">최종학력을 선택하세요.</option>
                         <option value="elementary-school">초등학교 졸업</option>
