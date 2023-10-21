@@ -29,43 +29,42 @@ const Youtube = () => {
   return (
     <>
       <Layout title={"Youtube"}>
-        <h2>Happy video page. Listen to the songs of my favorite musicians.</h2>
+        <div className="top">
+          <p>THIS IS WE ARE WORK PLAYLIST</p>
+          <h2>Our Playlist</h2>
+        </div>
 
-        {isSuccess &&
-          youtube.map((item, idx) => {
-            let date = item.snippet.publishedAt;
-            return (
-              <article key={idx}>
-                <div className="pic">
-                  <Link to={`/detail/${item.id}`}>
-                    <img
-                      src={item.snippet.thumbnails.standard.url}
-                      alt={item.title}
-                      // onClick={() => setIndex(idx)}
-                    />
-                  </Link>
-                </div>
-
-                <div className="info">
-                  <div className="innerTopText">
-                    <h3>{sliceTxt(item.snippet.title, 60)}</h3>
-                    <p>{item.snippet.videoOwnerChannelTitle}</p>
+        <div className="youtubeBox">
+          {isSuccess &&
+            youtube.map((item, idx) => {
+              let date = item.snippet.publishedAt;
+              return (
+                <article key={idx}>
+                  <div className="pic">
+                    <Link to={`/detail/${item.id}`}>
+                      <img
+                        src={item.snippet.thumbnails.standard.url}
+                        alt={item.title}
+                      />
+                    </Link>
                   </div>
-
-                  <p>{sliceTxt(item.snippet.description, 200)}</p>
+                  <h3>{sliceTxt(item.snippet.title, 17)}</h3>
+                  <p>{item.snippet.videoOwnerChannelTitle}</p>
                   <p className="date">
                     {date.split("T")[0].split("-").join(".")}
                   </p>
+                  <div className="line"></div>
+                  <p>{sliceTxt(item.snippet.description, 100)}</p>
 
-                  <div className="btnSet">
+                  {/* <div className="btnSet">
                     <button onClick={() => history.push(`/detail/${item.id}`)}>
                       View More
                     </button>
-                  </div>
-                </div>
-              </article>
-            );
-          })}
+                  </div> */}
+                </article>
+              );
+            })}
+        </div>
       </Layout>
     </>
   );
