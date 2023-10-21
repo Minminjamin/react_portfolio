@@ -153,10 +153,10 @@ const Members = () => {
 
   return (
     <Layout title={"Members"}>
-      <h2>
+      {/* <h2>
         Welcome to our website. Give me your brief information for membership
         registration.
-      </h2>
+      </h2> */}
 
       <content>
         <div className="leftBox">

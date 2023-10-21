@@ -2,23 +2,23 @@
 @import "../../../styles/variable.scss";
 
 .Members {
-  h2 {
-    position: relative;
-    padding-left: 10px;
-    &::before {
-      content: "";
-      position: absolute;
-      left: 0px;
-      top: 0;
-      height: 50%;
-      width: 5px;
-      background: $emphasis;
-    }
-    font: 2.5rem/1 "Noto Sans KR", sans-serif;
-  }
+  // h2 {
+  //   position: relative;
+  //   padding-left: 10px;
+  //   &::before {
+  //     content: "";
+  //     position: absolute;
+  //     left: 0px;
+  //     top: 0;
+  //     height: 50%;
+  //     width: 5px;
+  //     background: $emphasis;
+  //   }
+  //   font: 2.5rem/1 "Noto Sans KR", sans-serif;
+  // }
 
   content {
-    padding-top: 30px;
+    // padding-top: 30px;
     display: flex;
     justify-content: space-between;
     display: flex;
@@ -101,11 +101,14 @@
       }
     }
     .rightBox {
+      // border: solid 1px gray;
       width: 33%;
+      height: auto;
       margin-top: 1.5rem;
 
       p {
-        color: #333;
+        color: gray;
+        // color: #333;
       }
       .inner {
         background: #fff;
