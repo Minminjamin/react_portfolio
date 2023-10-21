@@ -80,15 +80,11 @@ const Gallery = () => {
     <>
       <Layout title={"Gallery"}>
         <div className="topBox">
-          <div className="title">
-            <h2>
-              Lorem ipsum <b>dolor sit</b> amet.
-            </h2>
-            <p>@INSTARGRAM</p>
+          <div className="txt">
+            <p>Search and Watch Image</p>
+            <h2>Gallery Image</h2>
           </div>
-
           <div className="searchBox">
-            <label>🔎 SEARCH IMAGE</label>
             <form onSubmit={onHanldeSubmit}>
               <input
                 ref={search}
@@ -98,13 +94,12 @@ const Gallery = () => {
               <button>검색</button>
             </form>
           </div>
-        </div>
-
-        <div className="btnSet" ref={btnSet}>
-          <button className="on" onClick={onHanldeClickMy}>
-            나의 갤러리 호출
-          </button>
-          <button onClick={onHandleClickInterset}>interest 갤러리</button>
+          <div className="btnSet" ref={btnSet}>
+            <button className="on" onClick={onHanldeClickMy}>
+              My Gallery
+            </button>
+            <button onClick={onHandleClickInterset}>Interest Gallery</button>
+          </div>
         </div>
 
         <div className="picFrame">
