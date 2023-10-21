@@ -119,26 +119,15 @@ const Community = () => {
 
   return (
     <Layout title={"Community"}>
-      {/* <div className="top">
-        <h2>This is the community page where we all communicate</h2>
-        <div className="sub">
-          <p>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint
-            perferendis, fuga veritatis non velit atque eum dicta sunt vero
-            magnam earum voluptates aut, quod provident quam ea! Magnam, ea
-            dolorum.
-          </p>
-
-          <p>
-            <b>Create Post</b>
-          </p>
-        </div>
-      </div> */}
+      <div className="top">
+        <p>Create Post Here</p>
+        <h2>Bulletin board</h2>
+      </div>
 
       <content>
         <div className="leftBox">
           <div className="inputBox">
-            <h2>Create Post</h2>
+            <h3>Create Post</h3>
             <p>
               Your writing is stored in the local storage of the browser, not
               the DB. Thank you for visiting my portfolio site. Please feel free

@@ -15,12 +15,25 @@ textarea {
 }
 
 .Community {
+  .top {
+    text-align: center;
+    p {
+      font-size: 0.8;
+    }
+
+    h2 {
+      margin-top: 10px;
+      font-size: 2.5rem;
+      font-family: "Nanum Myeongjo";
+      margin-bottom: 30px;
+    }
+  }
   // .top {
   //   display: flex;
   //   margin-top: 10px;
   //   justify-content: space-between;
 
-  //   h2 {
+  //   h3 {
   //     width: 40%;
   //     font: 2.5rem/1 "Noto Sans KR", sans-serif;
   //     margin-right: 2.5vw;
@@ -114,7 +127,7 @@ textarea {
           align-content: space-between;
           // border: solid 1px gray;
 
-          h2 {
+          h3 {
             width: 100%;
           }
         }
@@ -194,7 +207,7 @@ textarea {
 
       margin-top: 10px;
 
-      h2 {
+      h3 {
         width: 100%;
       }
 
@@ -229,7 +242,7 @@ textarea {
             width: 49%;
             padding: 1%;
 
-            h2 {
+            h3 {
               font-size: 1.1rem;
             }
           }
@@ -305,14 +318,14 @@ textarea {
 .mobile {
   .Community {
     .top {
-      h2 {
+      h3 {
         font-size: 1.7rem;
       }
     }
 
     content {
       .leftBox {
-        h2 {
+        h3 {
           font-size: 1.2rem;
         }
       }
@@ -326,7 +339,7 @@ textarea {
             width: 100%;
             padding: 3%;
             padding: 1%;
-            h2 {
+            h3 {
               font-size: 1.2rem;
             }
           }
