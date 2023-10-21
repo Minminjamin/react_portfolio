@@ -38,11 +38,11 @@ const News = () => {
 
   return (
     <section className="news myScroll">
-      <h2>News Page</h2>
-      <p>
-        Maecenas volutpat blandit aliquam etiam. Sit amet luctus venenatis
-        lectus magna fringilla urna porttitor rhoncus.
-      </p>
+      <div className="top">
+        <p>ABOUT US</p>
+        <h1>News Page</h1>
+      </div>
+
       <div className="postWrap">
         {post.map((item, idx) => {
           if (idx >= 3) return null;

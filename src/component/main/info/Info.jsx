@@ -13,7 +13,7 @@ const Info = () => {
   return (
     <section className="mainInfo myScroll">
       <div className="top">
-        <h2>Our Company Gallery</h2>
+        <h1>Our Company Gallery</h1>
         <p>
           Congue quisque egestas diam in arcu cursus euismod. Sodales neque
           sodales ut etiam sit.
