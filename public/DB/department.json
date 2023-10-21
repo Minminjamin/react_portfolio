@@ -1,42 +1,42 @@
 {
   "members": [
     {
-      "name": "David",
+      "name": "Anna Grant",
       "position": "President",
       "pic": "pic1.jpg",
       "mail": "david01@facker.com",
       "phone": "011-1234-5678"
     },
     {
-      "name": "Micheal",
+      "name": "Micheal Knox",
       "position": "Vice President",
       "pic": "pic2.jpg",
       "mail": "moonwalk@facker.com",
       "phone": "011-2345-6789"
     },
     {
-      "name": "Dazy",
+      "name": "Dazy Robert",
       "position": "Front-End Developer",
       "pic": "pic3.jpg",
       "mail": "floor0212@facker.com",
       "phone": "011-3456-7890"
     },
     {
-      "name": "Harry",
+      "name": "Harry Dyke",
       "position": "Back-End Developer",
       "pic": "pic4.jpg",
       "mail": "potter1031@facker.com",
       "phone": "011-4567-8910"
     },
     {
-      "name": "Heny",
+      "name": "Heny Myers",
       "position": "FullStack Developer",
       "pic": "pic5.jpg",
       "mail": "prince@facker.com",
       "phone": "011-4567-91011"
     },
     {
-      "name": "Maria",
+      "name": "Maria Bruce",
       "position": "PM",
       "pic": "pic6.jpg",
       "mail": "maria120312@facker.com",
