@@ -1,6 +1,6 @@
 // import { useSelector } from "react-redux";
 import { useFlickrQuery } from "../../../hooks/useFlickr";
-import "../info/Info.scss";
+import "./Info.scss";
 
 const Info = () => {
   const { data, isSuccess } = useFlickrQuery({
@@ -12,11 +12,14 @@ const Info = () => {
   // console.log(data);
   return (
     <section className="mainInfo myScroll">
-      <h2>City Gallery</h2>
-      <p>
-        Congue quisque egestas diam in arcu cursus euismod. Sodales neque
-        sodales ut etiam sit.
-      </p>
+      <div className="top">
+        <h2>Our Company Gallery</h2>
+        <p>
+          Congue quisque egestas diam in arcu cursus euismod. Sodales neque
+          sodales ut etiam sit.
+        </p>
+      </div>
+
       <div className="wrap">
         {isSuccess &&
           data.map((item, idx) => {
