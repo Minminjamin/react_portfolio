@@ -1,7 +1,17 @@
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&family=Noto+Sans+KR:wght@100;200;300&display=swap");
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+
+  font-family: "arial";
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: "Noto Sans KR";
+  }
 
   h2 {
     font-size: 1.7rem;
