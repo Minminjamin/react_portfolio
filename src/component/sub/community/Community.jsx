@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import Layout from "../../common/layout/Layout";
-import "../community/Community.scss";
+import "./Community.scss";
 import { AiOutlineEdit, AiOutlineDelete } from "react-icons/ai";
 
 const Community = () => {
@@ -120,7 +120,7 @@ const Community = () => {
   return (
     <Layout title={"Community"}>
       <div className="top">
-        <p>Create Post Here</p>
+        <p>CREATE POST HERE</p>
         <h2>Bulletin board</h2>
       </div>
 
