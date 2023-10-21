@@ -26,29 +26,34 @@ const Department = () => {
 
   return (
     <Layout title={"Department"}>
-      <h2>Team</h2>
-      <div className="line"></div>
+      <div className="topTxt">
+        <p>OUR PEOPLE</p>
+        <h2>Our world-class team</h2>
+      </div>
+
       <div className="memberBox">
         {department.map((member, index) => (
           <article key={index}>
-            <h3>{member.name}</h3>
-            {/* <div className={line}></div> */}
             <div className="pic">
               <img src={`${path}/img/${member.pic}`} alt={member.name} />
             </div>
-            <h4>{member.position}</h4>
+            <h3>{member.name}</h3>
+            <p>{member.position}</p>
+            <div className="line"></div>
             <p>
-              <b>Email:</b> <a href={`mailto:${member.mail}`}>{member.mail}</a>
+              <a href={`mailto:${member.mail}`}>{member.mail}</a>
             </p>
-            <p>
-              <b>Phone :</b> {member.phone}
-            </p>
+            <p>{member.phone}</p>
           </article>
         ))}
       </div>
 
-      <h2>About</h2>
-      <div className="line"></div>
+      <div className="topTxt">
+        <p>ABOUT OUR COMPANY</p>
+        <h2>About</h2>
+      </div>
+
+      {/* <div className="line"></div> */}
       <article className="aboutBox">
         <div className="pic">
           <>
