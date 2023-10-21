@@ -1,145 +1,294 @@
 @import url("https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap");
 
 .visual {
-  width: 100%;
-  height: calc(100vh - 90px);
-  display: flex;
+  .top {
+    text-align: center;
 
-  .titBox {
-    width: 40%;
-    height: 100%;
-    padding: 10vw 0px;
-    transform: translateX(15vw);
+    p {
+      font-size: 0.8rem;
+      color: gray;
+      margin-bottom: 5px;
+      margin-top: 20px;
+    }
+  }
 
-    ul {
-      li {
-        position: absolute;
-        top: 20%;
-        left: 0;
-        padding-top: 5vh;
-        font-size: 3rem;
-        opacity: 0;
-        transform: translateX(-100px) scale(2);
-        transition: opacity 1s, transform 1s;
+  .youtubeSwiper {
+    width: 100%;
+    height: 100vh;
+    display: flex;
 
-        p {
-          font: 1rem/1.2 "arial";
-          color: #777;
-          margin-top: 20px;
-        }
+    .titBox {
+      width: 40%;
+      height: 100%;
+      // padding: 10vw 0px;
+      transform: translateX(5vw);
 
-        button {
-          background: transparent;
-          border: none;
-          display: inline-block;
-          padding: 15px 0px;
-          font-size: 1.5rem;
-          margin-top: 10vh;
-          position: relative;
-          z-index: 1;
-          &::before {
-            content: "";
-            display: block;
-            width: 0%;
-            height: 1px;
-            background: #111;
-            position: absolute;
-            top: 0;
-            right: -100px;
-            opacity: 0;
-            transition: 0.5s 0.5s;
+      ul {
+        li {
+          position: absolute;
+          top: 20%;
+          left: 0;
+          padding-top: 5vh;
+          font-size: 3rem;
+          opacity: 0;
+          transform: translateX(-100px) scale(2);
+          transition: opacity 1s, transform 1s;
+
+          p {
+            font: 1rem/1.2 "arial";
+            color: #777;
+            margin-top: 20px;
           }
 
-          &::after {
-            content: "";
-            display: block;
-            width: 0%;
-            height: 1px;
-            background: #111;
-            position: absolute;
-            bottom: 0;
-            left: -100px;
-            opacity: 0;
-            transition: 0.5s 0.5s;
-          }
-        }
-
-        &.on {
-          opacity: 1;
-          transform: translateX(0px) scale(1);
-          z-index: 2;
           button {
-            &::before,
+            background: transparent;
+            border: none;
+            display: inline-block;
+            padding: 15px 0px;
+            font-size: 1.5rem;
+            margin-top: 10vh;
+            position: relative;
+            z-index: 1;
+            &::before {
+              content: "";
+              display: block;
+              width: 0%;
+              height: 1px;
+              background: #111;
+              position: absolute;
+              top: 0;
+              right: -100px;
+              opacity: 0;
+              transition: 0.5s 0.5s;
+            }
+
             &::after {
-              width: 100%;
-              opacity: 1;
-              left: 0;
-              right: 0;
+              content: "";
+              display: block;
+              width: 0%;
+              height: 1px;
+              background: #111;
+              position: absolute;
+              bottom: 0;
+              left: -100px;
+              opacity: 0;
+              transition: 0.5s 0.5s;
+            }
+          }
+
+          &.on {
+            opacity: 1;
+            transform: translateX(0px) scale(1);
+            z-index: 2;
+            button {
+              &::before,
+              &::after {
+                width: 100%;
+                opacity: 1;
+                left: 0;
+                right: 0;
+              }
             }
           }
         }
       }
     }
-  }
 
-  .swiper {
-    display: inline-block;
-    width: 75%;
-    height: 100%;
-    padding: 8vw 0px;
-
-    .swiper-slide {
-      width: 100%;
+    .swiper {
+      display: inline-block;
+      width: 75%;
       height: 100%;
+      padding: 8vw 0px;
 
-      .pic {
+      .swiper-slide {
         width: 100%;
         height: 100%;
-        opacity: 0.4;
-        transform: scale(0.5);
-        transition: opacity 0.5s, transform 0.5s;
-        position: relative;
 
-        img {
+        .pic {
           width: 100%;
           height: 100%;
-          object-fit: cover;
-          position: absolute;
-          top: 0;
-          left: 0;
+          opacity: 0.4;
+          transform: scale(0.5);
+          transition: opacity 0.5s, transform 0.5s;
+          position: relative;
 
-          &:nth-of-type(1) {
-            filter: blur(30px) saturate(120%);
-            transform: translate(40px, 40px);
-            opacity: 0.7;
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            &:nth-of-type(1) {
+              filter: blur(30px) saturate(120%);
+              transform: translate(40px, 40px);
+              opacity: 0.7;
+            }
           }
         }
       }
-    }
-    .swiper-slide-prev {
-      .pic {
-        transform: scale(1.5);
-        opacity: 0;
+      .swiper-slide-prev {
+        .pic {
+          transform: scale(1.5);
+          opacity: 0;
+        }
       }
-    }
-    .swiper-slide-active {
-      .pic {
-        transform: scale(1);
-        opacity: 1;
+      .swiper-slide-active {
+        .pic {
+          transform: scale(1);
+          opacity: 1;
+        }
       }
-    }
-    .swiper-slide-next {
-      .pic {
-        transform: scale(0.7);
-        opacity: 0.7;
+      .swiper-slide-next {
+        .pic {
+          transform: scale(0.7);
+          opacity: 0.7;
+        }
       }
     }
   }
 }
+// .visual {
+//   width: 100%;
+//   height: calc(100vh - 90px);
+//   display: flex;
+
+//   .titBox {
+//     width: 40%;
+//     height: 100%;
+//     padding: 10vw 0px;
+//     transform: translateX(15vw);
+
+//     ul {
+//       li {
+//         position: absolute;
+//         top: 20%;
+//         left: 0;
+//         padding-top: 5vh;
+//         font-size: 3rem;
+//         opacity: 0;
+//         transform: translateX(-100px) scale(2);
+//         transition: opacity 1s, transform 1s;
+
+//         p {
+//           font: 1rem/1.2 "arial";
+//           color: #777;
+//           margin-top: 20px;
+//         }
+
+//         button {
+//           background: transparent;
+//           border: none;
+//           display: inline-block;
+//           padding: 15px 0px;
+//           font-size: 1.5rem;
+//           margin-top: 10vh;
+//           position: relative;
+//           z-index: 1;
+//           &::before {
+//             content: "";
+//             display: block;
+//             width: 0%;
+//             height: 1px;
+//             background: #111;
+//             position: absolute;
+//             top: 0;
+//             right: -100px;
+//             opacity: 0;
+//             transition: 0.5s 0.5s;
+//           }
+
+//           &::after {
+//             content: "";
+//             display: block;
+//             width: 0%;
+//             height: 1px;
+//             background: #111;
+//             position: absolute;
+//             bottom: 0;
+//             left: -100px;
+//             opacity: 0;
+//             transition: 0.5s 0.5s;
+//           }
+//         }
+
+//         &.on {
+//           opacity: 1;
+//           transform: translateX(0px) scale(1);
+//           z-index: 2;
+//           button {
+//             &::before,
+//             &::after {
+//               width: 100%;
+//               opacity: 1;
+//               left: 0;
+//               right: 0;
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+
+//   .swiper {
+//     display: inline-block;
+//     width: 75%;
+//     height: 100%;
+//     padding: 8vw 0px;
+
+//     .swiper-slide {
+//       width: 100%;
+//       height: 100%;
+
+//       .pic {
+//         width: 100%;
+//         height: 100%;
+//         opacity: 0.4;
+//         transform: scale(0.5);
+//         transition: opacity 0.5s, transform 0.5s;
+//         position: relative;
+
+//         img {
+//           width: 100%;
+//           height: 100%;
+//           object-fit: cover;
+//           position: absolute;
+//           top: 0;
+//           left: 0;
+
+//           &:nth-of-type(1) {
+//             filter: blur(30px) saturate(120%);
+//             transform: translate(40px, 40px);
+//             opacity: 0.7;
+//           }
+//         }
+//       }
+//     }
+//     .swiper-slide-prev {
+//       .pic {
+//         transform: scale(1.5);
+//         opacity: 0;
+//       }
+//     }
+//     .swiper-slide-active {
+//       .pic {
+//         transform: scale(1);
+//         opacity: 1;
+//       }
+//     }
+//     .swiper-slide-next {
+//       .pic {
+//         transform: scale(0.7);
+//         opacity: 0.7;
+//       }
+//     }
+//   }
+// }
 
 .tablet,
 .mobile {
-  .visual {
+  .youtubeSwiper {
     .titBox {
       width: 100%;
       height: 50%;
@@ -162,35 +311,28 @@
     }
   }
 }
-// .left {
-//   width: 40%;
-//   padding-right: 10%;
-//   h2 {
-//     margin-top: 35px;
-//     font: 2.5rem/1 "Nanum Myeongjo";
-//   }
-
-//   p {
-//     &:nth-of-type(2) {
-//       margin-top: 10px;
-//     }
-//   }
-// }
-
-// .right {
-//   // border: solid 1px red;
-//   width: 60%;
-//   display: flex;
-//   flex-wrap: wrap;
-//   justify-content: space-between;
-
-//   article {
-//     width: 48%;
-//     margin-bottom: 20px;
-
-//     img {
+// .tablet,
+// .mobile {
+//   .visual {
+//     .titBox {
 //       width: 100%;
-//       height: 100%;
+//       height: 50%;
+
+//       ul li {
+//         padding: 0px;
+//         h3 {
+//           font-size: 2rem;
+//         }
+//         p {
+//           display: none;
+//         }
+//       }
+//     }
+
+//     .swiper {
+//       width: 100%;
+//       height: 50%;
+//       padding: 10vw 15vw;
 //     }
 //   }
 // }
