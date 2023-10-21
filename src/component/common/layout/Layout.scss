@@ -9,6 +9,14 @@
   transform: translateY(200px);
   opacity: 0;
 
+  * {
+    h1,
+    h2,
+    h3,
+    h4 {
+      font-family: "nanum myeongjo";
+    }
+  }
   h1 {
     font: normal 80px/1 "nanum myeongjo";
     color: #444;
