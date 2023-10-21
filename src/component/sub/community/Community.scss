@@ -2,52 +2,47 @@
 @import url("https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap");
 
 input {
-  display: block;
   width: 100%;
   margin-top: 10px;
-  border: none;
-  background: #dddddd;
-  padding: 1%;
+  padding: 2%;
 }
 
 textarea {
   resize: none;
   margin-top: 10px;
   width: 100%;
-  border: none;
-  background: #dddddd;
-  padding: 1%;
+  padding: 2%;
 }
 
 .Community {
-  .top {
-    display: flex;
-    margin-top: 10px;
-    justify-content: space-between;
+  // .top {
+  //   display: flex;
+  //   margin-top: 10px;
+  //   justify-content: space-between;
 
-    h2 {
-      width: 40%;
-      font: 2.5rem/1 "Noto Sans KR", sans-serif;
-      margin-right: 2.5vw;
-    }
+  //   h2 {
+  //     width: 40%;
+  //     font: 2.5rem/1 "Noto Sans KR", sans-serif;
+  //     margin-right: 2.5vw;
+  //   }
 
-    .sub {
-      padding: 0px 2%;
-      width: 60%;
+  //   .sub {
+  //     padding: 0px 2%;
+  //     width: 60%;
 
-      p {
-        margin-bottom: 20px;
-      }
+  //     p {
+  //       margin-bottom: 20px;
+  //     }
 
-      p {
-        &:nth-of-type(2) {
-          &:hover {
-            scale: 1.1;
-          }
-        }
-      }
-    }
-  }
+  //     p {
+  //       &:nth-of-type(2) {
+  //         &:hover {
+  //           scale: 1.1;
+  //         }
+  //       }
+  //     }
+  //   }
+  // }
   content {
     display: flex;
 
@@ -57,10 +52,23 @@ textarea {
       padding-left: 0%;
 
       .inputBox {
-        padding: 2%;
-        background: #fff;
-        box-shadow: 1px 1px 20px #ececec;
+        padding: 4%;
+        border: solid 1px gray;
 
+        p {
+          margin-top: 20px;
+          color: gray;
+          margin-bottom: 30px;
+        }
+
+        label {
+          margin-top: 20px;
+        }
+
+        input {
+          // margin-top: 10px;
+          margin-bottom: 20px;
+        }
         .btnSet {
           display: flex;
           justify-content: flex-end;
@@ -100,12 +108,13 @@ textarea {
           margin-top: 20px;
           box-shadow: 1px 1px 20px #ececec;
           background: #fff;
-          padding: 3%;
+          padding: 3.5%;
           display: flex;
           flex-wrap: wrap;
           align-content: space-between;
+          // border: solid 1px gray;
 
-          h3 {
+          h2 {
             width: 100%;
           }
         }
@@ -220,7 +229,7 @@ textarea {
             width: 49%;
             padding: 1%;
 
-            h3 {
+            h2 {
               font-size: 1.1rem;
             }
           }
@@ -303,7 +312,7 @@ textarea {
 
     content {
       .leftBox {
-        h3 {
+        h2 {
           font-size: 1.2rem;
         }
       }
@@ -317,7 +326,7 @@ textarea {
             width: 100%;
             padding: 3%;
             padding: 1%;
-            h3 {
+            h2 {
               font-size: 1.2rem;
             }
           }

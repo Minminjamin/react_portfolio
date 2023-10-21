@@ -3,8 +3,6 @@ import Layout from "../../common/layout/Layout";
 import "../community/Community.scss";
 import { AiOutlineEdit, AiOutlineDelete } from "react-icons/ai";
 
-const path = process.env.PUBLIC_URL;
-
 const Community = () => {
   const dummyData = [
     {
@@ -121,7 +119,7 @@ const Community = () => {
 
   return (
     <Layout title={"Community"}>
-      <div className="top">
+      {/* <div className="top">
         <h2>This is the community page where we all communicate</h2>
         <div className="sub">
           <p>
@@ -135,28 +133,36 @@ const Community = () => {
             <b>Create Post</b>
           </p>
         </div>
-      </div>
+      </div> */}
 
       <content>
         <div className="leftBox">
           <div className="inputBox">
-            <h3>Create Post</h3>
-            <input
-              type="text"
-              placeholder="제목을 입력하세요."
-              ref={refInput}
-            />
+            <h2>Create Post</h2>
+            <p>
+              Your writing is stored in the local storage of the browser, not
+              the DB. Thank you for visiting my portfolio site. Please feel free
+              to leave a comment.
+            </p>
 
+            <label htmlFor="TITLE">TITLE</label>
+            <input type="text" placeholder="Enter Title" ref={refInput} />
+
+            <label htmlFor="CONTENT">CONTENT</label>
             <textarea
               ref={refTextArea}
               cols="30"
               rows="3"
-              placeholder="본문을 입력하세요."
+              placeholder="Enter Content"
             ></textarea>
 
             <nav className="btnSet">
-              <button onClick={resetForm}>Cancel</button>
-              <button onClick={createPost}>Write</button>
+              <button onClick={resetForm} type="reset">
+                Cancel
+              </button>
+              <button onClick={createPost} type="submit">
+                Write
+              </button>
             </nav>
           </div>
         </div>
