@@ -23,7 +23,7 @@ const Visual = () => {
    */
 
   return (
-    <section className="visual">
+    <section className="visual myScroll">
       <div className="top">
         <p>WHACH OUR YOUTUBE PLAYLIST</p>
         <h1>Let's watch a short YouTube playlist</h1>

@@ -5,7 +5,7 @@ const Welcome = () => {
   const history = useHistory();
 
   return (
-    <figure className="welcome myScroll">
+    <figure className="welcome">
       <div className="txt">
         <h1>Grow your business.</h1>
         <p>Give your business a boost with a beautifully crafted homepage.</p>
