@@ -30,7 +30,8 @@ const Layout = ({ title, children, styleName }) => {
       <figure>
         <img src={`${path}/img/sub_figure.jpg`} />
       </figure>
-      {children}
+
+      <div className="childrenWrap">{children}</div>
     </section>
   );
 };
