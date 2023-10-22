@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import "../modal/Modal.scss";
+import "./Modal.scss";
 import { close } from "../../../redux/modalSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { AnimatePresence, motion } from "framer-motion";
