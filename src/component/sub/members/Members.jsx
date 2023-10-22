@@ -20,7 +20,7 @@ const Members = () => {
   };
 
   const [val, setVal] = useState(initval);
-  const [errs, setErrs] = useState();
+  const [errs, setErrs] = useState({});
   const [mounted, setMounted] = useState(false);
 
   const refCheckGroup = useRef(null);
@@ -305,8 +305,13 @@ const Members = () => {
                     <th scope="row">
                       <label htmlFor="edu">Education</label>
                     </th>
-                    <td ref={refSelGroup}>
-                      <select name="edu" id="edu" onChange={onHandleChange}>
+                    <td>
+                      <select
+                        name="edu"
+                        id="edu"
+                        onChange={onHandleChange}
+                        ref={refSelGroup}
+                      >
                         <option value="">최종학력을 선택하세요.</option>
                         <option value="elementary-school">초등학교 졸업</option>
                         <option value="middle-school">중학교 졸업</option>
