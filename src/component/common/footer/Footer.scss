@@ -6,10 +6,10 @@ footer {
   .top {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
 
     .menu {
       width: 65%;
-      // border: solid 1px red;
       display: flex;
       justify-content: space-between;
 
@@ -24,7 +24,6 @@ footer {
             font-weight: bolder;
           }
           h3 {
-            // font-size: 1.3rem;
             color: #585858;
             margin-bottom: 15px;
           }
@@ -48,5 +47,11 @@ footer {
         }
       }
     }
+  }
+}
+
+.mobile {
+  footer {
+    display: none;
   }
 }
