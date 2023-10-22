@@ -60,56 +60,26 @@
       }
     }
   }
+}
 
-  .info {
-    width: 60%;
-    padding: 1.5%;
-    padding-bottom: 0%;
-    display: flex;
-    flex-wrap: wrap;
-    align-content: space-between;
-
-    .innerTopText {
-      h3 {
-        display: block;
-      }
-      p {
-        width: 100%;
-        display: block;
-        font-weight: bold;
-        margin-top: 3px;
-      }
-    }
-
-    p {
-      word-wrap: break-word;
-      color: gray;
-    }
-
-    .date {
-      font-weight: bold;
-      color: $emphasis;
-      width: 100%;
-    }
-
-    .btnSet {
-      width: 100%;
-      display: flex;
-      justify-content: flex-end;
-
-      button {
-        padding: 1%;
-        background: white;
-        border: none;
-        border: solid 2px #d5d5d5;
-        border-bottom: none;
-
-        &:hover {
-          background: #d5d5d5;
-          color: white;
-        }
+.tablet,
+.mobile {
+  .Youtube {
+    .youtubeBox {
+      article {
+        width: 48%;
       }
     }
   }
-  margin-bottom: 30px;
+}
+
+.mobile {
+  .Youtube {
+    .youtubeBox {
+      article {
+        width: 100%;
+        margin-bottom: 20px;
+      }
+    }
+  }
 }
