@@ -28,7 +28,7 @@ const Layout = ({ title, children, styleName }) => {
       <div className="bar"></div>
 
       <figure>
-        <img src={`${path}/img/banner.jpg`} />
+        <img src={`${path}/img/sub_figure.jpg`} />
       </figure>
       {children}
     </section>
