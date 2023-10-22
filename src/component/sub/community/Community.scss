@@ -1,5 +1,4 @@
 @import "../../../styles/variable.scss";
-@import url("https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap");
 
 input {
   width: 100%;
@@ -24,8 +23,6 @@ textarea {
 
     h2 {
       margin-top: 10px;
-      font-size: 2.5rem;
-      font-family: "Nanum Myeongjo";
       margin-bottom: 30px;
     }
   }
@@ -53,7 +50,6 @@ textarea {
         }
 
         input {
-          // margin-top: 10px;
           margin-bottom: 20px;
         }
         .btnSet {
@@ -204,7 +200,6 @@ textarea {
 
       .rightBox {
         margin-top: 20px;
-        // display: block;
         padding: 0%;
         padding-right: 0%;
         width: 100%;
@@ -216,10 +211,6 @@ textarea {
           article {
             width: 49%;
             padding: 1%;
-
-            h3 {
-              font-size: 1.1rem;
-            }
           }
 
           article.showContent {
@@ -292,19 +283,7 @@ textarea {
 
 .mobile {
   .Community {
-    .top {
-      h3 {
-        font-size: 1.7rem;
-      }
-    }
-
     content {
-      .leftBox {
-        h3 {
-          font-size: 1.2rem;
-        }
-      }
-
       .rightBox {
         .showBox {
           p {
@@ -314,9 +293,6 @@ textarea {
             width: 100%;
             padding: 3%;
             padding: 1%;
-            h3 {
-              font-size: 1.2rem;
-            }
           }
 
           article.showContent {

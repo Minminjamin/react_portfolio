@@ -1,5 +1,4 @@
 @import "../../../styles/variable.scss";
-@import url("https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&family=Noto+Sans+KR:wght@100;200;300&display=swap");
 
 .Gallery {
   .topBox {
@@ -30,29 +29,6 @@
       display: flex;
       justify-content: center;
     }
-    // display: flex;
-    // height: auto;
-    // justify-content: space-between;
-    // flex-wrap: wrap;
-
-    // .title {
-    //   display: flex;
-    //   height: 100%;
-    //   align-items: center;
-
-    //   h2 {
-    //     font: 2.5rem/1 "Noto Sans KR", sans-serif;
-    //     margin-right: 2.5vw;
-
-    //     b {
-    //       color: #808080;
-    //     }
-    //   }
-
-    //   p {
-    //     color: gray;
-    //   }
-    // }
 
     .searchBox {
       label {
@@ -161,9 +137,7 @@
         padding: 0px 2%;
 
         h3 {
-          font-family: "Noto Sans KR";
           margin-top: 5px;
-          font-size: 0.85rem;
         }
         .profile {
           margin-top: 5px;
@@ -187,22 +161,12 @@
 
 .tablet,
 .mobile {
-  h2 {
-    font-size: 2.3rem;
-  }
-  h3 {
-    font-size: 1.3rem;
-  }
-  h4 {
-    font-size: 1.1rem;
-  }
   .Gallery {
     .topBox {
       flex-direction: column;
 
       .title {
         h2 {
-          font: 2rem/1 "Noto Sans KR", sans-serif;
           margin-right: 0vw;
         }
 
@@ -227,12 +191,6 @@
         &:nth-of-type(even) {
           padding-right: 0;
         }
-
-        .lower {
-          h3 {
-            font-size: 0.75rem;
-          }
-        }
       }
     }
 
@@ -240,9 +198,7 @@
       padding: 0px 2%;
 
       h3 {
-        font-family: "Noto Sans KR";
         margin-top: 5px;
-        font-size: 0.85rem;
       }
       .profile {
         margin-top: 5px;
@@ -271,7 +227,6 @@
 
       .title {
         h2 {
-          font: 2rem/1 "Noto Sans KR", sans-serif;
           margin-right: 0vw;
         }
 

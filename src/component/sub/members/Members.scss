@@ -1,24 +1,7 @@
-@import url("https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&family=Noto+Sans+KR:wght@100;200;300&display=swap");
 @import "../../../styles/variable.scss";
 
 .Members {
-  // h2 {
-  //   position: relative;
-  //   padding-left: 10px;
-  //   &::before {
-  //     content: "";
-  //     position: absolute;
-  //     left: 0px;
-  //     top: 0;
-  //     height: 50%;
-  //     width: 5px;
-  //     background: $emphasis;
-  //   }
-  //   font: 2.5rem/1 "Noto Sans KR", sans-serif;
-  // }
-
   content {
-    // padding-top: 30px;
     display: flex;
     justify-content: space-between;
     display: flex;
@@ -46,7 +29,6 @@
             input[type="reset"] {
               border: none;
               background: none;
-              // border: 1px solid #aaa;
               width: 150px;
               height: 30px;
               display: inline-flex;
@@ -101,14 +83,12 @@
       }
     }
     .rightBox {
-      // border: solid 1px gray;
       width: 33%;
       height: auto;
       margin-top: 1.5rem;
 
       p {
         color: gray;
-        // color: #333;
       }
       .inner {
         background: #fff;
@@ -132,10 +112,6 @@
 .tablet,
 .mobile {
   .Members {
-    h2 {
-      font: 2rem/1 "Noto Sans KR", sans-serif;
-    }
-
     content {
       display: block;
 
@@ -169,14 +145,6 @@
       .rightBox {
         display: none;
       }
-    }
-  }
-}
-
-.mobile {
-  .Members {
-    h2 {
-      font: 1.7rem/1 "Noto Sans KR", sans-serif;
     }
   }
 }
