@@ -161,7 +161,7 @@
 
     button {
       border: none;
-      background: #fff;
+      background: none;
       padding: 1%;
 
       &:hover {
@@ -180,6 +180,8 @@
 
       .contactInfo {
         width: 100%;
+        text-align: center;
+        margin-top: 20px;
         p {
           &:nth-of-type(2),
           &:nth-of-type(3) {
