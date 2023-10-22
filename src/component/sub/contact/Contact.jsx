@@ -166,40 +166,57 @@ const Contact = () => {
   return (
     <Layout title={"Contact"} styleName={styles.contact}>
       <div className="contactMe">
-        <div className="contactInfo">
-          <p>Contact Me</p>
-          <h2>Get in Touch</h2>
-          <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Excepturi
-            molestiae ea non numquam!
-          </p>
-          <p>
-            <b>CALL ME ABOUT</b>
-          </p>
-          <h3>(011)-1234-5678</h3>
-        </div>
         <form ref={form} onSubmit={sendEmail}>
-          <h3>Send E-mail</h3>
+          <h2>Contact Me</h2>
+          <p>
+            If you leave a post and click the Send button, the contents will be
+            sent to my e-mail. If you want to communicate with me, please leave
+            a message here.
+          </p>
+
+          <label htmlFor="Name">NAME</label>
           <input
             type="text"
             name="user_name"
             className="nameEl"
-            placeholder="Name"
+            placeholder="Enter your name"
           />
+          <label htmlFor="E-Mail">E-MAIL</label>
           <input
             type="email"
             name="user_email"
             className="emailEl"
-            placeholder="Email"
+            placeholder="Enter your E-mail"
           />
-          <textarea name="message" className="msgEl" placeholder="Message" />
+          <label htmlFor="MESSAGE">MESSAGE</label>
+          <textarea
+            name="message"
+            className="msgEl"
+            placeholder="Hi there, I’m reaching out because I think we can collaborate…"
+          />
 
           <div className="btnSet">
             <input type="reset" value="Cancel" />
-
             <input type="submit" value="Send" />
           </div>
         </form>
+        <div className="contactInfo">
+          <h3>OUR OFFICES</h3>
+          <p>
+            Even the all-powerful Pointing has no control about the blind texts
+            it is an almost unorthographic.
+          </p>
+          <h3>OUR OFFICE</h3>
+          <p>The moon, not the earth</p>
+          <p>React-office, the seventh street of the moon</p>
+          <h3>WORKING HOURS</h3>
+          <p>9:00 ~ 18:00, Mon to Fri</p>
+          <h3>CONTACT</h3>
+          <p>
+            <a href="mailto:0429el@gmail.con"> 0429el@gmail.com</a>
+          </p>
+          <p>011)-123-4567</p>
+        </div>
       </div>
 
       {/* 데이터 기반으로 자동 버튼 생성 및 자동 이벤트 연결 처리 */}

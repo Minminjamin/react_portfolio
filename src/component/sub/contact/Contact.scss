@@ -9,55 +9,32 @@
   .contactMe {
     display: flex;
     justify-content: space-between;
-    .contactInfo {
-      width: 48%;
-      p {
-        &:nth-of-type(1) {
-          font-size: 0.8rem;
-          color: gray;
-        }
-
-        &:nth-of-type(2),
-        &:nth-of-type(3) {
-          margin-top: 30px;
-          font-size: 0.9rem;
-        }
-      }
-
-      h2 {
-        margin-top: 10px;
-        font: 2.5rem/1 "Noto Sans KR", sans-serif;
-        margin-right: 2.5vw;
-      }
-
-      h3 {
-        margin-top: 5px;
-      }
-    }
 
     form {
-      width: 49%;
-      background: #fff;
-      padding: 2%;
+      width: 60%;
+      padding: 3%;
       display: flex;
       flex-wrap: wrap;
+      border: solid 1px gray;
       align-content: space-between; // 여백을 수직으로 분배
 
-      .nameEl,
-      .emailEl,
-      textarea {
-        width: 100%;
-        background: #f0f0f0;
-        border: none;
-        padding: 2%;
+      p {
+        color: gray;
+        font-size: 0.8rem;
+        margin-top: 10px;
+      }
+
+      label {
+        margin-top: 20px;
+        font-size: 0.9rem;
       }
 
       .btnSet {
         gap: 1vw;
         display: flex;
         align-items: flex-end;
-        margin-left: auto; // btnSet을 오른쪽 끝으로 이동
-
+        margin-left: auto;
+        padding-right: 2%;
         input {
           border: none;
           background: none;
@@ -68,6 +45,31 @@
 
           &:hover {
             scale: 1.1;
+          }
+        }
+      }
+    }
+    .contactInfo {
+      width: 35%;
+
+      p {
+        color: gray;
+        font-size: 0.8rem;
+        margin-top: 5px;
+        margin-bottom: 15px;
+
+        &:nth-of-type(2),
+        &:nth-of-type(5) {
+          margin-bottom: 0;
+        }
+
+        &:nth-of-type(5) {
+          display: inline;
+          border-bottom: solid 1px gray;
+
+          &:hover {
+            color: $emphasis;
+            border-bottom: solid 1px $emphasis;
           }
         }
       }
@@ -155,7 +157,7 @@
     }
   }
   .downBtn {
-    margin-top: 30px;
+    margin-top: 15px;
     gap: 10px;
     display: flex;
 
