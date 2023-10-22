@@ -1,6 +1,7 @@
 import React, { useRef, useEffect, useState } from "react";
 import Layout from "../../common/layout/Layout";
-import styles from "../contact/Contact.scss";
+import "./Contact.scss";
+// import styles from "../contact/Contact.scss";
 import emailjs from "@emailjs/browser";
 import { PiParkBold } from "react-icons/pi";
 import { HiOutlineBuildingOffice2 } from "react-icons/hi2";
@@ -164,7 +165,7 @@ const Contact = () => {
   }, [traffic]);
 
   return (
-    <Layout title={"Contact"} styleName={styles.contact}>
+    <Layout title={"Contact"} styleName="contact">
       <div className="contactMe">
         <form ref={form} onSubmit={sendEmail}>
           <h2>Contact Me</h2>

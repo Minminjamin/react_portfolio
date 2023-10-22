@@ -1,5 +1,3 @@
-//
-
 import React from "react";
 import Layout from "../../common/layout/Layout";
 import "./Gallery.scss";
