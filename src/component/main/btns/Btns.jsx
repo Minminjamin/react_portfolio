@@ -66,7 +66,7 @@ const Btns = () => {
       window.removeEventListener("scroll", throttledActivation);
       window.scrollTo(0, 0);
     };
-  }, []);
+  }, [throttledGetPos, throttledActivation]);
 
   return (
     <ul className="scrollNavi" ref={refBtns}>
@@ -86,34 +86,6 @@ const Btns = () => {
             ></li>
           );
         })}
-      {/* <li
-        className="on"
-        onClick={() => {
-          new Anime(window, {
-            prop: "scroll",
-            value: pos.current[0],
-            duration: 500,
-          });
-        }}
-      ></li>
-      <li
-        onClick={() => {
-          new Anime(window, {
-            prop: "scroll",
-            value: pos.current[1],
-            duration: 500,
-          });
-        }}
-      ></li>
-      <li
-        onClick={() => {
-          new Anime(window, {
-            prop: "scroll",
-            value: pos.current[2],
-            duration: 500,
-          });
-        }}
-      ></li> */}
     </ul>
   );
 };
