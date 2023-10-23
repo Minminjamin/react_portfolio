@@ -50,7 +50,7 @@ const News = () => {
 
       <div className="postWrap">
         {post.map((item, idx) => {
-          if (idx >= 3) return null;
+          if (idx >= 4) return null;
           else
             return (
               <article key={idx}>
