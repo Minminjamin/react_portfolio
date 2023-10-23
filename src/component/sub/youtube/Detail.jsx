@@ -16,7 +16,7 @@ const Detail = () => {
     fetch(`${baseURL}?key=${api_key}&id=${id}&part=snippet`)
       .then((data) => data.json())
       .then((json) => setYoutube(json.items[0].snippet));
-  }, []);
+  }, [id]);
 
   return (
     <Layout title={"Detail"}>
@@ -27,7 +27,7 @@ const Detail = () => {
         ></iframe>
       </div>
       <h2>{youtube?.title}</h2>
-      <p>{youtube?.description}</p>{" "}
+      <p>{youtube?.description}</p>
     </Layout>
   );
 };
