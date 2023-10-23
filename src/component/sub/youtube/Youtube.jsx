@@ -1,5 +1,4 @@
 import React from "react";
-import clsx from "clsx";
 import "./Youtube.scss";
 import Layout from "../../common/layout/Layout";
 import { Link } from "react-router-dom";
@@ -14,10 +13,6 @@ const Youtube = () => {
     } else {
       return text;
     }
-  };
-
-  const sliceDate = (date) => {
-    return date.splite("T")[0];
   };
 
   return (

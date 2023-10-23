@@ -11,7 +11,6 @@ const Btns = () => {
   const [num, setNum] = useState(0);
 
   const getPos = () => {
-    console.log("pos 호출");
     pos.current = [];
     const secs = document.body.querySelectorAll(".myScroll");
 
@@ -31,7 +30,6 @@ const Btns = () => {
     });
 
     window.scrollTo(0, pos.current[activeIdx]);
-    // console.log(lis);
   };
 
   const activation = () => {

@@ -18,10 +18,6 @@ const Department = () => {
       .then((json) => setHistory(json.history));
   }, []);
 
-  useEffect(() => {
-    console.log(history);
-  }, [history]);
-
   return (
     <Layout title={"Department"}>
       <div className="topTxt">

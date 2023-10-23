@@ -136,8 +136,6 @@ const Gallery = () => {
                           src={`http://farm${item.farm}.staticflickr.com/${item.server}/buddyicons/${item.owner}.jpg`}
                           alt={item.owner}
                           onError={(e) => {
-                            console.log(e.target);
-
                             e.target.setAttribute(
                               "src",
                               "https://www.flickr.com/images/buddyicon.gif"

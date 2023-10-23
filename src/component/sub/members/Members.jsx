@@ -21,7 +21,7 @@ const Members = () => {
 
   const [val, setVal] = useState(initval);
   const [errs, setErrs] = useState({});
-  const [mounted, setMounted] = useState(true);
+  const [mounted] = useState(true);
 
   const refCheckGroup = useRef(null);
   const refRadioGroup = useRef(null);

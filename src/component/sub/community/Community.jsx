@@ -176,9 +176,6 @@ const Community = () => {
                       <input
                         type="text"
                         defaultValue={item.title}
-                        onChange={(e) => {
-                          console.log(e.target.value);
-                        }}
                         ref={refEditInput}
                       />
                       <br />
@@ -186,9 +183,6 @@ const Community = () => {
                         // react에서 value 속성을 적용하려면 무조건 onChange 이벤트 연결 필수
                         // 그렇지 않다면 defaultValue가 필요
                         defaultValue={item.content}
-                        onChange={(e) => {
-                          console.log(e.target.value);
-                        }}
                         ref={refEditTextArea}
                       ></textarea>
                     </div>
