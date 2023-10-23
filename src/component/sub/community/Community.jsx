@@ -4,7 +4,7 @@ import "./Community.scss";
 import { AiOutlineEdit, AiOutlineDelete } from "react-icons/ai";
 
 const Community = () => {
-  const dummyData = [
+  const dummyData = useRef([
     {
       title: "title4",
       content:
@@ -29,12 +29,12 @@ const Community = () => {
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta, iure?1",
       date: new Date(),
     },
-  ];
+  ]);
 
   const getLocalData = () => {
     const data = localStorage.getItem("post");
     if (data) return JSON.parse(data);
-    else return dummyData;
+    else return dummyData.current;
   };
 
   const refInput = useRef(null);
