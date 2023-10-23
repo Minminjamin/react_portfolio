@@ -21,7 +21,7 @@ const Members = () => {
 
   const [val, setVal] = useState(initval);
   const [errs, setErrs] = useState({});
-  const [mounted, setMounted] = useState(false);
+  const [mounted, setMounted] = useState(true);
 
   const refCheckGroup = useRef(null);
   const refRadioGroup = useRef(null);
@@ -83,7 +83,7 @@ const Members = () => {
         "비밀번호는 5글자 이상, 문자, 숫자, 특수문자를 모두 포함하세요.";
     }
 
-    if (value.pw1 !== value.pw2) {
+    if (value.pw1 !== value.pw2 || !value.pw2) {
       checkeErrs.pw2 = "2개의 비밀번호를 같게 입력하세요.";
     }
 
@@ -132,19 +132,15 @@ const Members = () => {
     }
   };
 
-  const showCheck = () => {
-    mounted && setErrs(check(debouncedVal));
-  };
-
   // 의존성 배열에 debouncing이 적용된 state 값을 등록해서 함수의 핸들러 함수 호출의 빈도를 줄여줌
   // uaeDebounce는 stateㅇ의 변경횟수 자체를 줄이는 게 아니라 해당 state에 따라 호출되는 함수의 빈도를 줄임
 
   useEffect(() => {
-    console.log("val state 변경에 의해서 showCheck 함수 호출");
+    const showCheck = () => {
+      mounted && setErrs(check(debouncedVal));
+    };
     showCheck();
-
-    return () => setMounted(false);
-  }, [debouncedVal]);
+  }, [debouncedVal, mounted]);
 
   return (
     <Layout title={"Members"}>
