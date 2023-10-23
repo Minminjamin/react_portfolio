@@ -1,7 +1,6 @@
 import React from "react";
 import "./Layout.scss";
-import clsx from "clsx";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import useSplitText from "../../../hooks/useSplitText";
 
 const path = process.env.PUBLIC_URL;
@@ -19,8 +18,7 @@ const Layout = ({ title, children, styleName }) => {
     setTimeout(() => {
       frame.current.classList.add("on");
     }, 300);
-    // setTimeout(() => setIsOn(true), 300);
-  }, []);
+  }, [splitText]);
 
   return (
     <section ref={frame} className={`layout ${title}`}>
