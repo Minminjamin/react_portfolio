@@ -12,13 +12,11 @@ import Detail from "./component/sub/youtube/Detail";
 import Community from "./component/sub/community/Community";
 import Main from "./component/main/mainWrap/Main";
 import { useMedia } from "./hooks/useMedia";
-import { useDispatch } from "react-redux";
 import Menu from "./component/common/menu/Menu";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 function App() {
-  const dispatch = useDispatch();
   const queryClient = new QueryClient();
 
   return (

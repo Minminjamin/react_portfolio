@@ -5,15 +5,18 @@ import { useState, useRef } from "react";
 import Masonry from "react-masonry-component";
 import Modal from "../../common/modal/Modal";
 import { BiSearchAlt } from "react-icons/bi";
-import { open } from "../../../redux/modalSlice";
+// import { open } from "../../../redux/modalSlice";
 import { useFlickrQuery } from "../../../hooks/useFlickr";
-import { useDispatch } from "react-redux";
+import { useGlobalData } from "../../../hooks/useGlobalContext";
+// import { useDispatch } from "react-redux";
+
 const Gallery = () => {
   const [isUser, setIsUser] = useState(true);
   const [activeUrl, setActiveUrl] = useState("");
   const [opt, setOpt] = useState({ type: "user", id: "199348831@N08" });
+  // const dispatch = useDispatch();
 
-  const dispatch = useDispatch();
+  const { setModalOpen } = useGlobalData();
 
   const search = useRef(null);
   const btnSet = useRef(null);
@@ -124,7 +127,7 @@ const Gallery = () => {
                           setActiveUrl(
                             `https://live.staticflickr.com/${item.server}/${item.id}_${item.secret}_b.jpg`
                           );
-                          dispatch(open());
+                          setModalOpen(true);
                         }}
                       />
                     </div>

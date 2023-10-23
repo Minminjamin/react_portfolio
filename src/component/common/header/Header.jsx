@@ -2,11 +2,12 @@ import React from "react";
 import "./Header.scss";
 import { Link, NavLink } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
-import { toggle } from "../../../redux/menuSlice";
-import { useDispatch } from "react-redux";
+import { useGlobalData } from "../../../hooks/useGlobalContext";
+// import { toggle } from "../../../redux/menuSlice";
+// import { useDispatch } from "react-redux";
 
 const Header = ({ isMain }) => {
-  const dispatch = useDispatch();
+  const { menuOpen, setMenuOpen } = useGlobalData();
 
   return (
     <header className="header myScroll">
@@ -52,7 +53,7 @@ const Header = ({ isMain }) => {
         fontSize={22}
         color={"#333"}
         onClick={() => {
-          dispatch(toggle());
+          setMenuOpen(!menuOpen);
         }}
       />
     </header>

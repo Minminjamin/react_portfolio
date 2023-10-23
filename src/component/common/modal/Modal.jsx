@@ -1,22 +1,20 @@
 import React, { useEffect } from "react";
 import "./Modal.scss";
-import { close } from "../../../redux/modalSlice";
-import { useDispatch, useSelector } from "react-redux";
 import { AnimatePresence, motion } from "framer-motion";
+import { useGlobalData } from "../../../hooks/useGlobalContext";
 
 const Modal = ({ children }) => {
-  const dispatch = useDispatch();
-  const { isOpen } = useSelector((state) => state.modal);
+  const { modalOpen, setModalOpen } = useGlobalData();
 
   useEffect(() => {
-    isOpen
+    modalOpen
       ? (document.body.style.overflow = "hidden")
       : (document.body.style.overflow = "auto");
-  }, [isOpen]);
+  }, [modalOpen]);
 
   return (
     <AnimatePresence>
-      {isOpen && (
+      {modalOpen && (
         <>
           <motion.aside
             className="modal"
@@ -26,7 +24,7 @@ const Modal = ({ children }) => {
             transition={{ duration: 0.5 }}
           >
             <div className="con">{children}</div>
-            <span onClick={() => dispatch(close())}>close</span>
+            <span onClick={() => setModalOpen(false)}>close</span>
           </motion.aside>
         </>
       )}
