@@ -7,7 +7,7 @@ import { useGlobalData } from "../../../hooks/useGlobalContext";
 // import { useDispatch } from "react-redux";
 
 const Header = ({ isMain }) => {
-  const { menuOpen, setMenuOpen } = useGlobalData();
+  const { menuOpen, setMenuOpen, theme, setTheme } = useGlobalData();
 
   return (
     <header className="header myScroll">
@@ -56,6 +56,10 @@ const Header = ({ isMain }) => {
           setMenuOpen(!menuOpen);
         }}
       />
+
+      <span className="btnTheme" onClick={() => setTheme(!theme)}>
+        Theme
+      </span>
     </header>
   );
 };

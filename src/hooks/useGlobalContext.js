@@ -7,9 +7,18 @@ export const GlobalContext = createContext();
 export function GlobalProvider({ children }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
+  const [theme, setTheme] = useState(true);
+
   return (
     <GlobalContext.Provider
-      value={{ menuOpen, setMenuOpen, modalOpen, setModalOpen }}
+      value={{
+        menuOpen,
+        setMenuOpen,
+        modalOpen,
+        setModalOpen,
+        theme,
+        setTheme,
+      }}
     >
       {children}
     </GlobalContext.Provider>

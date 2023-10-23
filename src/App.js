@@ -15,13 +15,15 @@ import { useMedia } from "./hooks/useMedia";
 import Menu from "./component/common/menu/Menu";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import { useGlobalData } from "./hooks/useGlobalContext";
 
 function App() {
   const queryClient = new QueryClient();
+  const { theme } = useGlobalData();
 
   return (
     <QueryClientProvider client={queryClient}>
-      <main className={useMedia()}>
+      <main className={`${useMedia()} ${theme ? "dark" : "light"}`}>
         <Switch>
           <Route exact path="/">
             <Header isMain={true} />
