@@ -56,10 +56,10 @@ const Header = ({ isMain }) => {
           setMenuOpen(!menuOpen);
         }}
       />
-
+      {/* 
       <span className="btnTheme" onClick={() => setTheme(!theme)}>
         Theme
-      </span>
+      </span> */}
     </header>
   );
 };
