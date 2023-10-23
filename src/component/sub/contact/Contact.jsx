@@ -1,13 +1,10 @@
 import React, { useRef, useEffect, useState } from "react";
 import Layout from "../../common/layout/Layout";
 import "./Contact.scss";
-// import styles from "../contact/Contact.scss";
 import emailjs from "@emailjs/browser";
 import { PiParkBold } from "react-icons/pi";
 import { HiOutlineBuildingOffice2 } from "react-icons/hi2";
 import { GiModernCity } from "react-icons/gi";
-
-const path = process.env.PUBLIC_URL;
 
 const Contact = () => {
   const instance = useRef(null);

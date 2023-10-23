@@ -8,8 +8,6 @@ const Department = () => {
   const [department, setDepartment] = useState([]);
   const [history, setHistory] = useState([]);
 
-  const [isHover, setIsHover] = useState(false);
-
   useEffect(() => {
     fetch(`${path}/DB/department.json`)
       .then((data) => data.json())
@@ -52,8 +50,6 @@ const Department = () => {
         <p>ABOUT OUR COMPANY</p>
         <h2>About</h2>
       </div>
-
-      {/* <div className="line"></div> */}
       <article className="aboutBox">
         <div className="pic">
           <>
@@ -62,14 +58,11 @@ const Department = () => {
         </div>
         <div className="text">
           <h3>Philosophy</h3>
-          {/* <div className={innerText}> */}
           <h4>
             "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorem
             tempore quibusdam odio! Eius esse adipisci possimus voluptatem eos
             laboriosam doloribus!"
           </h4>
-          {/* </div> */}
-
           <p>
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed
             quibusdam cupiditate et eveniet corporis, tempora adipisci ducimus

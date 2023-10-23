@@ -1,5 +1,4 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
 import "../footer/Footer.scss";
 import { AiFillInstagram } from "react-icons/ai";
 import { BiLogoFacebook } from "react-icons/bi";

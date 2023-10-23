@@ -49,11 +49,6 @@ const Members = () => {
     setVal({ ...val, [name]: value });
   };
 
-  // const onHanldeRadio = (e) => {
-  //   const { name, checked } = e.target;
-  //   setVal({ ...val, [name]: checked });
-  // };
-
   const onHandleCheck = (e) => {
     const { name } = e.target;
     let checkArray = [];
@@ -153,11 +148,6 @@ const Members = () => {
 
   return (
     <Layout title={"Members"}>
-      {/* <h2>
-        Welcome to our website. Give me your brief information for membership
-        registration.
-      </h2> */}
-
       <content>
         <div className="leftBox">
           <form onSubmit={onHanldeSubmit}>

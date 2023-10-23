@@ -2,16 +2,10 @@ import React from "react";
 import clsx from "clsx";
 import "./Youtube.scss";
 import Layout from "../../common/layout/Layout";
-import { useState, useEffect, useRef } from "react";
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useYoutubeQuery } from "../../../hooks/useYoutube";
 
 const Youtube = () => {
-  // const youtube = useSelector((store) => store.youtube.data);
-  const history = useHistory();
-
-  const refEl = useRef(null);
-
   const { data: youtube, isSuccess } = useYoutubeQuery();
 
   const sliceTxt = (text, num) => {

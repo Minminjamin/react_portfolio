@@ -217,7 +217,6 @@ const Community = () => {
                       <p className="content">{item.content}</p>
                     </div>
                     {/* <div className="txt"> */}
-
                     <div className="lower">
                       <nav className="iconBox">
                         <AiOutlineDelete onClick={() => deletePost(idx)} />
@@ -226,12 +225,7 @@ const Community = () => {
                           onClick={() => enableUpdate(idx)}
                         />
                       </nav>
-                      {/* <nav className="btnSet">
-                        <button onClick={() => enableUpdate(idx)}>Edit</button>
-                        <button onClick={() => deletePost(idx)}>Delete</button>
-                      </nav> */}
                     </div>
-                    {/* </div> */}
                   </article>
                 );
               }

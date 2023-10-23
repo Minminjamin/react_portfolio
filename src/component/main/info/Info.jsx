@@ -7,9 +7,6 @@ const Info = () => {
     type: "user",
     id: "199348831@N08",
   });
-  // const { data } = useSelector((store) => store.flickr);
-
-  // console.log(data);
   return (
     <section className="mainInfo myScroll">
       <div className="top">
