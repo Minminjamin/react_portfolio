@@ -121,7 +121,7 @@ const Community = () => {
     <Layout title={"Community"}>
       <div className="top">
         <p>CREATE POST HERE</p>
-        <h2>Bulletin board</h2>
+        <h2>Bulletin Board</h2>
       </div>
 
       <content>
