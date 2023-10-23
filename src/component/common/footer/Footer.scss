@@ -1,12 +1,12 @@
 footer {
   padding: 2% 10vw;
   background: white;
-  border-top: solid 4px black;
+  border-top: solid 1.5px gray;
 
   .top {
     display: flex;
     justify-content: space-between;
-    flex-wrap: wrap;
+    // flex-wrap: wrap;
 
     .menu {
       width: 65%;
@@ -19,7 +19,7 @@ footer {
           margin-bottom: 10px;
           position: relative;
           &:hover {
-            scale: 1.1;
+            // scale: 1.1;
             cursor: pointer;
             font-weight: bolder;
           }
@@ -50,8 +50,44 @@ footer {
   }
 }
 
+.tablet,
 .mobile {
   footer {
-    display: none;
+    .top {
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+
+      .menu {
+        width: 100%;
+        margin-top: 20px;
+        flex-wrap: wrap;
+
+        ul {
+          justify-content: center;
+          width: 100%;
+          li {
+            display: none;
+            &:nth-of-type(1) {
+              display: inline;
+            }
+          }
+        }
+      }
+    }
+    .lower {
+      flex-direction: column;
+      text-align: center;
+      .sns {
+        margin-top: 15px;
+        width: 100%;
+        justify-content: center;
+      }
+    }
   }
 }
+// .mobile {
+//   footer {
+//     display: none;
+//   }
+// }
