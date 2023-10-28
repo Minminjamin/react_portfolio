@@ -23,7 +23,7 @@ function App() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <main className={`${useMedia()} ${theme ? "dark" : "light"}`}>
+      <main className={`${useMedia()} ${theme ? "light" : "dark"}`}>
         <Switch>
           <Route exact path="/">
             <Header isMain={true} />
