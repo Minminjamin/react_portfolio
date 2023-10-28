@@ -5,7 +5,7 @@ const SubTittle = ({ description, title }) => {
   return (
     <div className="subTitle">
       <p>{description}</p>
-      <h1>{title}</h1>
+      <h2>{title}</h2>
     </div>
   );
 };
