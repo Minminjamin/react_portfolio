@@ -1,4 +1,5 @@
 import { useEffect, useState, useCallback, useMemo } from "react";
+import SubTittle from "../../common/subTittle/SubTittle";
 import "./News.scss";
 
 const News = () => {
@@ -49,10 +50,7 @@ const News = () => {
 
   return (
     <section className="news myScroll">
-      <div className="top">
-        <p>ABOUT US</p>
-        <h1>News Page</h1>
-      </div>
+      <SubTittle description={"ABOUT US NEWS"} title={"News Page"} />
 
       <div className="postWrap">
         {post.map((item, idx) => {

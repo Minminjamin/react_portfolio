@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./Department.scss";
 import Layout from "../../common/layout/Layout";
+import SubTittle from "../../common/subTittle/SubTittle";
 
 const path = process.env.PUBLIC_URL;
 
@@ -20,10 +21,7 @@ const Department = () => {
 
   return (
     <Layout title={"Department"}>
-      <div className="topTxt">
-        <p>OUR PEOPLE</p>
-        <h2>Our world-class team</h2>
-      </div>
+      <SubTittle description={"OUR PEOPLE"} title={"Our world-class team"} />
 
       <div className="memberBox">
         {department.map((member, index) => (

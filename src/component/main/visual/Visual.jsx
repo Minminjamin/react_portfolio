@@ -5,6 +5,7 @@ import { useState } from "react";
 import "swiper/css";
 import { useHistory } from "react-router-dom";
 import { useYoutubeQuery } from "../../../hooks/useYoutube";
+import SubTittle from "../../common/subTittle/SubTittle";
 
 const Visual = () => {
   // const { data } = useSelector((store) => store.youtube);
@@ -24,10 +25,10 @@ const Visual = () => {
 
   return (
     <section className="visual myScroll">
-      <div className="top">
-        <p>WHACH OUR YOUTUBE PLAYLIST</p>
-        <h1>Let's watch a short YouTube playlist</h1>
-      </div>
+      <SubTittle
+        description={"WHACH OUR YOUTUBE PLAYLIST"}
+        title={"Let's watch a short YouTube playlist"}
+      />
       <div className="youtubeSwiper">
         <div className="titBox">
           <ul>

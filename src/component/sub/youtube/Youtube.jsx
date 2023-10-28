@@ -3,6 +3,7 @@ import "./Youtube.scss";
 import Layout from "../../common/layout/Layout";
 import { Link } from "react-router-dom";
 import { useYoutubeQuery } from "../../../hooks/useYoutube";
+import SubTittle from "../../common/subTittle/SubTittle";
 
 const Youtube = () => {
   const { data: youtube, isSuccess } = useYoutubeQuery();
@@ -18,10 +19,10 @@ const Youtube = () => {
   return (
     <>
       <Layout title={"Youtube"}>
-        <div className="top">
-          <p>THIS IS WE ARE WORK PLAYLIST</p>
-          <h2>Our Playlist</h2>
-        </div>
+        <SubTittle
+          description={"THIS IS WE ARE WORK PLAYLIST"}
+          title={"Our Playlist"}
+        />
 
         <div className="youtubeBox">
           {isSuccess &&

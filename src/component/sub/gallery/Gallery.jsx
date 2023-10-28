@@ -8,6 +8,7 @@ import { BiSearchAlt } from "react-icons/bi";
 // import { open } from "../../../redux/modalSlice";
 import { useFlickrQuery } from "../../../hooks/useFlickr";
 import { useGlobalData } from "../../../hooks/useGlobalContext";
+import SubTittle from "../../common/subTittle/SubTittle";
 // import { useDispatch } from "react-redux";
 
 const Gallery = () => {
@@ -81,10 +82,11 @@ const Gallery = () => {
     <>
       <Layout title={"Gallery"}>
         <div className="topBox">
-          <div className="txt">
-            <p>Search and Watch Image</p>
-            <h2>Gallery Image</h2>
-          </div>
+          <SubTittle
+            description={"Search and Watch Image"}
+            title={"Gallery Image"}
+          />
+
           <div className="searchBox">
             <form onSubmit={onHanldeSubmit}>
               <input

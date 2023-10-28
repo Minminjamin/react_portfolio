@@ -1,18 +1,6 @@
 @import "../../../styles/variable.scss";
 
 .Youtube {
-  .top {
-    text-align: center;
-
-    p {
-      color: gray;
-      font-size: 0.8rem;
-    }
-    h2 {
-      margin-top: 10px;
-    }
-  }
-
   .youtubeBox {
     display: flex;
     justify-content: space-between;
