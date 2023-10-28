@@ -5,11 +5,9 @@ import { useState, useRef } from "react";
 import Masonry from "react-masonry-component";
 import Modal from "../../common/modal/Modal";
 import { BiSearchAlt } from "react-icons/bi";
-// import { open } from "../../../redux/modalSlice";
 import { useFlickrQuery } from "../../../hooks/useFlickr";
 import { useGlobalData } from "../../../hooks/useGlobalContext";
-import SubTittle from "../../common/subTittle/SubTittle";
-// import { useDispatch } from "react-redux";
+import SubTitle from "../../common/subTitle/SubTitle";
 
 const Gallery = () => {
   const [isUser, setIsUser] = useState(true);
@@ -82,7 +80,7 @@ const Gallery = () => {
     <>
       <Layout title={"Gallery"}>
         <div className="topBox">
-          <SubTittle
+          <SubTitle
             description={"Search and Watch Image"}
             title={"Gallery Image"}
           />

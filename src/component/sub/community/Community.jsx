@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import Layout from "../../common/layout/Layout";
 import "./Community.scss";
 import { AiOutlineEdit, AiOutlineDelete } from "react-icons/ai";
-import SubTittle from "../../common/subTittle/SubTittle";
+import SubTitle from "../../common/subTitle/SubTitle";
 
 const Community = () => {
   const dummyData = useRef([
@@ -128,7 +128,7 @@ const Community = () => {
 
   return (
     <Layout title={"Community"}>
-      <SubTittle description={"CREATE POST HERE"} title={"Bulletin Board"} />
+      <SubTitle description={"CREATE POST HERE"} title={"Bulletin Board"} />
 
       <content>
         <div className="leftBox">

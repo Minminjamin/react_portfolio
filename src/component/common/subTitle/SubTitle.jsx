@@ -1,5 +1,5 @@
 import React from "react";
-import "./SubTittle.scss";
+import "./SubTitle.scss";
 
 const SubTittle = ({ description, title }) => {
   return (
