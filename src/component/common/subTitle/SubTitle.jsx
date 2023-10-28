@@ -1,7 +1,7 @@
 import React from "react";
 import "./SubTitle.scss";
 
-const SubTittle = ({ description, title }) => {
+const SubTitle = ({ description, title }) => {
   return (
     <div className="subTitle">
       <p>{description}</p>
@@ -10,4 +10,4 @@ const SubTittle = ({ description, title }) => {
   );
 };
 
-export default SubTittle;
+export default SubTitle;
