@@ -7,6 +7,12 @@ const News = () => {
     // 실제로는 useRef를 통해 참조 객체에 담는 게 더 효율적
     return [
       {
+        title: "title4",
+        content:
+          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta, iure?4",
+        date: new Date(),
+      },
+      {
         title: "title3",
         content:
           "Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta, iure?3",

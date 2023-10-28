@@ -7,6 +7,13 @@ import { BsPeopleFill } from "react-icons/bs";
 import { BiSolidPhoneCall } from "react-icons/bi";
 import { useDebounce } from "../../../hooks/useDebounce";
 
+/*
+//해당 컴포넌트에 메모리 누수 콘솔오류가 뜨는 이유 (memory leak);
+//Errs스테이트에 값이 담기는 시점이 useDebounce에 의해서 0.5초 이후인데
+//Members 컴포넌트 접속하자마자 0.5초안에 다른 페이지로 넘어가면
+//아직 state에 값이 담기지 않았는데 unmount된 경우이므로 뜨는 오류
+//컴포넌트 unmount시 값을 Mounted값을 false로 변경해주고 해당 값이 true일때에만 state변경처리
+ */
 const Members = () => {
   const initval = {
     userId: "",
@@ -27,6 +34,8 @@ const Members = () => {
   const refRadioGroup = useRef(null);
   const refSelGroup = useRef(null);
 
+  //기존의 onchange이벤트가 발생할때마다 변경되는 Val값을 useDebounce를 이용해서
+  //Debouncing이 적용된 또다른 State를 전달 받음
   const debouncedVal = useDebounce(val);
 
   const resetForm = (e) => {
@@ -55,6 +64,8 @@ const Members = () => {
     // let isChecked = false;
     const inputs = e.target.parentElement.querySelectorAll("input");
 
+    //checkbox요소를 반복돌면서 해당 요소가 체크되어 있다면 해당 value값을 배열에 담아주고
+    //배열을 state에 담아줌
     inputs.forEach((input) => {
       if (input.checked) input.checked && checkArray.push(input.value);
     });
@@ -348,7 +359,7 @@ const Members = () => {
               at quaerat veritatis doloremque. In ipsa et cumque non ducimus?
             </p>
 
-            <article>
+            <article className="contact">
               <div className="con">
                 <AiFillNotification fontSize={44} />
                 <div className="txt">
@@ -382,3 +393,11 @@ const Members = () => {
 };
 
 export default memo(Members);
+
+/*
+## react-hook-form을 쓰지 않은 이유
+
+- 라이브러리를 늘리고 싶지않고, 인증 로직이 어떤 식으로 처리되나 궁금함
+    - checkbox, radio, selector, textara 같이 필수 입력이 아닌 요소도 직접 인증 구현을 해봄
+- 복잡한 정규식보다 ‘아는’ 문자열 메서드를 최대한 활용해 구현해봄
+ */

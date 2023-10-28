@@ -12,9 +12,9 @@
       table {
         width: 100%;
         border: none;
-        border-top: 2px solid #333;
-        border-bottom: 2px solid #333;
-        border: 2px solid #333;
+        border-top: 2px solid #bbb;
+        border-bottom: 2px solid #bbb;
+        border: 2px solid #bbb;
 
         th {
           width: 20%;
@@ -88,7 +88,7 @@
         color: gray;
       }
       .inner {
-        background: #fff;
+        // background: #fff;
         padding: 2%;
         article {
           margin-top: 10px;
@@ -102,6 +102,28 @@
           }
         }
       }
+
+      .contact {
+        background: none !important;
+        box-shadow: none !important;
+      }
+    }
+  }
+}
+
+main.dark {
+  .leftBox {
+    .btnSet {
+      th input {
+        &:nth-of-type(1) {
+          color: gray;
+        }
+      }
+    }
+  }
+  .rightBox {
+    h4 {
+      color: white;
     }
   }
 }

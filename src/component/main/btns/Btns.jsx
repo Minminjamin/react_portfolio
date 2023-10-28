@@ -5,7 +5,10 @@ import Anime from "../../../asset/Anime";
 import { useThrottle } from "../../../hooks/useThrottle";
 
 const Btns = () => {
+  //ul요소를 담을 참조객체 생성
   const refBtns = useRef(null); //btns와 구분을 위해 refBtns로 명명
+
+  //새로위치값이 배열로 담길 참조객체 생성
   let pos = useRef([]);
 
   const [num, setNum] = useState(0);
@@ -20,7 +23,7 @@ const Btns = () => {
     setNum(pos.current.length);
   };
 
-  // 브라우저 리사이즈 시 새로 위치값을 개선하는 함수
+  // 브라우저 리사이즈 시 세로 위치값을 개선하는 함수
   const modifyPos = () => {
     let activeIdx = 0;
     const lis = refBtns.current.querySelectorAll("li");
@@ -32,7 +35,11 @@ const Btns = () => {
     window.scrollTo(0, pos.current[activeIdx]);
   };
 
+  //컴포넌트 마운트시 myScroll클래스의 모든 섹션의 세로위치값을 배열에 저장하는 함수
   const activation = () => {
+    //컴포넌트 언마운트시 queryselector앞에 null오류가 뜰때에는
+    //해결방법 - 해당값이 없을때 return 으로 강제 함수 종료
+
     if (!refBtns.current) return;
     const btns = refBtns.current.querySelectorAll("li");
     const scroll = window.scrollY;

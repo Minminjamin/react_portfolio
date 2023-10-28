@@ -33,7 +33,7 @@
       p {
         margin-top: 10px;
         font-weight: lighter;
-        color: #3e3e3e;
+        color: gray;
       }
 
       &:hover {
@@ -62,6 +62,16 @@
       article {
         width: 100%;
         text-align: center;
+      }
+    }
+  }
+}
+
+main.dark {
+  .postWrap {
+    article {
+      &:hover {
+        box-shadow: 1px 1px 20px rgb(0, 0, 0);
       }
     }
   }

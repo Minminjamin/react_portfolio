@@ -80,3 +80,11 @@ const Department = () => {
 };
 
 export default Department;
+
+/*
+## 정적인 data에 fetch를 쓴 이유
+
+- 정적인 data라서 굳이 fetch를 쓰지 않아도 됨
+    - fetch를 쓰지 않고 static하게 컨텐츠를 집어넣을까 함
+- 다만 데이터 기반으로 모든 화면단이 동적으로 생성되게 하고 싶어서 fetch를 통해 데이터가 변경되더라도 자동으로 화면이 갱신되도록 작업을 함.
+ */

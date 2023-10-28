@@ -1,6 +1,6 @@
 footer {
   padding: 2% 10vw;
-  background: white;
+  // background: white;
   border-top: solid 2px black;
 
   .top {
@@ -15,7 +15,7 @@ footer {
 
       ul {
         li {
-          color: #585858;
+          color: gray;
           margin-bottom: 10px;
           position: relative;
           &:hover {
@@ -24,7 +24,7 @@ footer {
             font-weight: bolder;
           }
           h3 {
-            color: #585858;
+            color: gray;
             margin-bottom: 15px;
           }
         }

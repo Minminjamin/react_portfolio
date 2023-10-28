@@ -34,8 +34,39 @@
   }
 
   .btnTheme {
+    display: flex;
+    align-items: center;
     cursor: pointer;
-    color: red;
+    color: #888;
+    &:hover {
+      color: #575757;
+    }
+  }
+}
+
+main.dark {
+  h1.logo {
+    border-bottom: solid 2px white;
+  }
+
+  ul {
+    li {
+      a.active {
+        color: #d0d0d0;
+      }
+
+      a {
+        &:hover {
+          color: #b0b0b0;
+        }
+      }
+    }
+  }
+
+  .btnTheme {
+    &:hover {
+      color: #b0b0b0;
+    }
   }
 }
 

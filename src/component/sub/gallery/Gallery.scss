@@ -125,6 +125,7 @@
             object-fit: contain;
             width: 10%;
             height: 10%;
+            color: white;
 
             &:hover {
               scale: 1.05;
@@ -159,6 +160,14 @@
   }
 }
 
+main.dark {
+  article {
+    .inner {
+      color: black;
+      box-shadow: 1px 1px 20px rgb(0, 0, 0) !important;
+    }
+  }
+}
 .tablet,
 .mobile {
   .Gallery {

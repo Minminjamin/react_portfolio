@@ -109,6 +109,7 @@
 
         h4 {
           margin-top: 15px;
+          color: black;
         }
 
         p {
@@ -166,6 +167,25 @@
 
       &:hover {
         box-shadow: 1px 1px 20px #ddd;
+      }
+    }
+  }
+}
+
+main.dark {
+  .mapBox {
+    .mapInfo {
+      article {
+        &:hover {
+          box-shadow: 1px 1px 20px rgb(0, 0, 0);
+        }
+      }
+    }
+  }
+  .downBtn {
+    button {
+      &:hover {
+        box-shadow: 1px 1px 20px rgb(0, 0, 0);
       }
     }
   }

@@ -24,19 +24,19 @@ li {
 body {
   background: #ffffff;
 
-  main {
-    background: var(--bg);
-    color: var(--color);
-  }
+  // main {
+  //   background:;
+  //   color: var(--color);
+  // }
 
-  main.light {
-    background: var(--bg);
-    color: var(--color);
-  }
+  // main.light {
+  //   background: var(--bg);
+  //   color: var(--color);
+  // }
 
   main.dark {
-    background: var(--darkBg);
-    color: var(--darkColor);
+    background: #2b2b2b;
+    color: #fff;
   }
 }
 

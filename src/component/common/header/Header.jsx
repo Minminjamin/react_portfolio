@@ -11,7 +11,7 @@ const Header = ({ isMain }) => {
 
   return (
     <header className="header myScroll">
-      <h1>
+      <h1 className="logo">
         <Link to="/">LOGO</Link>
       </h1>
 
@@ -56,10 +56,10 @@ const Header = ({ isMain }) => {
           setMenuOpen(!menuOpen);
         }}
       />
-      {/* 
+
       <span className="btnTheme" onClick={() => setTheme(!theme)}>
         Theme
-      </span> */}
+      </span>
     </header>
   );
 };

@@ -55,15 +55,13 @@ const Contact = () => {
     },
   ]);
 
-  // 위의 정보값을 활용한 마커 객체 생성
-
-  // 지도 위치를 중심으로 이동시키는
-
+  // 지도 위치를 중심으로 이동시키는 핸들러 함수
   const setCenter = useCallback(() => {
     instance.current.setCenter(info.current[index].latlng);
   }, [index]);
 
   useEffect(() => {
+    // 위의 정보값을 활용한 마커 객체 생성
     const marker = new kakao.maps.Marker({
       position: info.current[index].latlng,
       image: new kakao.maps.MarkerImage(
@@ -231,11 +229,11 @@ const Contact = () => {
               className={index === idx ? "on" : ""}
             >
               <div className="pic">
-                {data.pic === "PiParkBold" && <PiParkBold />}
+                {data.pic === "PiParkBold" && <PiParkBold color="black" />}
                 {data.pic === "HiOutlineBuildingOffice2" && (
-                  <HiOutlineBuildingOffice2 />
+                  <HiOutlineBuildingOffice2 color="black" />
                 )}
-                {data.pic === "GiModernCity" && <GiModernCity />}
+                {data.pic === "GiModernCity" && <GiModernCity color="black" />}
               </div>
 
               <h4>{data.title}</h4>
@@ -269,3 +267,19 @@ const Contact = () => {
 };
 
 export default Contact;
+
+/*
+- kakao 생성자를 통해 만들어진 지도 인스턴스값을 state에 담아서 각각의 이벤트에 연결
+- 지점 버튼 클릭 시 다른 지도를 출력하도록 구현
+    - 너무 코드가 지저분해져서 지도 정보값을 배열 형태로 묶음
+    - 추후 배열 데이터가 변경이 되면 데이터 기반으로 자동으로 새로운 지도 인스턴스 생성과 이벤트 연결까지 한 번에 자동화 시키는 로직을 구성
+
+## 브라우저 리사이즈
+
+- 브라우저 리사이즈 시 마커가 가운데 가지 않아서 브라우저 리사이즈 이벤트 발생할 때마다 마커가 가운 데 위치하는 함수를 재호출
+
+## 다른 컴포넌트에서 핸들러 함수가 호출되는 문제
+
+- window 객체에 이벤트를 연결하다보니 리사이즈 이벤트가 발생할 필요가 없는 다른 컴포넌트에서도 이벤트 핸들러 함수가 호출
+- 컴포넌트 언마운트시 window 객체에 이벤트 핸들러 제거 처리
+ */

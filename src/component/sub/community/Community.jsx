@@ -56,6 +56,8 @@ const Community = () => {
       resetForm();
       return alert("제목과 본문을 모두 입력하세요.");
     }
+
+    //기존 Posts 배열값을 Deep copy해서 가져온뒤, 그 뒤에 추가로 방금 입력한 객체를 배열에 추가
     setPost([
       {
         title: refInput.current.value,
@@ -68,6 +70,7 @@ const Community = () => {
   };
 
   const deletePost = (delIndex) => {
+    //기존 Posts배열을 반복 돌면서 인수로 전달된 삭제 순번값과 현재 반복되는 배열의 순번값이 같지 않은 것만 리턴
     if (window.confirm("해당 게시글을 삭제하겠습니까?")) {
       setPost(post.filter((_, idx) => delIndex !== idx));
     }
@@ -75,8 +78,10 @@ const Community = () => {
 
   // 해당 글을 수정모드로 변경시키는 함수
   const enableUpdate = (editIndex) => {
+    //수정모드 함수 호출시 Allowed가 true가 아니면 return으로 함수 강제 종료
     if (!allowed) return;
 
+    //일단 수정모드에 진입하면 강제로 Allowed값을 false로 변경해서 다른 글 수정모드 진입금지 처리
     setAllowed(false);
     setPost(
       // post 배열값을 반복돌면서 인수로 전달된 수정할 포스트의 순번값과 현재 반복도는 배열의 post 순번값이 일치하면 해당 글을 수정처리해야되므로 해당 객체의 enableUpdate=true 값을 추가
@@ -100,7 +105,10 @@ const Community = () => {
     );
   };
 
+  // 실제 글 수정하는 함수
   const updatePost = (updateIndex) => {
+    //setPosts로 기존 Post배열같은 덮어쓰기해서 변경
+    //리액트에서는 참조형 자료는 무조건 배열값을 Deep copy한뒤 변경
     setPost(
       post.map((item, idx) => {
         if (updateIndex === idx) {
@@ -232,3 +240,17 @@ const Community = () => {
 };
 
 export default Community;
+
+/*## LocalStorage를 쓴 이유
+
+- DB 도입보다는 간단한 CRUD를 구현하고 싶어서 LocalStorage를 만들어봄
+
+## 시간대 불러오기
+
+- 로컬 저장소에 글이 저장되는 시간은 표준 시간이기에 현재 시간보다 9시간 늦은 시간으로 출력됨
+- 시간값을 변경하기 위해 JSON.parse 객체 형태로 시간을 불러와 split 메소드를 쓸 수 없어 고생함
+- 객체 형태로 변환된 값을 stringify로 문자화 시킨 후 split으로 문자값을 가공 후 화면 출력
+
+## 로컬 스토리지에 빈 데이터
+
+- 로컬 스토리지에 값이 없을 때를 대비해 더미 데이터를 사용 */
