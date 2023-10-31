@@ -40,10 +40,8 @@ const Department = () => {
         ))}
       </div>
 
-      <div className="topTxt">
-        <p>ABOUT OUR COMPANY</p>
-        <h2>About</h2>
-      </div>
+      <SubTitle description={"OUR PEOPLE"} title={"About"} />
+
       <article className="aboutBox">
         <div className="pic">
           <>
