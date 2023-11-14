@@ -13,6 +13,7 @@ const Btns = () => {
 
   const [num, setNum] = useState(0);
 
+  //컴포넌트 마운트시 myScroll클래스의 모든 섹션의 세로위치값을 배열에 저장하는 함수
   const getPos = () => {
     pos.current = [];
     const secs = document.body.querySelectorAll(".myScroll");
