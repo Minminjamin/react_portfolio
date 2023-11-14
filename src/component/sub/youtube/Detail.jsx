@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import Layout from "../../common/layout/Layout";
 import "./Detail.scss";
 
 const Detail = () => {
@@ -19,7 +18,7 @@ const Detail = () => {
   }, [id]);
 
   return (
-    <Layout title={"Detail"}>
+    <div>
       <div className="vidBox">
         <iframe
           src={`https://www.youtube.com/embed/${youtube?.resourceId.videoId}`}
@@ -28,7 +27,7 @@ const Detail = () => {
       </div>
       <h2>{youtube?.title}</h2>
       <p>{youtube?.description}</p>
-    </Layout>
+    </div>
   );
 };
 
