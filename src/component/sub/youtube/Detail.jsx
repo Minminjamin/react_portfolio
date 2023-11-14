@@ -18,7 +18,7 @@ const Detail = () => {
   }, [id]);
 
   return (
-    <div>
+    <div className="detail">
       <div className="vidBox">
         <iframe
           src={`https://www.youtube.com/embed/${youtube?.resourceId.videoId}`}
